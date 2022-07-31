@@ -98,9 +98,8 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
                                 {}        {}                              {}            {}     {}             
 
             sentinel creates and returns obj 
-            with single key 'b' pushing obj with 
-            two keys {'a' 'b'} to ref stack
-    push--->| obj |
+            with single key 'b' pushes nothing
+            
             | obj | 
             | arr |
             | obj |
@@ -121,7 +120,6 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
             sentinel pushes then returns array
     push--->| arr |
             | obj |
-            | obj | 
             | arr |
             | obj |
             | arr |
@@ -138,11 +136,10 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
                                 {}        {}                              {}            {}     {}    <---(S)         
 
 
-            sentinel pushes then returns obj
+            sentinel pushes then returns empty obj
     push--->| obj |
             | arr |
             | obj |
-            | obj | 
             | arr |
             | obj |
             | arr |
@@ -167,7 +164,6 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
              pop ---> | obj |
             | arr |               | arr | <---deletes empty obj {} from arr
             | obj |               | obj |
-            | obj |               | obj | 
             | arr |               | arr |
             | obj |               | obj |
             | arr |               | arr |
@@ -188,14 +184,175 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
 
 
             sentinel find no container or raw value, 
-            inside array, returns null and pops empty arr off
+            inside arr, returns null and pops empty arr off
             stack then deletes reference to arr from the top of 
-            the updated ref stack (which is arr 
+            the updated ref stack (which is obj 
             associated with b key)
               pop ---> | arr |
-            | obj |<---deletes assoiation b:[]
+            | obj |               | obj |<---deletes assoiation b:[]
+            | arr |               | arr |
+            | obj |               | obj |
+            | arr |               | arr |
+             ^^^^                   ^^^^
+
+
+              [                                                                                                     ]   
+                  {                   a:                  },  {                    a:                          }    
+                      [                                  ]      [                                          ]         
+                          {   a:  },  {   b:  }                        {   a:  },    {   a:        } <---(S)             
+                              [   ]     [   ]                            [   ]         [   ]                        
+                                {}        {}                              {}            {}                   
+
+
+
+            sentinel looks at the top of the stack because
+            it returned null last time. It finds an 
+            object with a key. Because its already 
+            on the stack it does nothing but drill into it
+            
+            
             | obj | 
             | arr |
             | obj |
             | arr |
              ^^^^
+             
+             
+              [                                                                                                     ]   
+                  {                   a:                  },  {                    a:                          }    
+                      [                                  ]      [                                          ]         
+                          {   a:  },  {   b:  }                        {   a:  },    {   a:        }              
+                              [   ]     [   ]                            [   ]         [   ] <---(S)                       
+                                {}        {}                              {}            {}                   
+
+
+
+            Sentinel holds an object with a key.
+            It obtains the associated object pushes
+            it to the stack and returns it
+            
+    push--->| arr |     
+            | obj | 
+            | arr |
+            | obj |
+            | arr |
+             ^^^^            
+             
+              [                                                                                                     ]   
+                  {                   a:                  },  {                    a:                          }    
+                      [                                  ]      [                                          ]         
+                          {   a:  },  {   b:  }                        {   a:  },    {   a:        }              
+                              [   ]     [   ]                            [   ]         [   ]                        
+                                {}        {}                              {}            {}   <---(S)                
+
+
+
+            Sentinel holds an array with an object.
+            It obtains the object pushes
+            it to the stack and returns it
+            
+    push--->| obj |          
+            | arr |     
+            | obj | 
+            | arr |
+            | obj |
+            | arr |
+             ^^^^            
+             
+              [                                                                                                     ]   
+                  {                   a:                  },  {                    a:                          }    
+                      [                                  ]      [                                          ]         
+                          {   a:  },  {   b:  }                        {   a:  },    {   a:        }              
+                              [   ]     [   ]                            [   ]         [   ] <---(S)                       
+                                {}        {}                              {}                                 
+
+
+
+            Sentinel holds an empty object.
+            It returns null after popping the
+            stack and deleting it from the 
+            next item atop the stack (arr)
+            
+          pop--->| obj |          
+            | arr |              | arr |<---deletes object {} from array        
+            | obj |              | obj | 
+            | arr |              | arr |
+            | obj |              | obj |
+            | arr |              | arr |
+             ^^^^                 ^^^^        
+             
+             
+             
+             
+              [                                                                                                     ]   
+                  {                   a:                  },  {                    a:                          }    
+                      [                                  ]      [                                          ]         
+                          {   a:  },  {   b:  }                        {   a:  },    {             }              
+                              [   ]     [   ]                            [   ]               <---(S)                       
+                                {}        {}                              {}                                 
+
+
+
+            Sentinel holds an empty array.
+            It returns null after popping the
+            stack and deleting it from the 
+            next item atop the stack (obj)
+            
+                    
+          pop--->| arr |                        
+            | obj |              | obj |<---deletes array and associated key 'a' from object
+            | arr |              | arr |
+            | obj |              | obj |
+            | arr |              | arr |
+             ^^^^                 ^^^^       
+             
+             
+             
+             
+              [                                                                                                     ]   
+                  {                   a:                  },  {                    a:                          }    
+                      [                                  ]      [                                          ]         
+                          {   a:  },  {   b:  }                        {   a:  },                   <---(S)              
+                              [   ]     [   ]                            [   ]                                    
+                                {}        {}                              {}                                 
+
+
+
+            Sentinel holds null.
+            It goes to top of stack
+            and finds an empty object.
+            Nothing to drill into, so
+            it removes it from the stack
+
+                                           
+          pop--->| obj |              
+            | arr |              | arr |<---deletes empty object from array
+            | obj |              | obj |
+            | arr |              | arr |
+             ^^^^                 ^^^^        
+
+
+
+
+
+              [                                                                                                     ]   
+                  {                   a:                  },  {                    a:                          }    
+                      [                                  ]      [                                          ] <---(S)     
+                          {   a:  },  {   b:  }                        {   a:  },                               
+                              [   ]     [   ]                            [   ]                                    
+                                {}        {}                              {}                                 
+
+
+
+            Sentinel holds null.
+            It goes to top of stack
+            and finds an array with an object.
+            Drills into array. Does nothing to
+            Stack.
+
+                                           
+                 
+            | arr |              
+            | obj |              
+            | arr |             
+             ^^^^                       
