@@ -18,9 +18,9 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
         //                  [   ]          [   ]                          [   ]            [   ]    [   ]                        
         //                    {}             {}                             {}              {}        {}                       
 
-//   
-//| arr |
-// ^^^^^        
+        //   
+        //| arr |
+        // ^^^^^        
         
 
         //                                                                            (S)
@@ -36,9 +36,9 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
         
         
 
-//| obj |
-//| arr |
-// ^^^^^   
+        //| obj |
+        //| arr |
+        // ^^^^^   
 
 
         //
@@ -53,10 +53,10 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
         //
         
         
-//| arr |
-//| obj |
-//| arr |
-// ^^^^^   
+        //| arr |
+        //| obj |
+        //| arr |
+        // ^^^^^   
 
 
 
@@ -71,11 +71,11 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
         //                    {}             {}                             {}               {}       {}                        
         //
         
-//| obj | 
-//| arr |
-//| obj |
-//| arr |
-// ^^^^^   
+        //| obj | 
+        //| arr |
+        //| obj |
+        //| arr |
+        // ^^^^^   
 
 
         //
@@ -89,12 +89,12 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
         //                    {}             {}                              {}                 {}       {}                        
         //
 
-//| obj |
-//| obj | 
-//| arr |
-//| obj |
-//| arr |
-// ^^^^
+        //| obj |
+        //| obj | 
+        //| arr |
+        //| obj |
+        //| arr |
+        // ^^^^
 
         //
         //                                                                                                               
@@ -107,13 +107,13 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
         //                    {}             {}                              {}                 {}       {}                        
         //
 
-//| arr |
-//| obj |
-//| obj | 
-//| arr |
-//| obj |
-//| arr |
-// ^^^^
+        //| arr |
+        //| obj |
+        //| obj | 
+        //| arr |
+        //| obj |
+        //| arr |
+        // ^^^^
 
         //
         //                                                                                                               
@@ -126,14 +126,14 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
         //                    {}             {}                              {}                 {}       {}  <---(S)                      
         //
 
-//| obj |
-//| arr |
-//| obj |
-//| obj | 
-//| arr |
-//| obj |
-//| arr |
-// ^^^^
+        //| obj |
+        //| arr |
+        //| obj |
+        //| obj | 
+        //| arr |
+        //| obj |
+        //| arr |
+        // ^^^^
 
         //
         //                                                                                                               
@@ -147,10 +147,10 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
         //                                                                                                                   stack
 
 
-//| arr |
-//| obj |
-//| obj | 
-//| arr |
-//| obj |
-//| arr |
-// ^^^^
+        //| arr |
+        //| obj |
+        //| obj | 
+        //| arr |
+        //| obj |
+        //| arr |
+        // ^^^^
