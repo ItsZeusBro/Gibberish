@@ -6,7 +6,6 @@ and minimal iteration.
 //Itercursion uses a sentinal value that follows rules that you specify based on its value
 
 
-        //  Sentinel see's an array                                                                                                                    
         //                                                                                                                  vvv                                      
         //  [                         1                                                0                                    ]     <---sentinel recognition
         //      {                   isStr:                  },  {                    isArr:                             }
@@ -17,7 +16,6 @@ and minimal iteration.
         //
         //  
 
-        //  Sentinel grabs the first item in an array and then sees an object with only one key
         //  [                         1                                                0                               vvv  ]   
         //      {                   isStr:                  },  {                    isArr:                              }  <---update sentinel value
         //          [         1                0         ]           [        1                  0                   ]                  
@@ -26,7 +24,7 @@ and minimal iteration.
         //                    {}              {}                              {}                {}        {}                        
         //
 
-        //  Sentinel always 
+ 
         //  [                         1                                                0                                    ]   
         //      {                   isStr:                  },                                                              <--sentinel consumes key value, deletes object and collapses structure
         //          [         1                0         ]           [        1                  0                    ]                  
@@ -195,9 +193,9 @@ and minimal iteration.
         //                             1                                                   0                                                                  
         //  [                                                                                                               ]   
         //      {                   isStr:                  },      [        0                                          ]       
-        //          [         1               0          ]                 [ 0  ]                                       <---collapse empty array position with sentinel value                                  
-        //              {   isStr:  },  {   isArr:  }                        {}                   
-        //                  [ 0  ]          [ 0  ]                                                                    
+        //          [         1               0          ]                 [ 0  ]                                       collapse empty array position with sentinel value                                                                                                          ^
+        //              {   isStr:  },  {   isArr:  }                        {}                                         |
+        //                  [ 0  ]          [ 0  ]                                                                      |
         //                    {}              {}                                                           
         //
 
