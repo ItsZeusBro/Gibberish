@@ -3,10 +3,10 @@
 Gobbledy gook is a subset of schema that is sufficiently generalizable to the extent that we can apply the same method to it and always be doing something orderly, predictable, and useful.
 
 
-One of the methods used by Gobbledy Gook is something I call "intercursion". It's basically the same logic recursion and iteration uses, without recursion
-and minimal iteration.
+## Itercursion
+One of the methods used by Gobbledy Gook is something I call "intercursion". It's basically the same logic recursion and iteration use, without actually calling the function recursively, and without incrementing any index value.
 
-//Itercursion uses a sentinal value that follows rules that you specify based on its value
+Itercursion uses a sentinal value that follows rules that you specify based on its value
 
 
         //                                                                                                                  vvv                                      
