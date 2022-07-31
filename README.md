@@ -17,8 +17,8 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
                   {                   a:                  },  {                    a:                          }    
                       [                                  ]      [                                         ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                              [   ]     [   ]                            [   ]         [   ]  [   ]                  
-                                {}        {}                              {}            {}     {}             
+                            [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                              {}          {}                             1, {}            {}     {}                
 
 
 
@@ -35,8 +35,8 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
                   {                   a:                  },  {                    a:                          }    
                       [                                  ]      [                                         ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                              [   ]     [   ]                            [   ]         [   ]  [   ]                  
-                                {}        {}                              {}            {}     {}             
+                            [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                              {}          {}                             1, {}            {}     {}         
 
 
 
@@ -55,8 +55,8 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
                   {                   a:                  },  {                    a:                     v    }    
                       [                                  ]      [                                         ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                              [   ]     [   ]                            [   ]         [   ]  [   ]                  
-                                {}        {}                              {}            {}     {}             
+                            [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                              {}          {}                             1, {}            {}     {}             
 
 
 
@@ -75,8 +75,8 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
                   {                   a:                  },  {                    a:               |          }    
                       [                                  ]      [                                   v     ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                              [   ]     [   ]                            [   ]         [   ]  [   ]                  
-                                {}        {}                              {}            {}     {}             
+                            [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                              {}          {}                             1, {}            {}     {}         
 
 
             sentinel returns object after 
@@ -94,9 +94,8 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
                   {                   a:                  },  {                    a:           |              }    
                       [                                  ]      [                               v         ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                              [   ]     [   ]                            [   ]         [   ]  [   ]                  
-                                {}        {}                              {}            {}     {}             
-
+                            [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                              {}          {}                             1, {}            {}     {}         
             sentinel creates and returns obj 
             with single key 'b' pushes nothing
             
@@ -113,8 +112,8 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
                   {                   a:                  },  {                    a:                          }    
                       [                                  ]      [                                          ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                              [   ]     [   ]                            [   ]         [   ]  [   ]  <---(S)                
-                                {}        {}                              {}            {}     {}             
+                            [   ]       [   ]                           [     ]         [   ]  [   ]<---(S)                  
+                              {}          {}                             1, {}            {}     {}         
 
 
             sentinel pushes then returns array
@@ -132,8 +131,8 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
                   {                   a:                  },  {                    a:                          }    
                       [                                  ]      [                                          ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                              [   ]     [   ]                            [   ]         [   ]  [   ]                  
-                                {}        {}                              {}            {}     {}    <---(S)         
+                            [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                              {}          {}                             1, {}            {}     {} <---(S)            
 
 
             sentinel pushes then returns empty obj
@@ -152,8 +151,8 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
                   {                   a:                  },  {                    a:                          }    
                       [                                  ]      [                                          ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                              [   ]     [   ]                            [   ]         [   ]  [   ]                  
-                                {}        {}                              {}            {}          <---(S)         
+                            [   ]       [   ]                           [     ]        [   ]  [   ]                  
+                              {}          {}                             1, {}           {}          <---(S)         
 
 
             sentinel find no container or raw value 
@@ -178,8 +177,8 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
                   {                   a:                  },  {                    a:                          }    
                       [                                  ]      [                                          ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:        }             
-                              [   ]     [   ]                            [   ]         [   ]        <---(S)                
-                                {}        {}                              {}            {}                   
+                            [   ]       [   ]                           [     ]        [   ]         <---(S)           
+                              {}          {}                             1, {}           {}            
 
 
 
@@ -200,8 +199,8 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
                   {                   a:                  },  {                    a:                          }    
                       [                                  ]      [                                          ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:        } <---(S)             
-                              [   ]     [   ]                            [   ]         [   ]                        
-                                {}        {}                              {}            {}                   
+                            [   ]       [   ]                           [     ]        [   ]                   
+                              {}          {}                             1, {}           {}            
 
 
 
@@ -222,13 +221,13 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
                   {                   a:                  },  {                    a:                          }    
                       [                                  ]      [                                          ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:        }              
-                              [   ]     [   ]                            [   ]         [   ] <---(S)                       
-                                {}        {}                              {}            {}                   
+                            [   ]       [   ]                           [     ]        [   ]  <---(S)                 
+                              {}          {}                             1, {}           {}            
 
 
 
             Sentinel holds an object with a key.
-            It obtains the associated object pushes
+            It obtains the associated array pushes
             it to the stack and returns it
             
     push--->| arr |     
@@ -242,8 +241,8 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
                   {                   a:                  },  {                    a:                          }    
                       [                                  ]      [                                          ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:        }              
-                              [   ]     [   ]                            [   ]         [   ]                        
-                                {}        {}                              {}            {}   <---(S)                
+                            [   ]       [   ]                           [     ]        [   ]                   
+                              {}          {}                             1, {}           {}   <---(S)             
 
 
 
@@ -263,12 +262,12 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
                   {                   a:                  },  {                    a:                          }    
                       [                                  ]      [                                          ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:        }              
-                              [   ]     [   ]                            [   ]         [   ] <---(S)                       
-                                {}        {}                              {}                                 
+                            [   ]       [   ]                           [     ]        [   ]               
+                              {}          {}                             1, {}      del--->{} <---(S)
 
 
 
-            Sentinel holds an empty object.
+            Sentinel holds an empty object from last time.
             It returns null after popping the
             stack and deleting it from the 
             next item atop the stack (arr)
@@ -288,14 +287,14 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
                   {                   a:                  },  {                    a:                          }    
                       [                                  ]      [                                          ]         
                           {   a:  },  {   b:  }                        {   a:  },    {             }              
-                              [   ]     [   ]                            [   ]               <---(S)                       
-                                {}        {}                              {}                                 
+                              [   ]     [   ]                           [     ]         del--->[     ] <---(S)                       
+                                {}        {}                             1, {}                                 
 
 
 
-            Sentinel holds an empty array.
-            It returns null after popping the
-            stack and deleting it from the 
+            Sentinel holds null, goes to top of stack.
+            It doesnt return anything. It finds an
+            empty array, pops stack. Deletes it from the 
             next item atop the stack (obj)
             
                     
@@ -312,17 +311,19 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
               [                                                                                                     ]   
                   {                   a:                  },  {                    a:                          }    
                       [                                  ]      [                                          ]         
-                          {   a:  },  {   b:  }                        {   a:  },                   <---(S)              
-                              [   ]     [   ]                            [   ]                                    
-                                {}        {}                              {}                                 
+                          {   a:  },  {   b:  }                        {   a:  },     del--->{              }<---(S)              
+                              [   ]     [   ]                           [     ]                                    
+                                {}        {}                             1, {}                                 
 
 
 
-            Sentinel holds null.
+            Sentinel holds null after deleting arr.
             It goes to top of stack
             and finds an empty object.
             Nothing to drill into, so
             it removes it from the stack
+            and deletes its value from 
+            next item atop the stack
 
                                            
           pop--->| obj |              
@@ -339,8 +340,8 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
                   {                   a:                  },  {                    a:                          }    
                       [                                  ]      [                                          ] <---(S)     
                           {   a:  },  {   b:  }                        {   a:  },                               
-                              [   ]     [   ]                            [   ]                                    
-                                {}        {}                              {}                                 
+                              [   ]     [   ]                           [     ]                                    
+                                {}        {}                             1, {}                                 
 
 
 
