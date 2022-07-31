@@ -451,8 +451,8 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
             the stack.
             
          pop--->| obj |
-            | arr |           | arr |<---deletes empty object from array at index 0 (it always deletes from index 0 if its an array).      
-            | obj |           | obj |    
+            | arr |           | arr |<---deletes empty object from array at index 0 (it always deletes       
+            | obj |           | obj |    from index 0 if its an array).
             | arr |           | arr |             
             | obj |           | obj |             
             | arr |           | arr |             
