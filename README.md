@@ -59,13 +59,27 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}             
-        | obj |<---push
-      | obj |<---push
+        
+      | obj |<---push {'b':[{}]}
      | arr |
      | obj |
      | arr | 
       -----    
       
+              [                                                                                                    ]   
+                  {                   a:                  },  {                    a:                          }    
+                      [                                  ]      [                                         ]         
+                          {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+                            [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                              {}          {}                             1, {}            {}     {}             
+        
+      | arr |<---push [{}]
+     | obj |
+     | obj |
+     | arr |
+     | obj |
+     | arr | 
+      -----    
       
      
               [                                                                                                    ]   
@@ -74,7 +88,7 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}             
-      | arr |<---push
+      | obj |<---push {}
      | obj |
      | obj |
      | arr |
@@ -84,93 +98,4 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
       
      
      
-     
-              [                                                                                                    ]   
-                  {                   a:                  },  {                    a:                          }    
-                      [                                  ]      [                                         ]         
-                          {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                            [   ]       [   ]                           [     ]         [   ]  [   ]                  
-                              {}          {}                             1, {}            {}     {}             
-      | obj |<---push
-     | arr |
-     | obj |
-     | obj |
-     | arr |
-     | obj |
-     | arr | 
-      -----  
-      
-      
-      
-     
-              [                                                                                                    ]   
-                  {                   a:                  },  {                    a:                          }    
-                      [                                  ]      [                                         ]         
-                          {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                            [   ]       [   ]                           [     ]         [   ]  [   ]                  
-                              {}          {}                             1, {}            {}     {}             
-    
-    pop {}
-    
-    pop--->| obj |
-     | arr |
-     | obj |
-     | obj |
-     | arr |
-     | obj |
-     | arr | 
-      -----    
-      
-     push {}
-     
-       | obj |<---push
-      -----    
-      
-      
-              [                                                                                                    ]   
-                  {                   a:                  },  {                    a:                          }    
-                      [                                  ]      [                                         ]         
-                          {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                            [   ]       [   ]                           [     ]         [   ]  [   ]                  
-                              {}          {}                             1, {}            {}     {}             
-    
-     pop [{}]
-    
-    pop--->| arr |
-     | obj |
-     | obj |
-     | arr |
-     | obj |
-     | arr | 
-      -----    
-      
-     push [{}]
-     
-     | arr |<---push
-     | obj |
-      -----    
-      
-      
-              [                                                                                                    ]   
-                  {                   a:                  },  {                    a:                          }    
-                      [                                  ]      [                                         ]         
-                          {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                            [   ]       [   ]                           [     ]         [   ]  [   ]                  
-                              {}          {}                             1, {}            {}     {}             
-    
-     pops {b:[{}]}
-    
-
-    pop--->| obj |
-     | obj |
-     | arr |
-     | obj |
-     | arr | 
-      -----    
-      
-     pushes {b:[{}]}
-     | obj |<---push
-     | arr |
-     | obj |
-      ----- 
-      
+ 
