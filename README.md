@@ -45,28 +45,18 @@ Itercursion uses a sentinal value that follows rules that you specify based on i
 
 
 
-        //                                                                                                                                            
-        //  [                                                                                                               ]   
+        //                                                                                                          |
+        //                                                                                                          |                                  
+        //  [                                                                                                       v       ]   
         //      {                   isStr:                  },      [                                               ]    
         //          [                                  ]              {   isStr:  },    {   isArr:,   isInt:   }          ^    
         //              {   isStr:  },  {   isArr:  }                      [   ]            [   ]     [   ]               | collapse
         //                  [   ]          [   ]                            {}                {}        {}                |
         //                    {}              {}                                                           
         //
-        //                                                                                                          |
+        //                                                                                                          
         
         
-        
-        //                                                                                                          |                                  
-        //  [                                                                                                       v       ]   
-        //      {                   isStr:                  },      [                                               ]    <---sentinel recognition
-        //          [                                  ]              {   isStr:  },    {   isArr:,   isInt:   }              
-        //              {   isStr:  },  {   isArr:  }                     [   ]             [   ]    [   ]             
-        //                  [   ]          [   ]                            {}                {}        {}               
-        //                    {}              {}                                                           
-        //
-
-
         
         //                                                                                                     |                                           
         //  [                                                                                                  |             ]   
@@ -106,7 +96,7 @@ Itercursion uses a sentinal value that follows rules that you specify based on i
         //      {                   isStr:                  },      [                                       |         ]       
         //          [                                  ]               {   isStr:  },    {   isArr:         v  }        
         //              {   isStr:  },  {   isArr:  }                       [   ]            [   ]     [    ]                         
-        //                  [   ]          [   ]                             {}               {}             <--- delete                  
+        //                  [   ]          [   ]                             {}               {}             <--- Sentinel deletes worthless object        
         //                    {}             {}                                                           
         //
 
@@ -116,7 +106,7 @@ Itercursion uses a sentinal value that follows rules that you specify based on i
         //  [                                                                                                   |           ]   
         //      {                   isStr:                  },      [                                           v      ]       
         //          [                                  ]               {   isStr:  },    {        isArr:        }        
-        //              {   isStr:  },  {   isArr:  }                       [   ]                  [   ]              <--- delete empty array             
+        //              {   isStr:  },  {   isArr:  }                       [   ]                  [   ]               <--- delete empty array             
         //                  [   ]          [   ]                             {}                     {}                               
         //                    {}             {}                                                           
         //
@@ -234,8 +224,9 @@ Itercursion uses a sentinal value that follows rules that you specify based on i
         //
 
 
-
-        //                                                                                                                                                 
+        //                                                                                                              |
+        //                                                                                                              |
+        //                                                                                                              v                                 
         //  [                                                                                                           ]   
         //      {                   isStr:                  }                                                           <---delete empty array
         //          [                                  ]                                                                                      
@@ -245,10 +236,9 @@ Itercursion uses a sentinal value that follows rules that you specify based on i
         //
 
 
-
-        //Basically, just repeat the same operations on this one
-        //                                                                                                                                                 
-        //  [                                              vvv                                                           ]   
+        //                                                  |
+        //                                                  |                                                                                             
+        //  [                                               v                                                            ]   
         //      {                   isStr:                  }                                                           <---update sentinel value
         //          [                                  ]                                                                                      
         //              {   isStr:  },  {   isArr:  }                                                                           
