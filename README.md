@@ -439,7 +439,7 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
                       [                                  ]      [                                          ]      
                           {   a:  },  {   b:  }                        {   a:  }                               
                               [   ]     [   ]                           [     ]                                     
-                                {}        {}                             1, {}  <---(S)                               
+                                {}        {}                             1,    <---(S)                               
 
 
 
@@ -457,3 +457,81 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
             | obj |           | obj |             
             | arr |           | arr |             
              ^^^^              ^^^^     
+             
+             
+             
+             
+             
+              [                                                                                                     ]   
+                  {                   a:                  },  {                    a:                          }    
+                      [                                  ]      [                                          ]      
+                          {   a:  },  {   b:  }                        {   a:  }                               
+                              [   ]     [   ]                           [     ] <---(S)                                    
+                                {}        {}                             1                                   
+
+
+
+            Sentinel holds null. So it goes
+            to the top of the stack and finds
+            an array thats not empty. It drills
+            into it. Does nothing to the stack.
+            Doesn't return anything yet.
+            
+
+            | arr |              
+            | obj |           
+            | arr |                        
+            | obj |                       
+            | arr |                       
+             ^^^^              
+
+
+              [                                                                                                     ]   
+                  {                   a:                  },  {                    a:                          }    
+                      [                                  ]      [                                          ]      
+                          {   a:  },  {   b:  }                        {   a:  }                               
+                              [   ]     [   ]                           [     ]                                     
+                                {}        {}                             1   <---(S)                                
+
+
+
+            Sentinel holds an array with a value. 
+            It grabs first item in array, returns it.
+            Because the item was not a container, it
+            doesn't push anything to the stack, and
+            doesn't pop anything from the stack yet.
+            However it does delete the item from the
+            item atop the stack.
+            
+
+            | arr |<---deletes from index 0 because its an array              
+            | obj |           
+            | arr |                        
+            | obj |                       
+            | arr |                       
+             ^^^^   
+             
+             
+             
+ 
+              [                                                                                                     ]   
+                  {                   a:                  },  {                    a:                          }    
+                      [                                  ]      [                                          ]      
+                          {   a:  },  {   b:  }                        {   a:  }                               
+                              [   ]     [   ]                           [     ]                                     
+                                {}        {}                                    <---(S)                             
+
+
+
+            Sentinel holds a raw value. So it goes to
+            the stack, because its not a container.
+            and finds an array. It returns nothing.
+            
+            
+
+            | arr |              
+            | obj |           
+            | arr |                        
+            | obj |                       
+            | arr |                       
+             ^^^^      
