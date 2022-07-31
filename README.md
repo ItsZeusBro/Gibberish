@@ -238,7 +238,7 @@ Itercursion uses a sentinal value that follows rules that you specify based on i
         //                    {}              {}                                                           
         //
 
-        //                             0                                                   1                                                                  
+        //                             0                                                                                                                     
         //  [                                                                                                           ]   
         //      {                   isStr:                  }                                                           <---delete empty array
         //          [         1               0          ]                                                                                      
@@ -249,7 +249,7 @@ Itercursion uses a sentinal value that follows rules that you specify based on i
 
 
         //Basically, just repeat the same operations on this one
-        //                             0                                                   1                                                                  
+        //                             0                                                                                                                     
         //  [                                              vvv                                                             ]   
         //      {                   isStr:                  }                                                           <---update sentinel value
         //          [         1               0          ]                                                                                      
