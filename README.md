@@ -357,3 +357,75 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
             | obj |              
             | arr |             
              ^^^^                       
+
+
+
+
+              [                                                                                                     ]   
+                  {                   a:                  },  {                    a:                          }    
+                      [                                  ]      [                                          ]      
+                          {   a:  },  {   b:  }                        {   a:  } <---(S)                               
+                              [   ]     [   ]                           [     ]                                    
+                                {}        {}                             1, {}                                 
+
+
+
+            Sentinel holds an array with an object.
+            It drills into it. It pushes to obj to stack,
+            and creates an object copy to return.
+            
+
+                                           
+    push--->| obj |    
+            | arr |              
+            | obj |              
+            | arr |             
+             ^^^^                       
+
+
+              [                                                                                                     ]   
+                  {                   a:                  },  {                    a:                          }    
+                      [                                  ]      [                                          ]      
+                          {   a:  },  {   b:  }                        {   a:  }                               
+                              [   ]     [   ]                           [     ]  <---(S)                                   
+                                {}        {}                             1, {}                                 
+
+
+
+            Sentinel holds an object with a key.
+            It drills into it. It pushes arr to stack,
+            and creates an array copy to return.
+            
+
+    push--->| arr |                                 
+            | obj |    
+            | arr |              
+            | obj |              
+            | arr |             
+             ^^^^      
+             
+             
+             
+             
+
+              [                                                                                                     ]   
+                  {                   a:                  },  {                    a:                          }    
+                      [                                  ]      [                                          ]      
+                          {   a:  },  {   b:  }                        {   a:  }                               
+                              [   ]     [   ]                           [     ]                                     
+                                {}        {}                             1, {}  <---(S)                               
+
+
+
+            Sentinel holds an array with two items.
+            It drills into index 0. It pushes object
+            to stack because its a container,
+            and creates an object copy to return.
+            
+    push--->| obj |
+            | arr |                                 
+            | obj |    
+            | arr |              
+            | obj |              
+            | arr |             
+             ^^^^      
