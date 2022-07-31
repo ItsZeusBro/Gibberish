@@ -1,5 +1,8 @@
 # GobbledyGook
 
+Gobbledy gook is a subset of schema that is sufficiently generalizable to the extent that we can apply the same method to it and always be doing something orderly, predictable, and useful.
+
+
 One of the methods used by Gobbledy Gook is something I call "intercursion". It's basically the same logic recursion and iteration uses, without recursion
 and minimal iteration.
 
