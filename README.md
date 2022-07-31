@@ -35,7 +35,7 @@ We basically want to return values with n number of levels for each next() opera
                               {}          {}                             1, {}            {}     {}                
 
 
-      | obj |<---push {a:[obj, obj]}
+      | obj |<---push {a:[{a:arr}, {a:arr, b:arr}]}
      |'div'|
      | arr | 
       -----                                                                                                         
