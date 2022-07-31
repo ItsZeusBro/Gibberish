@@ -8,6 +8,8 @@ One of the methods used by Gobbledy Gook is something I call "intercursion". It'
 
 Itercursion uses a sentinal value, and a container reference stack. The container reference stack preserves the last container that was used, and all the preceding containers that still have values.
 
+We basically want to return values with n number of levels for each next() operations, depending on the needs from your schema. Also what comes after n levels is just a description of the types and not the actual values.
+
 
                                                                                                                   (S)
                                                                                                                    |                                       
