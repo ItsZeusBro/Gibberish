@@ -18,12 +18,18 @@ class Sentinel{
   constructor(gook){
     this.refS=new RefStack()
     this.gook=gook
+    this.val = gook
   }
 
   drill(){
-    //operates like a next() function on this.gook
-    //when it comes upon anything, it pushes and unbinds
-    //the value from the underlying structure, then returns it
+    //sentinel should always keep the construct that it returns the
+    //value from
+    //so when its not an array or obj, it needs to end up
+    //being the lowest level array or obj it obtained the value from
+    
+  }
+  _drill(val){
+    //this drills until it finds 
     if(val !== null){
       //its more efficient to null check before type checking
       if(Array.isArray(val)){
@@ -38,14 +44,15 @@ class Sentinel{
       }
     }
   }
+
   unbindArr(arr){
     //unbinds the first val in the array
     //returns the val
     return val
   }
-  unbindObj(obj){
-    //unbinds the first associated val from Object.keys(obj) 
 
+  unbindObj(obj){
+    //unbinds the first associated val from Object.keys(obj)
     //returns that value that was unbound
     return val
   }
