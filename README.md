@@ -4,7 +4,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
 
 
 ## Itercursion
-One of the methods used by Gobbledy Gook is something I call "intercursion". It's basically the same logic recursion and iteration use, without actually calling the function recursively, and without incrementing any index value.
+One of the methods used by Gobbledy Gook is something I call "intercursion". It's basically the same logic recursion and iteration use, without actually calling the function recursively, and without incrementing any index value. It recurses in place, and iterates in place, and because of that it can only be described as an iterator that removes objects using some sort of next() function. But you can virtualize the 'removal' process by holding some sort of data structure, making it act more like recursion.
 
 Itercursion uses a sentinal value that follows rules that you specify based on its value
 
