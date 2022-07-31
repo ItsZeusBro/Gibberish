@@ -6,72 +6,62 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
 ## Itercursion
 One of the methods used by Gobbledy Gook is something I call "intercursion". It's basically the same logic recursion and iteration use, without actually calling the function recursively, and without incrementing any index value. It recurses in place, and iterates in place, and because of that it can only be described as an iterator that removes objects using some sort of next() function. But you can virtualize the 'removal' process by holding some sort of data structure, making it act more like recursion.
 
-Itercursion uses a sentinal value, and a container reference stack. The container reference stack preserves the last container that was used, and all the preceding containers that still have values. It removes containers references from the stack when they hold no value. The sentinel is most interested in returning values from inside the containers, but eventually needs to hold onto something when it consumes everything inside the container. It goes to the stack, evaluates whether its empty, if its not it loads the next value, if it is empty, it deletes the reference off the stack.
-                                                                                                                         (S)
-        //                                                                                                                |
-        //                                                                                                                |
-        //                                                                                                                v      sentinel returns object
-        //  [                                                                                                             ]      after pushing it to the
-        //      {                   isStr:                  },  {                    isArr:                             }        ref stack
-        //          [                                  ]           [                                               ]                  
-        //              {   isStr:  },  {   isArr:  }                   {   isStr:  },    {   isArr:,   isInt: }                     
-        //                  [   ]          [   ]                          [   ]            [   ]    [   ]                        
-        //                    {}             {}                             {}              {}        {}                       
+Itercursion uses a sentinal value, and a container reference stack. The container reference stack preserves the last container that was used, and all the preceding containers that still have values.
 
+        //
+        //                                                                                                      (S)
+        //                                                                                                       |                                        
+        //                                                                                                       |
+        //                                                                                                       v
+        //  [                                                                                                    ]   
+        //      {                   a:                  },  {                    a:                          }    
+        //          [                                  ]      [                                         ]         
+        //              {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+        //                  [   ]     [   ]                            [   ]         [   ]  [   ]                  
+        //                    {}        {}                              {}            {}     {}             
+        //                                                                                               
+                    
+
+        sentinel returns object after 
+        pushing it to the ref stack
         //   
         //| arr |
         // ^^^^^        
         
-
-        //                                                                            (S)
-        //                                                                             |                                 
-        //                                                                             |                                 
-        //  [                                                                          v                                  ]   
-        //      {                   isStr:                  },  {                    isArr:                             }    sentinel returns object
-        //          [                                  ]           [                                               ]         after pushing it to the ref
-        //              {   isStr:  },  {   isArr:  }                   {   isStr:  },    {   isArr:,   isInt: }             stack
-        //                  [   ]          [   ]                          [   ]            [   ]    [   ]                     
-        //                    {}             {}                             {}               {}       {}                        
-        //
+        //                                                                      (S)
+        //                                                                       |                                        
+        //                                                                       |                                         
+        //  [                                                                    v                                ]   
+        //      {                   a:                  },  {                    a:                          }    
+        //          [                                  ]      [                                         ]         
+        //              {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+        //                  [   ]     [   ]                            [   ]         [   ]  [   ]                  
+        //                    {}        {}                              {}            {}     {}             
+        //                                                                                               
         
         
-
+        
+        sentinel returns object after 
+        pushing it to the ref stack
         //| obj |
         //| arr |
         // ^^^^^   
 
 
         //
-        //                                                                                                        (S)       
-        //                                                                                                         |      
-        //  [                                                                                                      |      ]   
-        //      {                   isStr:                  },  {                    isArr:                        v    }    sentinel returns arr
-        //          [                                  ]           [                                               ]         after pushing it to the       
-        //              {   isStr:  },  {   isArr:  }                   {   isStr:  },    {   isArr:,   isInt: }             ref stack
-        //                  [   ]          [   ]                          [   ]            [   ]    [   ]                     
-        //                    {}             {}                             {}               {}       {}                        
-        //
+        //                                                                                             (S)                 
+        //                                                                                              |                 
+        //  [                                                                                           |         ]   
+        //      {                   a:                  },  {                    a:                     v    }    
+        //          [                                  ]      [                                         ]         
+        //              {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+        //                  [   ]     [   ]                            [   ]         [   ]  [   ]                  
+        //                    {}        {}                              {}            {}     {}             
+        //                                                                                               
         
         
-        //| arr |
-        //| obj |
-        //| arr |
-        // ^^^^^   
-
-
-
-        //
-        //                                                                                                               
-        //                                                                                                    (S)           
-        //  [                                                                                                  |          ]   
-        //      {                   isStr:                  },  {                    isArr:                    |        }    sentinel returns object
-        //          [                                  ]           [                                           v   ]         after pushing it to the       
-        //              {   isStr:  },  {   isArr:  }                   {   isStr:  },    {   isArr:,   isInt: }             ref stack
-        //                  [   ]          [   ]                          [   ]            [   ]    [   ]                     
-        //                    {}             {}                             {}               {}       {}                        
-        //
-        
-        //| obj | 
+        sentinel returns arr after 
+        pushing it to the ref stack
         //| arr |
         //| obj |
         //| arr |
@@ -80,15 +70,36 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
 
         //
         //                                                                                                               
-        //                                                                                               (S)                
-        //  [                                                                                             |               ]   
-        //      {                   isStr:                  },  {                    isArr:               |             }    sentinel creates and returns
-        //          [                                  ]           [                                      v        ]         obj with single key pushing 
-        //              {   isStr:  },  {   isArr:  }                   {   isStr:  },    {   isArr:,   isInt: }             isInt obj to ref stack
-        //                  [   ]          [   ]                            [   ]             [   ]     [   ]                     
-        //                    {}             {}                              {}                 {}       {}                        
-        //
+        //                                                                                       (S)                        
+        //  [                                                                                     |               ]   
+        //      {                   a:                  },  {                    a:               |          }    
+        //          [                                  ]      [                                   v     ]         
+        //              {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+        //                  [   ]     [   ]                            [   ]         [   ]  [   ]                  
+        //                    {}        {}                              {}            {}     {}             
+        //                                                                                               
+        
+        sentinel returns object after 
+        pushing it to the ref stack
+        //| obj | 
+        //| arr |
+        //| obj |
+        //| arr |
+        // ^^^^^   
 
+        //
+        //                                                                                                               
+        //                                                                                   (S)                           
+        //  [                                                                                 |                   ]   
+        //      {                   a:                  },  {                    a:           |              }    
+        //          [                                  ]      [                               v         ]         
+        //              {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+        //                  [   ]     [   ]                            [   ]         [   ]  [   ]                  
+        //                    {}        {}                              {}            {}     {}             
+        //                                                                                               
+        sentinel creates and returns obj 
+        with single key 'b' pushing obj with 
+        two keys {'a' 'b'} to ref stack
         //| obj |
         //| obj | 
         //| arr |
@@ -99,14 +110,15 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
         //
         //                                                                                                               
         //                                                                                                               
-        //  [                                                                                                             ]   
-        //      {                   isStr:                  },  {                    isArr:                             }    sentinel pushes then returns
-        //          [                                  ]           [                                               ]         array
-        //              {   isStr:  },  {   isArr:  }                   {   isStr:  },    {   isArr:,   isInt: }             
-        //                  [   ]          [   ]                            [   ]             [   ]     [   ]<---(S)                     
-        //                    {}             {}                              {}                 {}       {}                        
-        //
+        //  [                                                                                                     ]   
+        //      {                   a:                  },  {                    a:                          }    
+        //          [                                  ]      [                                          ]         
+        //              {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+        //                  [   ]     [   ]                            [   ]         [   ]  [   ]  <---(S)                
+        //                    {}        {}                              {}            {}     {}             
+        //                                                                                                     
 
+        sentinel pushes then returns array
         //| arr |
         //| obj |
         //| obj | 
@@ -118,14 +130,15 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
         //
         //                                                                                                               
         //                                                                                                               
-        //  [                                                                                                             ]   
-        //      {                   isStr:                  },  {                    isArr:                             }    sentinel pushes then returns
-        //          [                                  ]           [                                               ]         obj
-        //              {   isStr:  },  {   isArr:  }                   {   isStr:  },    {   isArr:,   isInt: }             
-        //                  [   ]          [   ]                            [   ]             [   ]     [   ]                     
-        //                    {}             {}                              {}                 {}       {}  <---(S)                      
-        //
+        //  [                                                                                                     ]   
+        //      {                   a:                  },  {                    a:                          }    
+        //          [                                  ]      [                                          ]         
+        //              {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+        //                  [   ]     [   ]                            [   ]         [   ]  [   ]                  
+        //                    {}        {}                              {}            {}     {}    <---(S)         
+        //                                                                                                     
 
+        sentinel pushes then returns obj
         //| obj |
         //| arr |
         //| obj |
@@ -138,19 +151,56 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
         //
         //                                                                                                               
         //                                                                                                               
-        //  [                                                                                                             ]   
-        //      {                   isStr:                  },  {                    isArr:                             }    sentinel find no container
-        //          [                                  ]           [                                               ]         or raw value, returns null
-        //              {   isStr:  },  {   isArr:  }                   {   isStr:  },    {   isArr:,   isInt: }             and pops last ref off stack
-        //                  [   ]          [   ]                            [   ]             [   ]     [   ]                and deletes that item from  
-        //                    {}             {}                              {}                 {}          <---(S)         the top of the updated ref
-        //                                                                                                                   stack
+        //  [                                                                                                     ]   
+        //      {                   a:                  },  {                    a:                          }    
+        //          [                                  ]      [                                          ]         
+        //              {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+        //                  [   ]     [   ]                            [   ]         [   ]  [   ]                  
+        //                    {}        {}                              {}            {}          <---(S)         
+        //                                                                                                                   
 
+        sentinel find no container or raw value 
+        to drill into, returns null and pops 
+        last ref off stack and deletes that 
+        item from the top of the updated ref 
+        stack (which is arr)
+         pop ---> | obj |
+        //| arr |               //| arr | <---deletes empty obj {} from arr
+        //| obj |               //| obj |
+        //| obj |               //| obj | 
+        //| arr |               //| arr |
+        //| obj |               //| obj |
+        //| arr |               //| arr |
+        // ^^^^                 // ^^^^
+        
+        
+        
+        //
+        //                                                                                                               
+        //                                                                                                               
+        //  [                                                                                                     ]   
+        //      {                   a:                  },  {                    a:                          }    
+        //          [                                  ]      [                                          ]         
+        //              {   a:  },  {   b:  }                        {   a:  },    {   a:        }             
+        //                  [   ]     [   ]                            [   ]         [   ]        <---(S)                
+        //                    {}        {}                              {}            {}                   
+        //                                                                                                                   
+                                                                                   
 
-        //| arr |
-        //| obj |
+        sentinel find no container or raw value, 
+        inside array, returns null and pops empty arr off
+        stack then deletes reference to arr from the top of 
+        the updated ref stack (which is arr 
+        associated with b key)
+          pop ---> | arr |
+        //| obj |<---deletes assoiation b:[]
         //| obj | 
         //| arr |
         //| obj |
         //| arr |
         // ^^^^
+        
+        
+        
+        
+
