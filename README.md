@@ -25,7 +25,7 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
             sentinel returns object after 
             pushing it to the ref stack
 
-            | arr |
+    push--->| arr |
              ^^^^^        
 
                                                                                   (S)
@@ -43,7 +43,7 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
 
             sentinel returns object after 
             pushing it to the ref stack
-            | obj |
+    push--->| obj |
             | arr |
              ^^^^^   
 
@@ -62,7 +62,7 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
 
             sentinel returns arr after 
             pushing it to the ref stack
-            | arr |
+    push--->| arr |
             | obj |
             | arr |
              ^^^^^   
@@ -81,7 +81,7 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
 
             sentinel returns object after 
             pushing it to the ref stack
-            | obj | 
+    push--->| obj | 
             | arr |
             | obj |
             | arr |
@@ -100,7 +100,7 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
             sentinel creates and returns obj 
             with single key 'b' pushing obj with 
             two keys {'a' 'b'} to ref stack
-            | obj |
+    push--->| obj |
             | obj | 
             | arr |
             | obj |
@@ -119,7 +119,7 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
 
 
             sentinel pushes then returns array
-            | arr |
+    push--->| arr |
             | obj |
             | obj | 
             | arr |
@@ -139,7 +139,7 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
 
 
             sentinel pushes then returns obj
-            | obj |
+    push--->| obj |
             | arr |
             | obj |
             | obj | 
