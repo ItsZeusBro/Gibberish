@@ -89,6 +89,15 @@ Itercursion uses a sentinal value that follows rules that you specify based on i
         //                    {}              {}                                                           
         //
 
+        //                                                                                                                                                 
+        //  [                                                                                                             ]   
+        //      {                   isStr:                  },      [                                    |          ]       
+        //          [                                  ]               {   isStr:  },    {   isArr:      |     }        <---Delete object 
+        //              {   isStr:  },  {   isArr:  }                       [   ]            [   ]    [  v ]                
+        //                  [   ]          [   ]                            {}                {}                                
+        //                    {}              {}                                                           
+        //
+
 
 
         //                                                                                                                                                 
@@ -96,7 +105,7 @@ Itercursion uses a sentinal value that follows rules that you specify based on i
         //      {                   isStr:                  },      [                                       |         ]       
         //          [                                  ]               {   isStr:  },    {   isArr:         v  }        
         //              {   isStr:  },  {   isArr:  }                       [   ]            [   ]     [    ]                         
-        //                  [   ]          [   ]                             {}               {}             <--- Sentinel deletes worthless object        
+        //                  [   ]          [   ]                             {}               {}             <--- Sentinel pops stack and sees empty array       
         //                    {}             {}                                                           
         //
 
