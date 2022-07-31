@@ -429,3 +429,31 @@ Itercursion uses a sentinal value, and a container reference stack. The containe
             | obj |              
             | arr |             
              ^^^^      
+             
+             
+             
+             
+             
+              [                                                                                                     ]   
+                  {                   a:                  },  {                    a:                          }    
+                      [                                  ]      [                                          ]      
+                          {   a:  },  {   b:  }                        {   a:  }                               
+                              [   ]     [   ]                           [     ]                                     
+                                {}        {}                             1, {}  <---(S)                               
+
+
+
+            Sentinel holds an empty obj.
+            It returns null, because nothing to drill
+            into. It doesn't push anything because
+            it doesnt drill. So it pops from the stack.
+            Then it deletes object from next item atop
+            the stack.
+            
+         pop--->| obj |
+            | arr |           | arr |<---deletes empty object from array at index 0 (it always deletes from index 0 if its an array).      
+            | obj |           | obj |    
+            | arr |           | arr |             
+            | obj |           | obj |             
+            | arr |           | arr |             
+             ^^^^              ^^^^     
