@@ -21,8 +21,8 @@ We basically want to return values with n number of levels for each next() opera
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}                
-
-       | arr |<---push
+        |'div'|<---push 'div'
+       | arr |<---push [obj, obj]
       -----
                                                                                                               (S)
                                                                                                                |
@@ -35,7 +35,8 @@ We basically want to return values with n number of levels for each next() opera
                               {}          {}                             1, {}            {}     {}                
 
 
-      | obj |<---push
+      | obj |<---push {a:[obj, obj]}
+     |'div'|
      | arr | 
       -----                                                                                                         
                                                                                                                 
@@ -48,8 +49,9 @@ We basically want to return values with n number of levels for each next() opera
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}             
 
-      | arr |<---push
+      | arr |<---push [obj, obj]
      | obj |
+     |'div'|
      | arr | 
       -----  
       
@@ -62,9 +64,12 @@ We basically want to return values with n number of levels for each next() opera
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}             
         
+      the div lets us know that we are pushing one of many items at the current level
+       |'div'|<---push 'div'
       | obj |<---push {'b':[{}]}
      | arr |
      | obj |
+     |'div'|
      | arr | 
       -----    
       
@@ -76,10 +81,11 @@ We basically want to return values with n number of levels for each next() opera
                               {}          {}                             1, {}            {}     {}             
         
       | arr |<---push [{}]
-     | obj |
+     |'div'|
      | obj |
      | arr |
      | obj |
+     |'div'|
      | arr | 
       -----    
       
@@ -90,11 +96,13 @@ We basically want to return values with n number of levels for each next() opera
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}             
-      | obj |<---push {}
-     | obj |
+     | obj |<---push {}
+     | arr |
+     |'div'|
      | obj |
      | arr |
      | obj |
+     |'div'|
      | arr | 
       -----    
       
