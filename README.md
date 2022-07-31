@@ -4,11 +4,11 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
 
 
 ## Itercursion
-One of the methods used by Gobbledy Gook is something I call "intercursion". It's basically the same logic recursion and iteration use, without actually calling the function recursively, and without incrementing any index value. It recurses in place, and iterates in place, and because of that it can only be described as an iterator that removes objects using some sort of next() function. But you can virtualize the 'removal' process by holding some sort of data structure, making it act more like recursion.
+One of the methods used by Gobbledy Gook is something I call "intercursion". It's basically the same logic recursion and iteration use, without actually calling the function recursively, and without incrementing any index value. It recurses and iterates in place using a stack which gives us more control and flexibility. 
 
-Itercursion uses a sentinal value, and a container reference stack. The container reference stack preserves the last container that was used, and all the preceding containers that still have values.
+Itercursion uses a sentinal value, and a reference stack. 
 
-We basically want to return values with n number of levels for each next() operations, depending on the needs from your schema. Also what comes after n levels is just a description of the types and not the actual values.
+We basically want to return values with n number of levels for each next() operation, depending on the needs from your schema. Also what comes after n levels is just a description of the types and not the actual values.
 
 
                                                                                                                   (S)
