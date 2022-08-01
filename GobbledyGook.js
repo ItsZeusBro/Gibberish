@@ -2,17 +2,19 @@ import * as util from "node:util"
 
 export class Gobbledy{
   
-  constructor(gook, n){
+  constructor(gook, n=[Infinity]){
     this.queue=[]
-    this.gobbledy(gook, n)
+    this.gobbledy(gook, [n])
   } 
 
-  gobbledy(gook, n=Infinity){
-      if(gook && n){
+  gobbledy(gook, n){
+      if(gook && n[0]){
+          n[0]=n[0]-1
+
           if(Array.isArray(gook)){
               this.queue.push(gook)
               for(var i = 0; i<gook.length; i++){
-                  this.gobbledy(gook[i], n-1)
+                  this.gobbledy(gook[i], n)
               }
           }else if(typeof gook === 'object'){
               this.queue.push(gook)
@@ -20,7 +22,7 @@ export class Gobbledy{
 
               if(keys.length){
                 for(var i = 0; i<keys.length; i++){
-                    this.gobbledy(gook[keys[i]], n-1)
+                    this.gobbledy(gook[keys[i]], n)
                 }
               }
           }else{
@@ -73,5 +75,5 @@ var gook = [
     ]
   }
 ]
-var g = new Gobbledy(gook, 1)
+var g = new Gobbledy(gook, 2)
 g.log(g.queue)
