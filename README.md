@@ -83,7 +83,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      | arr |
      | obj |
      | arr | 
-      -----    
+     |     |   
      move sentinel to value at index 0
      
               [                                                                                                    ]   
@@ -98,7 +98,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      | arr |
      | obj |
      | arr | 
-      -----    
+     |     |    
       no where to move sentinel, return
 
               [                                                                                                    ]   
@@ -135,7 +135,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      | arr |
      | obj |
      | arr | 
-      -----    
+     |     |    
      move sentinel to value associated with key
       
                [                                                                                                  ]   
@@ -153,7 +153,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      | arr |
      | obj |
      | arr | 
-      -----    
+     |     |    
       move sentinel to first object in array
 
       
@@ -173,7 +173,8 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      | arr |
      | obj |
      | arr | 
-      -----    nothing to move sentinel to, return
+     |     |    
+     nothing to move sentinel to, return
       
     
             
@@ -193,7 +194,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      | arr |
      | obj |
      | arr |  nothing to move sentinel to, return
-      -----        
+     |     |    
         
  
                [                                                                                   (S)              ]   
@@ -212,7 +213,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      | arr |
      | obj |
      | arr |  nothing to move sentinel to, return
-      -----        
+     |     |    
         
                                                                                                          (S)
                 [                                                                                         |        ]   
@@ -231,7 +232,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      | arr |
      | obj |
      | arr |  recursive function moves sentinel to next item in array
-      -----        
+     |     |    
      
      
                                                                                       
@@ -253,7 +254,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      | arr |
      | obj |
      | arr |  
-      -----        
+     |     |    
       
      
      etc...
