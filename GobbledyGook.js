@@ -20,9 +20,7 @@ class Gobbledy{
             this.gobbledy(gook[keys[i]])
           }
         }
-
       }else{
-        //raw type
         this.queue.push(gook)
       }
     }
@@ -32,8 +30,8 @@ class Gobbledy{
   next(){
     return this.queue.shift()
   }
-
 }
+
 
 
 var gook = [
@@ -62,13 +60,13 @@ var gook = [
 ]
 
 var gg = new Gobbledy(gook)
-//console.log(gg.queue)
+console.log(gg.queue)
 
-while(true){
-  var next = gg.next()
-  if(next){
-    console.log(next)
-  }else{
-    break
-  }
-}
+// while(true){
+//   var next = gg.next()
+//   if(next){
+//     console.log(next)
+//   }else{
+//     break
+//   }
+// }
