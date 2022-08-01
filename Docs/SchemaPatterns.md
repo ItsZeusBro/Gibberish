@@ -115,4 +115,5 @@
         ___________________________________________________________            
 
       
+      Once this linked tree is constructed, while traversing grab the reference before steping down, once we step down, point it to null, continue validating
       
