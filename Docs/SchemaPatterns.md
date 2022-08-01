@@ -18,3 +18,407 @@
 #### What are the general utilities?
 1. Every n recursive steps (aka "schema step") is an array or object starting with level m, and if it does not follow this pattern it is because its a base case (aka "schema terminal"), otherwise the schema is invalid. In otherwords everything in schema from a vertical perspective must fit in one of two categories, a "schema step" or a "schema terminal" (isSchemaStep() and isSchemaTerminal() are evaluated from the level right after the previous schema step)
 2. Every schema step has i number of primitive recursive levels, so a lookahead function is needed in recursive validation algorithm to verify what is ahead of it. So at every recursive step we can use another recursive lookahead function on n number of levels that validates and comes right back for processing.
+
+### Pattern Schema Algorithm is built on the Base Recursive Algorithm
+
+
+
+
+
+
+                                                                                                          (B)
+                                                                                                           |                                       
+                                                                                                           |
+                                                                                                           v
+      [                                                                                                    ]   
+          {                   a:                  },  {                    a:                          }    
+              [                                  ]      [                                         ]         
+                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}                
+
+      Base Queue
+        | arr |<---push [obj,[obj]
+      |     |
+
+      Pattern Queue
+      |     |
+                                                                                                          (B)
+                                                                                                      (P)  |                                       
+                                                                                                       |   |
+                                                                                                       |   v
+      [                                                                                                v   ]   
+          {                   a:                  },  {                    a:                          }    
+              [                                  ]      [                                         ]         
+                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}                
+
+      | arr |
+      |     |
+
+
+                                                                                                          (B)
+                                                                          (P)                              |                                       
+                                                                           |                               |
+                                                                           |                               v
+      [                                                                    v                               ]   
+          {                   a:                  },  {                    a:                          }    
+              [                                  ]      [                                         ]         
+                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}                
+
+      | arr |
+      |     |
+
+
+                                                                                                          (B)
+                                                                                                           |                                       
+                                                                                                           |
+                                                                                                           v
+      [                                                                                                    ]   
+          {                   a:                  },  {                    a:                          }    
+              [                                  ]      [                                         ]         
+                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}                
+
+      | arr |
+      |     |
+      move sentinel to object at index 0
+
+
+                                                                                                        (B)
+                                                                                                         |
+                                                                                                         |
+                                                                                                         v
+        [                                                                                                    ]   
+            {                   a:                  },  {                    a:                          } 
+                [                                  ]      [                                         ]         
+                    {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+                      [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                        {}          {}                             1, {}            {}     {}                
+         | obj |<---push {'a':arr}
+       | arr | 
+       |     |                                                                                                         
+       move sentinel to value associated with first key returned from object
+                                                                          (B)
+                                                                           |
+                                                                           |   
+      [                                                                    v                              ]   
+          {                   a:                  },  {                    a:                          }    
+              [                                  ]      [                                         ]         
+                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}                
+
+
+
+         | arr |<---push [obj,obj]
+       | obj |
+       | arr | 
+       |     |  
+       move sentinel to object at index 0      
+
+                                                                     (S)       
+      [                                                                                    (B)              ]
+          {                   a:                  },  {                    a:               |          }
+              [                                  ]      [                                   v      ]
+                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }
+                    [   ]       [   ]                           [     ]         [   ]  [   ]
+                      {}          {}                             1, {}            {}     {}
+
+
+         | obj |<---push {'a':[{}], 'b':[{}]}
+       | arr |
+       | obj |
+       | arr | 
+       |     |    
+
+       move sentinel to value associated with first key returned from object  
+
+
+
+      [                                                                                (B)                 ]
+          {                   a:                  },  {                    a:           |              }
+              [                                  ]      [                               v          ]
+                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}             
+
+
+       | obj |<---push {'b':[{}]}           
+       | obj |
+       | arr |
+       | obj |
+       | arr | 
+       |     |    
+       move sentinel to value associated with first key returned from object 
+
+
+      [                                                                                                   ]
+          {                   a:                  },  {                    a:             (B)          }
+              [                                  ]      [                                  |       ]         
+                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b: v }             
+                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}             
+
+         | arr |<---push [{}]
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | arr | 
+       |     |   
+       move sentinel to value at index 0
+
+      [                                                                                                    ]
+          {                   a:                  },  {                    a:            (B)            }
+              [                                  ]      [                                 |       ]         
+                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:|  }             
+                    [   ]       [   ]                           [     ]         [   ]  [  v]                  
+                      {}          {}                             1, {}            {}     {}             
+         | obj |<---push {}
+       | arr |
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | arr | 
+       |     |    
+        no where to move sentinel, return
+
+      [                                                                                                    ]   
+          {                   a:                  },  {                    a:             (B)          }    
+              [                                  ]      [                                  |      ]         
+                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b: v  }             
+                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}             
+
+        no where to move sentinel, return
+
+
+       [                                                                                    (B)              ]   
+          {                   a:                  },  {                    a:                |         }    
+              [                                  ]      [                                    v     ]         
+                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:   }             
+                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}             
+
+        move sentinel to value associated with next key returned from object  
+
+
+       [                                                                        (B)                        ]   
+          {                   a:                  },  {                    a:    |                     }    
+              [                                  ]      [                        v                ]         
+                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}             
+
+         | obj |<---push {'a':[{}]}
+       | obj |
+       | arr |
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | arr | 
+       |     |    
+       move sentinel to value associated with key
+
+       [                                                                                                  ]   
+          {                   a:                  },  {                    a:       (B)                }    
+              [                                  ]      [                            |            ]         
+                  {   a:  },  {   b:  }                        {   a:  },    {   a:, v   b:  }             
+                    [   ]       [   ]                           [     ]         [    ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}             
+
+         | arr |<---push [{}]
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | arr | 
+       |     |    
+        move sentinel to first object in array
+
+
+       [                                                                                                    ]   
+            {                   a:                  },  {                    a:      (B)                 }    
+                [                                  ]      [                           |             ]         
+                    {   a:  },  {   b:  }                        {   a:  },    {   a:,|   b:  }             
+                      [   ]       [   ]                           [     ]         [   v]  [   ]                  
+                        {}          {}                             1, {}            {}     {}             
+
+         | obj |<---push {}
+       | arr |
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | arr | 
+       |     |    
+       nothing to move sentinel to, return
+
+
+
+      [                                                                                                   ]   
+          {                   a:                  },  {                    a:       (B)                }    
+              [                                  ]      [                            |            ]         
+                  {   a:  },  {   b:  }                        {   a:  },    {   a:, v  b:  }             
+                    [   ]       [   ]                           [     ]         [    ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}             
+
+       | obj |
+       | arr |
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | arr |  nothing to move sentinel to, return
+       |     |    
+
+
+       [                                                                                   (B)              ]   
+          {                   a:                  },  {                    a:               |          }    
+              [                                  ]      [                                   v     ]         
+                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+                    [   ]       [   ]                           [     ]         [    ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}             
+
+       | obj |
+       | arr |
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | arr |  nothing to move sentinel to, return
+       |     |    
+
+                                                                                               (B)
+      [                                                                                         |        ]   
+        {                   a:                  },  {                    a:                     v    }    
+            [                                  ]      [                                         ]         
+                {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+                  [   ]       [   ]                           [     ]         [    ]  [   ]                  
+                    {}          {}                             1, {}            {}     {}             
+
+       | obj |
+       | arr |
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | arr |  recursive function moves sentinel to next item in array
+       |     |    
+
+
+
+      [                                                             (B)                                  ]   
+        {                   a:                  },  {                |   a:                          }    
+            [                                  ]      [              v                          ]         
+                {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+                  [   ]       [   ]                           [     ]         [    ]  [   ]                  
+                    {}          {}                             1, {}            {}     {}             
+
+
+         | obj |<---push {'a':[1, {}]}
+       | obj |
+       | arr |
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | arr |  
+       |     |    
+
+
+
+      [                                                                                                 ]   
+        {                   a:                  },  {              (B)     a:                        }    
+            [                                  ]      [             |                           ]         
+                {   a:  },  {   b:  }                        {   a: v},    {   a:,    b:  }             
+                  [   ]       [   ]                           [     ]         [    ]  [   ]                  
+                    {}          {}                             1, {}            {}     {}             
+
+         | arr |<---push [1, {}]
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | arr |  
+       |     |    
+
+
+      [                                                                                                 ]   
+        {                   a:                  },  {             (B)     a:                        }    
+            [                                  ]      [            |                           ]         
+                {   a:  },  {   b:  }                        {   a:| },    {   a:,    b:  }             
+                  [   ]       [   ]                           [    v]         [    ]  [   ]                  
+                    {}          {}                             1, {}            {}     {}             
+         | obj |<---push {} 
+       | arr |
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | arr |  
+       |     |    
+
+
+
+      [                                                                                                 ]   
+        {                   a:                  },  {         (B)          a:                        }    
+            [                                  ]      [        |                               ]         
+                {   a:  },  {   b:  }                        { | a:  },    {   a:,    b:  }             
+                  [   ]       [   ]                           [v    ]         [    ]  [   ]                  
+                    {}          {}                             1, {}            {}     {}             
+         | int |<---push 1 
+       | obj |
+       | arr |
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | obj |
+       | arr |
+       | obj |
+       | arr |  
+       |     |    
+
+       etc...
+
