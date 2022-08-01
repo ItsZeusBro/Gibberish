@@ -54,9 +54,14 @@
                     [   ]       [   ]                           [     ]         [   ]  [   ]                  
                       {}          {}                             1, {}            {}     {}                
 
+      
+      Base Queue
       | arr |
       |     |
 
+      Pattern Queue
+        | obj |<---push {'a':arr}
+      |     |
 
                                                                                                           (B)
                                                                           (P)                              |                                       
@@ -69,10 +74,14 @@
                     [   ]       [   ]                           [     ]         [   ]  [   ]                  
                       {}          {}                             1, {}            {}     {}                
 
+      Base Queue
       | arr |
       |     |
 
-
+      Pattern Queue
+        | arr |<---push [obj,obj]
+      | obj |
+      |     |
                                                                                                           (B)
                                                                                                            |                                       
                                                                                                            |
@@ -83,43 +92,20 @@
                   {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
                     [   ]       [   ]                           [     ]         [   ]  [   ]                  
                       {}          {}                             1, {}            {}     {}                
-
+      Base Queue
       | arr |
       |     |
-      move sentinel to object at index 0
 
-
-                                                                                                        (B)
-                                                                                                         |
-                                                                                                         |
-                                                                                                         v
-        [                                                                                                    ]   
-            {                   a:                  },  {                    a:                          } 
-                [                                  ]      [                                         ]         
-                    {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                      [   ]       [   ]                           [     ]         [   ]  [   ]                  
-                        {}          {}                             1, {}            {}     {}                
-         | obj |<---push {'a':arr}
-       | arr | 
-       |     |                                                                                                         
-       move sentinel to value associated with first key returned from object
-                                                                          (B)
-                                                                           |
-                                                                           |   
-      [                                                                    v                              ]   
-          {                   a:                  },  {                    a:                          }    
-              [                                  ]      [                                         ]         
-                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
-                      {}          {}                             1, {}            {}     {}                
-
-
-
-         | arr |<---push [obj,obj]
-       | obj |
-       | arr | 
-       |     |  
-       move sentinel to object at index 0      
+      Pattern Queue
+      | arr |
+      | obj |
+      |     |
+      
+      At this step, the Base Recursive algorithm obtains the lookahead queue, validates the current step, and then saves the pattern queue
+      into a schema queue. Then it clears the pattern queue. Then recursion steps ahead to the end of the pattern queue and begins recursing
+      from there.
+      
+ 
 
                                                                      (S)       
       [                                                                                    (B)              ]
@@ -131,8 +117,6 @@
 
 
          | obj |<---push {'a':[{}], 'b':[{}]}
-       | arr |
-       | obj |
        | arr | 
        |     |    
 
