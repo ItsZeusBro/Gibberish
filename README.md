@@ -101,8 +101,23 @@ move sentinel to object at index 0
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:| }             
                             [   ]       [   ]                           [     ]         [   ]  [  v]                  
                               {}          {}                             1, {}            {}     {}             
-     | obj |<---push {'null':{}}
+       | obj |<---push {'null':{}}
      | arr |
+     | obj |
+     | arr |
+     | obj |
+     | arr | 
+      -----    
+      
+
+              [                                                                                                    ]   
+                  {                   a:                  },  {                    a:             (S)          }    
+                      [                                  ]      [                                  |      ]         
+                          {   a:  },  {   b:  }                        {   a:  },    {   a:,    b: v}             
+                            [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                              {}          {}                             1, {}            {}     {}             
+     | obj |
+     | arr |<---move sentinel to check if anything to iterate on (nothing to iterate on)
      | obj |
      | arr |
      | obj |
@@ -110,3 +125,60 @@ move sentinel to object at index 0
       -----    
      
      
+               [                                                                                   (S)              ]   
+                  {                   a:                  },  {                    a:               |         }    
+                      [                                  ]      [                                   v     ]         
+                          {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+                            [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                              {}          {}                             1, {}            {}     {}             
+     | obj |<---(SECOND) push {'a':{'a':arr, 'b':arr}}
+     | obj |
+     | arr |
+     | obj |<---(FIRST) move sentinel to check if anything to iterate on (a new key was found, set sentinel to new key at obj)
+     | arr |
+     | obj |
+     | arr | 
+      -----    
+      move sentinel to value associated with next key returned from object  
+
+      
+                 [                                                                      (S)                        ]   
+                  {                   a:                  },  {                    a:    |                     }    
+                      [                                  ]      [                        v                ]         
+                          {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+                            [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                              {}          {}                             1, {}            {}     {}             
+      
+       | arr |<---push {'0':[obj]}
+     | obj |
+     | obj |
+     | arr |
+     | obj |
+     | arr |
+     | obj |
+     | arr | 
+      -----    
+     move sentinel to index 0 of arr because its an array
+      
+                 [                                                                                                 ]   
+                  {                   a:                  },  {                    a:       (S)                }    
+                      [                                  ]      [                            |            ]         
+                          {   a:  },  {   b:  }                        {   a:  },    {   a:, v  b:  }             
+                            [   ]       [   ]                           [     ]         [    ]  [   ]                  
+                              {}          {}                             1, {}            {}     {}             
+      
+       | obj |<---push {'null':{}}
+     | arr |
+     | obj |
+     | obj |
+     | arr |
+     | obj |
+     | arr |
+     | obj |
+     | arr | 
+      -----    
+      
+      
+      
+ 
+      
