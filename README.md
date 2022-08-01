@@ -18,7 +18,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
 
        | arr |<---push [obj,[obj]
        |     |
-move sentinel to object at index 0
+    move sentinel to object at index 0
 
 
                                                                                         (S)
