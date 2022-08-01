@@ -21,13 +21,13 @@ We basically want to return values with n number of levels for each next() opera
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}                
-        |'div'|<---push 'div'
+
        | arr |<---push [obj, obj]
       -----
                                                                                                               (S)
                                                                                                                |
                                                                                                                |   
-              [                                                                                                v   ]   
+              [                                                                                                v    ]   
                   {                   a:                  },  {                    a:                          }    
                       [                                  ]      [                                         ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
@@ -35,74 +35,67 @@ We basically want to return values with n number of levels for each next() opera
                               {}          {}                             1, {}            {}     {}                
 
 
-      | obj |<---push {a:[{a:arr}, {a:arr, b:arr}]}
-     |'div'|
+      | obj |<---push {a:arr}
      | arr | 
       -----                                                                                                         
                                                                                                                 
-              
-              
-              [                                                                                                    ]   
-                  {                   a:                  },  {                    a:                          }    
+                                                                                                         (S)
+                                                                                                          |
+              [                                                                                           |        ]   
+                  {                   a:                  },  {                    a:                     v    }    
                       [                                  ]      [                                         ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}             
-
+       
       | arr |<---push [obj, obj]
      | obj |
-     |'div'|
      | arr | 
       -----  
       
       
-      
-              [                                                                                                    ]   
-                  {                   a:                  },  {                    a:                          }    
-                      [                                  ]      [                                         ]         
+                                                                                                   (S)
+              [                                                                                     |              ]   
+                  {                   a:                  },  {                    a:               |          }    
+                      [                                  ]      [                                   v      ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}             
         
       the div lets us know that we are pushing one of many items at the current level
-       |'div'|<---push 'div'
-      | obj |<---push {'b':[{}]}
+       
+      | obj |<---push {'a':arr, b':arr}
      | arr |
      | obj |
-     |'div'|
      | arr | 
       -----    
       
-              [                                                                                                    ]   
-                  {                   a:                  },  {                    a:                          }    
-                      [                                  ]      [                                         ]         
-                          {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+              [                                                                                   (S)               ]   
+                  {                   a:                  },  {                    a:              |           }    
+                      [                                  ]      [                                  |      ]         
+                          {   a:  },  {   b:  }                        {   a:  },    {   a:,    b: v}             
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}             
         
-      | arr |<---push [{}]
-     |'div'|
+      | arr |<---push [obj]
      | obj |
      | arr |
      | obj |
-     |'div'|
      | arr | 
       -----    
       
      
               [                                                                                                    ]   
-                  {                   a:                  },  {                    a:                          }    
-                      [                                  ]      [                                         ]         
-                          {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                            [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                  {                   a:                  },  {                    a:            (S)            }    
+                      [                                  ]      [                                 |       ]         
+                          {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:| }             
+                            [   ]       [   ]                           [     ]         [   ]  [  v]                  
                               {}          {}                             1, {}            {}     {}             
-     | obj |<---push {}
-     | arr |
-     |'div'|
-     | obj |
+     | obj |<---push {null}
      | arr |
      | obj |
-     |'div'|
+     | arr |
+     | obj |
      | arr | 
       -----    
       
