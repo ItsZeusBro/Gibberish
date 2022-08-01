@@ -161,10 +161,10 @@ move sentinel to object at index 0
      move sentinel to index 0 of arr because its an array
       
                  [                                                                                                 ]   
-                  {                   a:                  },  {                    a:       (S)                }    
-                      [                                  ]      [                            |            ]         
-                          {   a:  },  {   b:  }                        {   a:  },    {   a:, v  b:  }             
-                            [   ]       [   ]                           [     ]         [    ]  [   ]                  
+                  {                   a:                  },  {                    a:      (S)                 }    
+                      [                                  ]      [                           |             ]         
+                          {   a:  },  {   b:  }                        {   a:  },    {   a:,|   b:  }             
+                            [   ]       [   ]                           [     ]         [   v]  [   ]                  
                               {}          {}                             1, {}            {}     {}             
       
        | obj |<---push {'null':{}}
