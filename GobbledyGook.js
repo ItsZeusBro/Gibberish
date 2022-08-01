@@ -2,40 +2,40 @@ import * as util from "node:util"
 
 export class Gobbledy{
   
-  constructor(gook, n=[Infinity]){
-    this.queue=[gook]
-    this.gobbledy(gook, [n])
+  constructor(gook){
+    this.rawQ=[]
+    this.gobbledy(gook)
   } 
 
   gobbledy(gook, n){
-      if(gook && n[0]){
+      this.rawQ.push(gook)
+      if(gook){
           //what is the condition to push to the queue? this.queue.push(gook)
           if(Array.isArray(gook)){
-              n[0]=n[0]-1              //THIS MUST STAY HERE FOR VARIOUS REASONS
               for(var i = 0; i<gook.length; i++){
-                  this.gobbledy(gook[i], n)
+                  this.gobbledy(gook[i])
               }
           }else if(typeof gook === 'object'){
-              n[0]=n[0]-1              //THIS MUST STAY HERE FOR VARIOUS REASONS
               var keys = Object.keys(gook)
-
               if(keys.length){
                 for(var i = 0; i<keys.length; i++){
-                    this.gobbledy(gook[keys[i]], n)
+                    this.gobbledy(gook[keys[i]])
                 }
               }
           }
-
-      }else{
-        this.queue.push(gook)
       }
     return
+  }
+
+  itercursion(){
+    //performs schema analysis on this.rawQ
+    //we need to reform the queue to create full schema paths
   }
 
   next(n){
     var q = []
     for(var i=0; i<n; i++){
-        q.push(this.queue.shift())
+        q.push(this.rawQ.shift())
     }
     return q
   }
@@ -75,5 +75,5 @@ var gook = [
     ]
   }
 ]
-var g = new Gobbledy(gook, 4)
-g.log(g.queue)
+var g = new Gobbledy(gook)
+g.log(g.rawQ)
