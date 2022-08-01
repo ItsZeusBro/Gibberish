@@ -4,11 +4,10 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
 
 
 ## Itercursion
-One of the methods used by Gobbledy Gook is something I call "intercursion". It's basically the same logic recursion and iteration use, without actually calling the function recursively, and without incrementing any index value. It recurses and iterates in place using a stack which gives us more control and flexibility. 
+One of the methods used by Gobbledy Gook is something I call "intercursion". It's basically the same logic recursion and iteration use, without actually calling the function recursively, and without incrementing any index value. It recurses and iterates in place using a queue which gives us more control and flexibility. 
 
-Itercursion uses a sentinal value, and a reference stack. 
+Itercursion uses a sentinal value, and a reference queue 
 
-We basically want to return values with n number of levels for each next() operation, depending on the needs from your schema. Also what comes after n levels is just a description of the types and not the actual values.
 
 
                                                                                                                   (S)
@@ -22,12 +21,30 @@ We basically want to return values with n number of levels for each next() opera
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}                
 
-       | arr |<---push [obj, obj]
-      -----
-                                                                                                              (S)
-                                                                                                               |
-                                                                                                               |   
-              [                                                                                                v    ]   
+       | arr |<---push [obj,obj]
+       |     |
+move sentinel to object at index 0
+
+
+
+                                                                                        (S)
+                                                                                         |                                       
+                                                                                         |
+                                                                                         v
+              [                                                                                                    ]   
+                  {                   a:                  },  {                    a:                          }    
+                      [                                  ]      [                                         ]         
+                          {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+                            [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                              {}          {}                             1, {}            {}     {}                
+      | obj |<---push {a:arr}
+     | arr | 
+     |     |                                                                                                         
+     move sentinel to value associated with first key returned from object
+                                                                                  (S)
+                                                                                   |
+                                                                                   |   
+              [                                                                    v                              ]   
                   {                   a:                  },  {                    a:                          }    
                       [                                  ]      [                                         ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
@@ -35,45 +52,38 @@ We basically want to return values with n number of levels for each next() opera
                               {}          {}                             1, {}            {}     {}                
 
 
-      | obj |<---push {a:arr}
-     | arr | 
-      -----                                                                                                         
-                                                                                                                
-                                                                                                         (S)
-                                                                                                          |
-              [                                                                                           |        ]   
-                  {                   a:                  },  {                    a:                     v    }    
-                      [                                  ]      [                                         ]         
-                          {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                            [   ]       [   ]                           [     ]         [   ]  [   ]                  
-                              {}          {}                             1, {}            {}     {}             
-       
-      | arr |<---push [obj, obj]
+      
+      | arr |<---push copy [obj, obj}]
      | obj |
      | arr | 
-      -----  
+     |     |  
+     move sentinel to object at index 0      
       
-      
-                                                                                                   (S)
+                                                                                                         
+                                                                                                   (S)       
               [                                                                                     |              ]   
                   {                   a:                  },  {                    a:               |          }    
-                      [                                  ]      [                                   v      ]         
+                      [                                  ]      [                                   v     ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}             
-        
-      the div lets us know that we are pushing one of many items at the current level
        
-      | obj |<---push {'a':arr, b':arr}
+
+                
+      | obj |<---push {arr, arr}
      | arr |
      | obj |
      | arr | 
-      -----    
+     |     |    
+     move sentinel to value associated with first key returned from object  
+    
+        
       
-              [                                                                                   (S)               ]   
-                  {                   a:                  },  {                    a:              |           }    
-                      [                                  ]      [                                  |      ]         
-                          {   a:  },  {   b:  }                        {   a:  },    {   a:,    b: v}             
+      
+              [                                                                                (S)                 ]   
+                  {                   a:                  },  {                    a:           |              }    
+                      [                                  ]      [                               v         ]         
+                          {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}             
         
@@ -83,7 +93,7 @@ We basically want to return values with n number of levels for each next() opera
      | obj |
      | arr | 
       -----    
-      
+     move sentinel to index 0 of arr because its an array
      
               [                                                                                                    ]   
                   {                   a:                  },  {                    a:            (S)            }    
@@ -98,7 +108,4 @@ We basically want to return values with n number of levels for each next() opera
      | obj |
      | arr | 
       -----    
-      
      
-     
- 
