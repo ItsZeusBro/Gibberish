@@ -83,8 +83,8 @@
       |  [{'a'}, {'a','b'}]  |<---push 
       |       {'a':arr}      | 
       |                      |
-                                                                                                           B
-                                                                                                           |                                       
+                                                                                                           
+                                                                                                           B                                      
                                                                                                            |
                                                                                                            v
       [                                                                                                    ]   
@@ -111,301 +111,444 @@
       
       
 
-                                                                                            B
-      [                                                                                     |             ]
-          {                   a:                  },  {                    a:               |          }
-              [                                  ]      [                                   v      ]
-                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }
+                                                                                            
+      [                                                                                      B             ]
+          {                   a:                  },  {                    a:                |         }
+              [                                  ]      [                                    v     ]
+                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:   }
                     [   ]       [   ]                           [     ]         [   ]  [   ]
                       {}          {}                             1, {}            {}     {}
 
 
             Base Queue
+      |      {'a','b'}       |
       |     [obj,[obj]       | 
       |                      |   
 
+            Pattern Queue
+      |                      |
+                                 
 
-
-      [                                                                                (S)                 ]
-          {                   a:                  },  {                    a:           |              }
-              [                                  ]      [                               v          ]
-                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
-                      {}          {}                             1, {}            {}     {}             
-
-
-       | obj |<---push {'b':[{}]}           
-       | obj |
-       | arr |
-       | obj |
-       | arr | 
-       |     |    
-       move sentinel to value associated with first key returned from object 
-
-
-      [                                                                                                   ]
-          {                   a:                  },  {                    a:             (S)          }
-              [                                  ]      [                                  |       ]         
-                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b: v }             
-                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
-                      {}          {}                             1, {}            {}     {}             
-
-         | arr |<---push [{}]
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | arr | 
-       |     |   
-       move sentinel to value at index 0
-
-      [                                                                                                    ]
-          {                   a:                  },  {                    a:            (S)            }
-              [                                  ]      [                                 |       ]         
-                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:|  }             
-                    [   ]       [   ]                           [     ]         [   ]  [  v]                  
-                      {}          {}                             1, {}            {}     {}             
-         | obj |<---push {}
-       | arr |
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | arr | 
-       |     |    
-        no where to move sentinel, return
-
-      [                                                                                                    ]   
-          {                   a:                  },  {                    a:             (S)          }    
-              [                                  ]      [                                  |      ]         
-                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b: v  }             
-                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
-                      {}          {}                             1, {}            {}     {}             
-
-        no where to move sentinel, return
-
-
-       [                                                                                    (S)              ]   
-          {                   a:                  },  {                    a:                |         }    
-              [                                  ]      [                                    v     ]         
+      [                                                                                  P   B            ]
+          {                   a:                  },  {                    a:            |   |        }
+              [                                  ]      [                                v   v    ]
                   {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:   }             
                     [   ]       [   ]                           [     ]         [   ]  [   ]                  
                       {}          {}                             1, {}            {}     {}             
 
-        move sentinel to value associated with next key returned from object  
+            Base Queue
+      |                      |
+      |      {'a','b'}       |
+      |     [obj,[obj]       | 
+      |                      |   
 
+            Pattern Queue
+      |        [{}]          |<---push
+      |                      |
+      
 
-       [                                                                        (S)                        ]   
-          {                   a:                  },  {                    a:    |                     }    
-              [                                  ]      [                        v                ]         
-                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+      [                                                                                      B            ]
+          {                   a:                  },  {                    a:                |        }
+              [                                  ]      [                                 P  v    ]
+                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:|  }             
+                    [   ]       [   ]                           [     ]         [   ]  [  v]                  
+                      {}          {}                             1, {}            {}     {}             
+
+       
+            Base Queue
+      |                      |
+      |       {'a','b'}      |
+      |      [obj,[obj]      | 
+      |                      |   
+
+            Pattern Queue
+      |         {}           |
+      |        [{}]          |
+      |                      |  
+       
+       
+       
+       [                                                                                      B            ]
+          {                   a:                 },  {                    a:                  |        }
+              [                              ]          [                                     v    ]
+                  {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }             
                     [   ]       [   ]                           [     ]         [   ]  [   ]                  
                       {}          {}                             1, {}            {}     {}             
 
-         | obj |<---push {'a':[{}]}
-       | obj |
-       | arr |
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | arr | 
-       |     |    
-       move sentinel to value associated with key
+       
+            Base Queue
+      |                      |
+      |       {'a','b'}      |
+      |      [obj,[obj]      | 
+      |                      |   
 
-       [                                                                                                  ]   
-          {                   a:                  },  {                    a:       (S)                }    
-              [                                  ]      [                            |            ]         
-                  {   a:  },  {   b:  }                        {   a:  },    {   a:, v   b:  }             
-                    [   ]       [   ]                           [     ]         [    ]  [   ]                  
+            Pattern Queue
+      |         {}           |
+      |        [{}]          |
+      |                      |  
+       
+
+      At this step, the Base Recursive algorithm obtains the lookahead queue, validates the current step, and then saves the pattern queue
+      into a schema queue. Then it clears the pattern queue. Then recursion steps ahead to the end of the pattern queue and begins recursing
+      from there.
+
+
+
+    [                                                                                    B                 ]
+          {                   a:                 },  {                    a:             |             }
+              [                              ]          [                                v         ]
+                  {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }             
+                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
                       {}          {}                             1, {}            {}     {}             
 
-         | arr |<---push [{}]
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | arr | 
-       |     |    
-        move sentinel to first object in array
+       
+            Base Queue
+      |                      |
+      |       {'a','b'}      |
+      |      [obj,[obj]      | 
+      |                      |   
 
+            Pattern Queue
 
-       [                                                                                                    ]   
-            {                   a:                  },  {                    a:      (S)                 }    
-                [                                  ]      [                           |             ]         
-                    {   a:  },  {   b:  }                        {   a:  },    {   a:,|   b:  }             
-                      [   ]       [   ]                           [     ]         [   v]  [   ]                  
-                        {}          {}                             1, {}            {}     {}             
+      |                      |  
+       
 
-         | obj |<---push {}
-       | arr |
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | arr | 
-       |     |    
-       nothing to move sentinel to, return
-
-
-
-      [                                                                                                   ]   
-          {                   a:                  },  {                    a:       (S)                }    
-              [                                  ]      [                            |            ]         
-                  {   a:  },  {   b:  }                        {   a:  },    {   a:, v  b:  }             
-                    [   ]       [   ]                           [     ]         [    ]  [   ]                  
+      Nothing gets pushed to the queue, because we are returning from the base case.
+      
+      
+      [                                                                                       B              ]
+          {                   a:                 },  {                    a:                  |        }
+              [                              ]          [                                     v    ]
+                  {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }             
+                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
                       {}          {}                             1, {}            {}     {}             
 
-       | obj |
-       | arr |
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | arr |  nothing to move sentinel to, return
-       |     |    
+       
+            Base Queue
+      |                      |
+      |       {'a','b'}      |
+      |      [obj,[obj]      | 
+      |                      |   
 
+            Pattern Queue
 
-       [                                                                                   (S)              ]   
-          {                   a:                  },  {                    a:               |          }    
-              [                                  ]      [                                   v     ]         
-                  {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                    [   ]       [   ]                           [     ]         [    ]  [   ]                  
+      |                      |  
+       
+
+      Nothing gets pushed to the queue, because we are returning from the base case.
+      
+      
+     
+      [                                                                           P           B              ]
+          {                   a:                 },  {                    a:      |           |        }
+              [                              ]          [                         v           v   ]
+                  {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }             
+                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
                       {}          {}                             1, {}            {}     {}             
 
-       | obj |
-       | arr |
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | arr |  nothing to move sentinel to, return
-       |     |    
+       
+            Base Queue
 
-                                                                                               (S)
-      [                                                                                         |        ]   
-        {                   a:                  },  {                    a:                     v    }    
-            [                                  ]      [                                         ]         
-                {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                  [   ]       [   ]                           [     ]         [    ]  [   ]                  
-                    {}          {}                             1, {}            {}     {}             
+      |       {'a','b'}      |
+      |      [obj,[obj]      | 
+      |                      |   
 
-       | obj |
-       | arr |
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | arr |  recursive function moves sentinel to next item in array
-       |     |    
+            Pattern Queue
 
+      |         [{}]         |
+             
+      
+      [                                                                                       B              ]
+          {                   a:                 },  {                    a:     P            |        }
+              [                              ]          [                        |            v   ]
+                  {   a:  },  {   b:  }                       {    a:   },    {  |a:,    b:   }             
+                    [   ]       [   ]                           [     ]         [v  ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}             
 
+       
+            Base Queue
 
-      [                                                             (S)                                  ]   
-        {                   a:                  },  {                |   a:                          }    
-            [                                  ]      [              v                          ]         
-                {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                  [   ]       [   ]                           [     ]         [    ]  [   ]                  
-                    {}          {}                             1, {}            {}     {}             
+      |       {'a','b'}      |
+      |      [obj,[obj]      | 
+      |                      |   
 
+            Pattern Queue
+      |          {}          |
+      |         [{}]         |
+    
+      
+      [                                                                           B                         ]
+          {                   a:                 },  {                    a:      |                   }
+              [                              ]          [                         v               ]
+                  {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }             
+                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}             
 
-         | obj |<---push {'a':[1, {}]}
-       | obj |
-       | arr |
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | arr |  
-       |     |    
+       
+            Base Queue
 
+      |       {'a','b'}      |
+      |      [obj,[obj]      | 
+      |                      |   
 
+            Pattern Queue
+      |                      |
+      
+      Base case is just returning from the step after the base case was found by the Pattern pointer
+      
+      
+      [                                                                                       B            ]
+          {                   a:                 },  {                    a:                  |       }
+              [                              ]          [                                     v   ]
+                  {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }             
+                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}             
 
-      [                                                                                                 ]   
-        {                   a:                  },  {              (S)     a:                        }    
-            [                                  ]      [             |                           ]         
-                {   a:  },  {   b:  }                        {   a: v},    {   a:,    b:  }             
-                  [   ]       [   ]                           [     ]         [    ]  [   ]                  
-                    {}          {}                             1, {}            {}     {}             
+       
+            Base Queue
 
-         | arr |<---push [1, {}]
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | arr |  
-       |     |    
+      |       {'a','b'}      |
+      |      [obj,[obj]      | 
+      |                      |   
 
+            Pattern Queue
+      |                      |
+      
+      
+      
+      Base case is just returning from the step after the base case was found by the Pattern pointer
+      
+                                                                                                  B
+      [                                                                                           |        ]
+          {                   a:                 },  {                    a:                      v   }
+              [                              ]          [                                         ]
+                  {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }             
+                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}             
 
-      [                                                                                                 ]   
-        {                   a:                  },  {             (S)     a:                        }    
-            [                                  ]      [            |                           ]         
-                {   a:  },  {   b:  }                        {   a:| },    {   a:,    b:  }             
-                  [   ]       [   ]                           [    v]         [    ]  [   ]                  
-                    {}          {}                             1, {}            {}     {}             
-         | obj |<---push {} 
-       | arr |
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | arr |  
-       |     |    
+       
+            Base Queue
+
+      |       {'a','b'}      |
+      |      [obj,[obj]      | 
+      |                      |   
+
+            Pattern Queue
+      |                      |
+      
+      Base case is just returning from the step after there was nothing to iterate on in the lower step
 
 
+                                                                                                   
+      [                                                       B                                            ]
+          {                   a:                 },  {        |           a:                          }
+              [                              ]          [     v                                   ]
+                  {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }             
+                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}             
 
-      [                                                                                                 ]   
-        {                   a:                  },  {         (S)          a:                        }    
-            [                                  ]      [        |                               ]         
-                {   a:  },  {   b:  }                        { | a:  },    {   a:,    b:  }             
-                  [   ]       [   ]                           [v    ]         [    ]  [   ]                  
-                    {}          {}                             1, {}            {}     {}             
-         | int |<---push 1 
-       | obj |
-       | arr |
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | obj |
-       | arr |
-       | obj |
-       | arr |  
-       |     |    
+       
+            Base Queue
 
-       etc...
+      |         {'a'}        |<---push
+      |       {'a','b'}      |
+      |      [obj,[obj]      | 
+      |                      |   
+
+            Pattern Queue
+      |                      |
+      
+                
+                
+                
+      [                                                       B    P                                       ]
+          {                   a:                 },  {        |    |      a:                          }
+              [                              ]          [     v    v                              ]
+                  {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }             
+                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}             
+
+       
+            Base Queue
+
+      |         {'a'}        |
+      |       {'a','b'}      |
+      |      [obj,[obj]      | 
+      |                      |   
+
+            Pattern Queue
+      |        [1, {}]       |
+      |                      |
+      
+      
+                
+      [                                                       B                                            ]
+          {                   a:                 },  {        |           a:                          }
+              [                              ]          [     v      P                            ]
+                  {   a:  },  {   b:  }                       {    a:|  },    {   a:,    b:   }             
+                    [   ]       [   ]                           [    v]         [   ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}             
+
+       
+            Base Queue
+
+      |         {'a'}        |
+      |       {'a','b'}      |
+      |      [obj,[obj]      | 
+      |                      |   
+
+            Pattern Queue
+      |          {}          | 
+      |        [1, {}]       |
+      |                      |
+      
+      
+      [                                                            B                                       ]
+          {                   a:                 },  {             |       a:                          }
+              [                              ]          [          v                              ]
+                  {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }             
+                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}             
+
+       
+            Base Queue
+
+      |         {'a'}        |
+      |       {'a','b'}      |
+      |      [obj,[obj]      | 
+      |                      |   
+
+            Pattern Queue
+      |          {}          | 
+      |        [1, {}]       |
+      |                      |
+      
+      
+      [                                                                                                    ]
+          {                   a:                 },  {                     a:                          }
+              [                              ]          [        B                                ]
+                  {   a:  },  {   b:  }                       {  | a:   },    {   a:,    b:   }             
+                    [   ]       [   ]                           [v    ]         [   ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}             
+
+       
+            Base Queue
+
+      |           1          |<---push
+      |         {'a'}        |
+      |       {'a','b'}      |
+      |      [obj,[obj]      | 
+      |                      |   
+
+            Pattern Queue
+      |                      |
+      
+      
+      
+      [                                                            B                                       ]
+          {                   a:                 },  {             |       a:                          }
+              [                              ]          [          v                              ]
+                  {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }             
+                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                      {}          {}                             1, {}            {}     {}             
+
+       
+            Base Queue
+
+      |           1          |
+      |         {'a'}        |
+      |       {'a','b'}      |
+      |      [obj,[obj]      | 
+      |                      |   
+
+            Pattern Queue
+      |                      |
+      
+                                                                                                      B
+      [                                                                                               |        ]
+            {                   a:                 },   {                     a:                      v   }
+                  [                              ]          [                                         ]
+                      {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }             
+                        [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                          {}          {}                             1, {}            {}     {}             
 
 
+            Base Queue
+
+      |           1          |
+      |         {'a'}        |
+      |       {'a','b'}      |
+      |      [obj,[obj]      | 
+      |                      |   
+
+            Pattern Queue
+      |                      |
+      
+                                                                                                          B
+                                                                                                          |
+      [                                                                                                   v    ]
+            {                   a:                 },   {                     a:                          }
+                  [                              ]          [                                         ]
+                      {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }             
+                        [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                          {}          {}                             1, {}            {}     {}             
+
+
+            Base Queue
+
+      |           1          |
+      |         {'a'}        |
+      |       {'a','b'}      |
+      |      [obj,[obj]      | 
+      |                      |   
+
+            Pattern Queue
+      |                      |
+      
+                                                                                                              B 
+                                                                                                              |
+                                                                                                              v
+      [                                                                                                       ]
+            {                   a:                 },   {                     a:                          }
+                  [                              ]          [                                         ]
+                      {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }             
+                        [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                          {}          {}                             1, {}            {}     {}             
+
+
+            Base Queue
+
+      |           1          |
+      |         {'a'}        |
+      |       {'a','b'}      |
+      |      [obj,[obj]      | 
+      |                      |   
+
+            Pattern Queue
+      |                      |
+      
+      
+                                                   B 
+                                                   |
+                                                   |
+      [                                            v                                                           ]
+            {                   a:                 },   {                     a:                          }
+                  [                              ]          [                                         ]
+                      {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }             
+                        [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                          {}          {}                             1, {}            {}     {}             
+
+
+            Base Queue
+            
+      |         {'a'}        |
+      |           1          |
+      |         {'a'}        |
+      |       {'a','b'}      |
+      |      [obj,[obj]      | 
+      |                      |   
+
+            Pattern Queue
+      |                      |
+      
+      etc....
