@@ -22,11 +22,11 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
 
 
                                                                                                               (S)
-                                                                                                               |                                       
+                                                                                                               |
                                                                                                                |
                                                                                                                v
               [                                                                                                    ]   
-                  {                   a:                  },  {                    a:                          }    
+                  {                   a:                  },  {                    a:                          } 
                       [                                  ]      [                                         ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
@@ -54,13 +54,12 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      move sentinel to object at index 0      
       
                                                                              (S)       
-              [                                                                                    (S)              ]   
-                  {                   a:                  },  {                    a:               |          }    
-                      [                                  ]      [                                   v      ]         
-                          {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                            [   ]       [   ]                           [     ]         [   ]  [   ]                  
-                              {}          {}                             1, {}            {}     {}             
-       
+              [                                                                                    (S)              ]
+                  {                   a:                  },  {                    a:               |          }
+                      [                                  ]      [                                   v      ]
+                          {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }
+                            [   ]       [   ]                           [     ]         [   ]  [   ]
+                              {}          {}                             1, {}            {}     {}
 
                 
        | obj |<---push {'a':[{}], 'b':[{}]}
@@ -72,10 +71,10 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      move sentinel to value associated with first key returned from object  
      
      
-                                                                                  (S)       
-              [                                                                                (S)                 ]   
-                  {                   a:                  },  {                    a:           |              }    
-                      [                                  ]      [                               v          ]         
+                                                                     
+              [                                                                                (S)                 ]
+                  {                   a:                  },  {                    a:           |              }
+                      [                                  ]      [                               v          ]
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}             
@@ -90,8 +89,8 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      move sentinel to value associated with first key returned from object 
     
     
-              [                                                                                                   ]   
-                  {                   a:                  },  {                    a:             (S)          }    
+              [                                                                                                   ]
+                  {                   a:                  },  {                    a:             (S)          }
                       [                                  ]      [                                  |       ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b: v }             
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
@@ -106,8 +105,8 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      |     |   
      move sentinel to value at index 0
      
-              [                                                                                                    ]   
-                  {                   a:                  },  {                    a:            (S)            }    
+              [                                                                                                    ]
+                  {                   a:                  },  {                    a:            (S)            }
                       [                                  ]      [                                 |       ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:|  }             
                             [   ]       [   ]                           [     ]         [   ]  [  v]                  
