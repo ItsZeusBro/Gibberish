@@ -256,6 +256,71 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      | arr |  
      |     |    
       
+ 
+                                                                                       
+                [                                                                                                 ]   
+                  {                   a:                  },  {              (S)     a:                        }    
+                      [                                  ]      [             |                           ]         
+                          {   a:  },  {   b:  }                        {   a: v},    {   a:,    b:  }             
+                            [   ]       [   ]                           [     ]         [    ]  [   ]                  
+                              {}          {}                             1, {}            {}     {}             
+      
+     | arr |<---push [1, {}]
+     | obj |
+     | obj |
+     | arr |
+     | obj |
+     | obj |
+     | arr |
+     | obj |
+     | arr |
+     | obj |
+     | arr |  
+     |     |    
      
+     
+                [                                                                                                 ]   
+                  {                   a:                  },  {             (S)     a:                        }    
+                      [                                  ]      [            |                           ]         
+                          {   a:  },  {   b:  }                        {   a:| },    {   a:,    b:  }             
+                            [   ]       [   ]                           [    v]         [    ]  [   ]                  
+                              {}          {}                             1, {}            {}     {}             
+        | obj |<---push {} 
+     | arr |
+     | obj |
+     | obj |
+     | arr |
+     | obj |
+     | obj |
+     | arr |
+     | obj |
+     | arr |
+     | obj |
+     | arr |  
+     |     |    
+     
+
+     
+                [                                                                                                 ]   
+                  {                   a:                  },  {         (S)          a:                        }    
+                      [                                  ]      [        |                               ]         
+                          {   a:  },  {   b:  }                        { | a:  },    {   a:,    b:  }             
+                            [   ]       [   ]                           [v    ]         [    ]  [   ]                  
+                              {}          {}                             1, {}            {}     {}             
+     | int |<---push 1 
+     | obj |
+     | arr |
+     | obj |
+     | obj |
+     | arr |
+     | obj |
+     | obj |
+     | arr |
+     | obj |
+     | arr |
+     | obj |
+     | arr |  
+     |     |    
+      
      etc...
       
