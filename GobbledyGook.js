@@ -3,21 +3,22 @@ import * as util from "node:util"
 export class Gobbledy{
   
   constructor(gook, n=[Infinity]){
-    this.queue=[]
+    this.queue=[gook]
     this.gobbledy(gook, [n])
   } 
 
   gobbledy(gook, n){
       if(gook && n[0]){
+          //it passes the gate then decrements (so dont mess with it)
           n[0]=n[0]-1
 
+          //what is the condition to push to the queue? this.queue.push(gook)
+
           if(Array.isArray(gook)){
-              this.queue.push(gook)
               for(var i = 0; i<gook.length; i++){
                   this.gobbledy(gook[i], n)
               }
           }else if(typeof gook === 'object'){
-              this.queue.push(gook)
               var keys = Object.keys(gook)
 
               if(keys.length){
@@ -25,9 +26,9 @@ export class Gobbledy{
                     this.gobbledy(gook[keys[i]], n)
                 }
               }
-          }else{
-              this.queue.push(gook)
           }
+      }else{
+        this.queue.push(gook)
       }
     return
   }
@@ -75,5 +76,5 @@ var gook = [
     ]
   }
 ]
-var g = new Gobbledy(gook, 2)
+var g = new Gobbledy(gook, 4)
 g.log(g.queue)
