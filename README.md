@@ -21,7 +21,7 @@ Itercursion uses a sentinal value, and a reference queue
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}                
 
-       | arr |<---push [obj,obj]
+       | arr |<---push {'0':[obj,obj]}
        |     |
 move sentinel to object at index 0
 
@@ -37,7 +37,7 @@ move sentinel to object at index 0
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}                
-      | obj |<---push {a:arr}
+      | obj |<---push {'a':{'a':arr}}
      | arr | 
      |     |                                                                                                         
      move sentinel to value associated with first key returned from object
@@ -53,7 +53,7 @@ move sentinel to object at index 0
 
 
       
-      | arr |<---push copy [obj, obj}]
+      | arr |<---push {'0':[obj,obj]}
      | obj |
      | arr | 
      |     |  
@@ -70,7 +70,7 @@ move sentinel to object at index 0
        
 
                 
-      | obj |<---push {arr, arr}
+      | obj |<---push {'b':{'a':arr, 'b':arr}}
      | arr |
      | obj |
      | arr | 
@@ -87,7 +87,7 @@ move sentinel to object at index 0
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}             
         
-      | arr |<---push [obj]
+      | arr |<---push {'0':[obj]}
      | obj |
      | arr |
      | obj |
@@ -101,11 +101,12 @@ move sentinel to object at index 0
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:| }             
                             [   ]       [   ]                           [     ]         [   ]  [  v]                  
                               {}          {}                             1, {}            {}     {}             
-     | obj |<---push {null}
+     | obj |<---push {'null':{}}
      | arr |
      | obj |
      | arr |
      | obj |
      | arr | 
       -----    
+     
      
