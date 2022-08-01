@@ -1,4 +1,4 @@
-class Gobbledy{
+export class Gobbledy{
   
   constructor(gook){
     this.queue=[]
@@ -34,33 +34,33 @@ class Gobbledy{
 
 
 
-var gook = [
-  {
-    'a':[
-      {
-        'b':[1, {}]
-      },
-      {
-        'c':[{}],
-        'd':[{}]
-      }
-    ]
-  },
-  {
-    'e':[
-      {
-        'f':[1, {}]
-      },
-      {
-        'g':[{}],
-        'h':[{}]
-      }
-    ]
-  }
-]
+// var gook = [
+//   {
+//     'a':[
+//       {
+//         'b':[1, {}]
+//       },
+//       {
+//         'c':[{}],
+//         'd':[{}]
+//       }
+//     ]
+//   },
+//   {
+//     'e':[
+//       {
+//         'f':[1, {}]
+//       },
+//       {
+//         'g':[{}],
+//         'h':[{}]
+//       }
+//     ]
+//   }
+// ]
 
-var gg = new Gobbledy(gook)
-console.log(gg.queue)
+// var gg = new Gobbledy(gook)
+// console.log(gg.queue)
 
 // while(true){
 //   var next = gg.next()

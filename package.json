@@ -1,0 +1,20 @@
+{
+  "name": "gobbledygook",
+  "version": "1.0.0",
+  "description": "Gobbledy gook is a subset of schema that is sufficiently generalizable to the extent that we can apply the same recursive method to it and always be doing something orderly, predictable, and useful.",
+  "main": "GobbledyGook.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type":"module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItsZeusBro/GobbledyGook.git"
+  },
+  "author": "Hassan Amad",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/ItsZeusBro/GobbledyGook/issues"
+  },
+  "homepage": "https://github.com/ItsZeusBro/GobbledyGook#readme"
+}
