@@ -16,7 +16,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}                
 
-    | arr |<---push [obj,[obj]
+      | arr |<---push [obj,[obj]
     |     |
     move sentinel to object at index 0
 
@@ -31,7 +31,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}                
-      | obj |<---push {'a':arr}
+       | obj |<---push {'a':arr}
      | arr | 
      |     |                                                                                                         
      move sentinel to value associated with first key returned from object
@@ -47,7 +47,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
 
 
       
-      | arr |<---push [obj,obj]
+       | arr |<---push [obj,obj]
      | obj |
      | arr | 
      |     |  
@@ -63,7 +63,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
        
 
                 
-      | obj |<---push {'b':[{}]}
+       | obj |<---push {'b':[{}]}
      | arr |
      | obj |
      | arr | 
@@ -78,7 +78,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}             
         
-      | arr |<---push [{}]
+       | arr |<---push [{}]
      | obj |
      | arr |
      | obj |
@@ -128,7 +128,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}             
       
-      | obj |<---push {'a':[{}]}
+       | obj |<---push {'a':[{}]}
      | obj |
      | arr |
      | obj |
@@ -265,7 +265,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
                             [   ]       [   ]                           [     ]         [    ]  [   ]                  
                               {}          {}                             1, {}            {}     {}             
       
-     | arr |<---push [1, {}]
+       | arr |<---push [1, {}]
      | obj |
      | obj |
      | arr |
@@ -285,7 +285,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
                           {   a:  },  {   b:  }                        {   a:| },    {   a:,    b:  }             
                             [   ]       [   ]                           [    v]         [    ]  [   ]                  
                               {}          {}                             1, {}            {}     {}             
-        | obj |<---push {} 
+       | obj |<---push {} 
      | arr |
      | obj |
      | obj |
@@ -307,7 +307,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
                           {   a:  },  {   b:  }                        { | a:  },    {   a:,    b:  }             
                             [   ]       [   ]                           [v    ]         [    ]  [   ]                  
                               {}          {}                             1, {}            {}     {}             
-     | int |<---push 1 
+       | int |<---push 1 
      | obj |
      | arr |
      | obj |
