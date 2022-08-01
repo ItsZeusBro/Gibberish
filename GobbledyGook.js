@@ -7,7 +7,6 @@ class Gobbledy{
 
   gobbledy(gook){
     if(gook){
-      console.log(gook)
       if(Array.isArray(gook)){
         this.queue.push(gook)
         for(var i = 0; i<gook.length; i++){
@@ -28,6 +27,10 @@ class Gobbledy{
       }
     }
     return
+  }
+
+  next(){
+    return this.queue.shift()
   }
 
 }
@@ -59,4 +62,13 @@ var gook = [
 ]
 
 var gg = new Gobbledy(gook)
-console.log(gg.queue)
+//console.log(gg.queue)
+
+while(true){
+  var next = gg.next()
+  if(next){
+    console.log(next)
+  }else{
+    break
+  }
+}
