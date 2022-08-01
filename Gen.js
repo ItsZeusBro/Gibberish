@@ -96,16 +96,43 @@ class GuardGen{
     }
 }
 
-var gen = new GuardGen(5, 5)
-// gen.log(gen.g)
+// var gen = new GuardGen(5, 5)
+// // gen.log(gen.g)
 
-var gg = new Gobbledy(gen.g)
 
-while(true){
-  var next = gg.next()
-  if(next){
-    console.log(next,'\n\n\n\n')
-  }else{
-    break
+
+var gook = [
+  {
+    'a':[
+      {
+        'b':[1, {}]
+      },
+      {
+        'c':[{}],
+        'd':[{}]
+      }
+    ]
+  },
+  {
+    'e':[
+      {
+        'f':[1, {}]
+      },
+      {
+        'g':[{}],
+        'h':[{}]
+      }
+    ]
   }
-}
+]
+
+var gg = new Gobbledy(gook)
+gg.log(gg.queue)
+// while(true){
+//   var next = gg.next(3)
+//   if(next[0]){
+//     console.log(next,'\n\n\n\n')
+//   }else{
+//     break
+//   }
+// }
