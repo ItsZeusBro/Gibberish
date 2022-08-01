@@ -19,8 +19,8 @@
 1. Every n recursive steps (aka "schema step") is an array or object starting with level m, and if it does not follow this pattern it is because its a base case (aka "schema terminal"), otherwise the schema is invalid. In otherwords everything in schema from a vertical perspective must fit in one of two categories, a "schema step" or a "schema terminal" (isSchemaStep() and isSchemaTerminal() are evaluated from the level right after the previous schema step)
 2. Every schema step has i number of primitive recursive levels, so a lookahead function is needed in recursive validation algorithm to verify what is ahead of it. So at every recursive step we can use another recursive lookahead function on n number of levels that validates and comes right back for processing.
 
-### Pattern Schema Algorithm is built on the Base Recursive Algorithm
+## Pattern Schema Validation Algorithm is built on the Base Recursive Algorithm Queue
+#### We call this next tune: Itercursion
 
 
 
-Garbajjio
