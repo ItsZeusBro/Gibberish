@@ -21,10 +21,10 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
     move sentinel to object at index 0
 
 
-                                                                                        (S)
-                                                                                         |                                       
-                                                                                         |
-                                                                                         v
+                                                                                                              (S)
+                                                                                                               |                                       
+                                                                                                               |
+                                                                                                               v
               [                                                                                                    ]   
                   {                   a:                  },  {                    a:                          }    
                       [                                  ]      [                                         ]         
@@ -54,21 +54,40 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      move sentinel to object at index 0      
       
                                                                              (S)       
-              [                                                                                (S)                  ]   
-                  {                   a:                  },  {                    a:           |              }    
-                      [                                  ]      [                               v         ]         
+              [                                                                                    (S)              ]   
+                  {                   a:                  },  {                    a:               |          }    
+                      [                                  ]      [                                   v      ]         
                           {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
                             [   ]       [   ]                           [     ]         [   ]  [   ]                  
                               {}          {}                             1, {}            {}     {}             
        
 
                 
-       | obj |<---push {'b':[{}]}
+       | obj |<---push {'a':[{}], 'b':[{}]}
      | arr |
      | obj |
      | arr | 
      |     |    
+     
      move sentinel to value associated with first key returned from object  
+     
+     
+                                                                                  (S)       
+              [                                                                                (S)                 ]   
+                  {                   a:                  },  {                    a:           |              }    
+                      [                                  ]      [                               v          ]         
+                          {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
+                            [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                              {}          {}                             1, {}            {}     {}             
+       
+
+     | obj |<---push {'b':[{}]}           
+     | obj |
+     | arr |
+     | obj |
+     | arr | 
+     |     |    
+     move sentinel to value associated with first key returned from object 
     
     
               [                                                                                                   ]   
@@ -79,6 +98,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
                               {}          {}                             1, {}            {}     {}             
         
        | arr |<---push [{}]
+     | obj |
      | obj |
      | arr |
      | obj |
@@ -94,6 +114,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
                               {}          {}                             1, {}            {}     {}             
        | obj |<---push {}
      | arr |
+     | obj |
      | obj |
      | arr |
      | obj |
@@ -132,6 +153,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      | obj |
      | arr |
      | obj |
+     | obj |
      | arr |
      | obj |
      | arr | 
@@ -149,6 +171,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      | obj |
      | obj |
      | arr |
+     | obj |
      | obj |
      | arr |
      | obj |
@@ -169,6 +192,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      | obj |
      | obj |
      | arr |
+     | obj |
      | obj |
      | arr |
      | obj |
@@ -191,6 +215,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      | obj |
      | arr |
      | obj |
+     | obj |
      | arr |
      | obj |
      | arr |  nothing to move sentinel to, return
@@ -210,6 +235,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      | obj |
      | arr |
      | obj |
+     | obj |
      | arr |
      | obj |
      | arr |  nothing to move sentinel to, return
@@ -228,6 +254,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      | obj |
      | obj |
      | arr |
+     | obj |
      | obj |
      | arr |
      | obj |
@@ -251,6 +278,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      | obj |
      | arr |
      | obj |
+     | obj |
      | arr |
      | obj |
      | arr |  
@@ -273,6 +301,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      | obj |
      | arr |
      | obj |
+     | obj |
      | arr |
      | obj |
      | arr |  
@@ -293,6 +322,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      | obj |
      | obj |
      | arr |
+     | obj |
      | obj |
      | arr |
      | obj |
@@ -316,6 +346,7 @@ Gobbledy gook is a subset of schema that is sufficiently generalizable to the ex
      | obj |
      | obj |
      | arr |
+     | obj |
      | obj |
      | arr |
      | obj |
