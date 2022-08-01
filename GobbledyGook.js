@@ -9,16 +9,14 @@ export class Gobbledy{
 
   gobbledy(gook, n){
       if(gook && n[0]){
-          //it passes the gate then decrements (so dont mess with it)
-          n[0]=n[0]-1
-
           //what is the condition to push to the queue? this.queue.push(gook)
-
           if(Array.isArray(gook)){
+              n[0]=n[0]-1              //THIS MUST STAY HERE FOR VARIOUS REASONS
               for(var i = 0; i<gook.length; i++){
                   this.gobbledy(gook[i], n)
               }
           }else if(typeof gook === 'object'){
+              n[0]=n[0]-1              //THIS MUST STAY HERE FOR VARIOUS REASONS
               var keys = Object.keys(gook)
 
               if(keys.length){
@@ -27,6 +25,7 @@ export class Gobbledy{
                 }
               }
           }
+
       }else{
         this.queue.push(gook)
       }
