@@ -15,7 +15,10 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
             - Once we have a pattern, what do we do with it as an intermediate step? 
 
 2. based on that description is it well formed and consistent?
-3. based on its consistency, what is the best way to use it?
+      - what we mean by well formed is that recursion from the top level is of a single type. What we mean by consistent is that recursion has a very consistent recursion to base case level ratio across multiple paths from the root of sufficient depth.
+3. If it is well formed and consistent, what is the best way to use it?
+      - If it is not consistent but is well formed what is the best way to use it?
+      - If it is not well formed but is consistent, what is the best way to use it?
 4. How do we test a good description? 
       - My opinion is that the way we generate tests is the way the schema is described.
       We are still answering these questions
