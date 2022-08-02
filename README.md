@@ -11,7 +11,12 @@ Here is a non-exhaustive attempt:
 
 [{{{[{{[{[[{{{[{{[[{{{[{{[{{[[{{{, etc
 
-I think that works, but not sure... The point is that (i postulate that) there comes a point where we run out of room so long as n remains non-infinite. This might not be true, but if it wasn't statistics would still be on our side.
+We can generalize the generation of the string:
+1. Everything starts with {(n), [(n), {(n-n+1), or [(n-n+1)
+2. Each is followed by the other token respectively in the same way for example, {(n)[(n)
+3. After the first two tokens (that are multiplied) the third follows the same principle but cannot be recursive, for example: {(n)[(n){(n-1)
+
+
 
 What can we do with this game? We might find some generalizable principles that help us validate schema in interesting ways if we automate it.
 
