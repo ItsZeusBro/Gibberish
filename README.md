@@ -25,7 +25,6 @@ We are still answering these questions, GO AWAY!
       
         gobbledy(gook){
           if(gook){
-              //what is the condition to push to the queue? this.queue.push(gook)
               if(Array.isArray(gook)){
                   for(var i = 0; i<gook.length; i++){
                       this.gobbledy(gook[i])
