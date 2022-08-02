@@ -7,30 +7,28 @@ export class Gobbledy{
     this.gobbledy(gook)
   } 
 
-  gobbledy(gook, n){
-      this.rawQ.push(gook)
+  //Gobbledy is supposed to validate and describe recursion
+  //and make some sort of determination on the proper way to recurse the schema
+  //based on some deterministic rules
+  gobbledy(gook){
       if(gook){
-          //what is the condition to push to the queue? this.queue.push(gook)
           if(Array.isArray(gook)){
               for(var i = 0; i<gook.length; i++){
                   this.gobbledy(gook[i])
               }
+
           }else if(typeof gook === 'object'){
               var keys = Object.keys(gook)
               if(keys.length){
-                for(var i = 0; i<keys.length; i++){
-                    this.gobbledy(gook[keys[i]])
-                }
+                  for(var i = 0; i<keys.length; i++){
+                      this.gobbledy(gook[keys[i]])
+                  }
               }
           }
       }
     return
   }
 
-  itercursion(){
-    //performs schema analysis on this.rawQ
-    //we need to reform the queue to create full schema paths
-  }
 
   next(n){
     var q = []
@@ -50,30 +48,3 @@ export class Gobbledy{
 
   }
 }
-
-var gook = [
-  {
-    'a':[
-      {
-        'b':[1, {}]
-      },
-      {
-        'c':[{}],
-        'd':[{}]
-      }
-    ]
-  },
-  {
-    'e':[
-      {
-        'f':[1, {}]
-      },
-      {
-        'g':[{}],
-        'h':[{}]
-      }
-    ]
-  }
-]
-var g = new Gobbledy(gook)
-g.log(g.rawQ)
