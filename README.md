@@ -12,7 +12,7 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
 We are still answering these questions, GO AWAY!
 
 ### Postulation
-1. There is some theoretical limit on the number of permutations that are possible in the set ('[', '{') that are possible before recurrence in a key agnostic setting
+1. There is some theoretical limit on the number of permutations that are possible in the set ('[', '{') that are possible before recurrence in a key agnostic setting. If we are not key agnostic, then this postulation does not matter
 
 ### Axioms
 1. '[' and '{' are the recognized set of generalizable recursive containers that can have any arbitrary number of keys or elements (at any level) without us needing to treat the algorithm below with any less generality than is stated.
