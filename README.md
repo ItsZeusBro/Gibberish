@@ -2,6 +2,10 @@
 
 Gobbledy gook is the subset of schema that is sufficiently generalizable to the extent that we can apply the same methods to it and always be doing something orderly, predictable, and useful with Gobbledy Gook utilities.
 
+## To understand Schema in a more general way I devised this game:
+In Javascript schema we have two ascii charachters that represent our ability to recurse. '[' and '{'. The game we are trying to play is to create as long of a non-recursive string of these two charachters where you are not allowed to use the same charachter in a row n number of times.
+
+
 ## Schema Pattern Algorithm
 
 #### What about schema?
