@@ -14,8 +14,9 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
 
 2. based on that description is it well formed and consistent?
 3. based on its consistency, what is the best way to use it?
-4. How do we test a good description? My opinion is that the way we generate tests is the way the schema is described.
-We are still answering these questions, GO AWAY!
+4. How do we test a good description? 
+- My opinion is that the way we generate tests is the way the schema is described.
+We are still answering these questions
 
 ### Postulation
 1. There is some theoretical limit on the number of permutations that are possible in the set ('[', '{') that are possible before recurrence in a key agnostic setting. If we are not key agnostic, then this postulation does not matter
