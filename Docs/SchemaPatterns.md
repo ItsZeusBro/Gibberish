@@ -7,7 +7,7 @@
 
 We are still answering these questions, GO AWAY!
 
-## Pattern Schema Validation Algorithm is built on the Base Recursive Algorithm Queue
+## General Base Algorithm
       
       
         gobbledy(gook){
