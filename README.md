@@ -17,8 +17,20 @@ We can generalize the generation of the string but this might not embrace the wh
 2. If the set of non recuring schema strings is not infinite, we can use a greedy algorithm to have a standard way of speaking about the set iteratively and generationally. The greedy algorithm uses the a substitution approach in a predefined way to reuse patterns (used by the string already) that do not violate the non-recurrence principle.
 
 
+### Greedy Brass Tacks Algorithm (where we are always trying to find a bigger base case)
+In this game n=2 (meaning we cannot have more than two successive tokens)
 
-What can we do with this game? We might find some generalizable principles that help us validate schema in interesting ways if we automate it.
+[     (index 0 is arbitrarily chosen, the rest are not)
+
+[[    (the greedy algorithm looks at the longest substring before position at index 1 [reverse order], it finds the longest substring that does not violate n which equals 2)
+
+[[{   (the greedy algorithm does not find a substring it can use without violating n, so it grabs the opposite token than the previous)
+ 
+ ||
+ vv
+[[{[{ (the greedy token finds a substring of length 2 that does not violate the limit of n and does not display recursive behavior from the root)
+
+
 
 ## Schema Pattern Algorithm
 
