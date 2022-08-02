@@ -59,39 +59,39 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
 
       
                                                                                                            B
-                                                                                                           |                                       
+                                                                                                           |
                                                                                                            |
                                                                                                            v
-      [                                                                                                    ]   
+      [                                                                                                    ]
           {                   a:                  },  {                    a:                          }    
               [                                  ]      [                                         ]         
                   {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                    [   ]       [   ]                           [     ]         [   ]  [   ]                
                       {}          {}                             1, {}            {}     {}                
 
 
 
-      _________________________________________________________________________________________________________
-                                                                                                            
-                                                                                                       B                                           
+      ______________________________________________________________________________________________________
+
+                                                                                                       B
                                                                                                        |    
                                                                                                        |    
-      [                                                                                                v   ]   
+      [                                                                                                v   ]
           {                   a:                  },  {                    a:                          }    
               [                                  ]      [                                         ]         
                   {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
-                    [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                    [   ]       [   ]                           [     ]         [   ]  [   ]               
                       {}          {}                             1, {}            {}     {}                
 
 
 
 
       _____________________________________________________________________________________________________
-                                                                                                             
-                                                                           B                                                                       
+
+                                                                           B                               
                                                                            |                                
                                                                            |                                
-      [                                                                    v                               ]   
+      [                                                                    v                               ]
           {                   a:                  },  {                    a:                          }    
               [                                  ]      [                                         ]         
                   {   a:  },  {   b:  }                        {   a:  },    {   a:,    b:  }             
@@ -114,7 +114,7 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
 
 
       _____________________________________________________________________________________________________
-      
+
       [                                                                                  B                ]
           {                   a:                  },  {                    a:            |            }
               [                                  ]      [                                v        ]
@@ -126,7 +126,7 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
 
 
       _____________________________________________________________________________________________________
-      
+
       [                                                                                                   ]
           {                   a:                  },  {                    a:                         }
               [                                  ]      [                                 B       ]
@@ -138,10 +138,10 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
 
 
 
-     _______________________________
+      _______________________________
 
 
-     [                                                                                   B                 ]
+      [                                                                                   B                 ]
           {                   a:                 },  {                    a:             |             }
               [                              ]          [                                v         ]
                   {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }             
@@ -151,7 +151,7 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
 
 
       _______________________________
-      
+
       [                                                                                       B              ]
           {                   a:                 },  {                    a:                  |        }
               [                              ]          [                                     v    ]
@@ -173,7 +173,7 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
 
 
       ________________________________________________________________________________________________________
-      
+
       [                                                                                                      ]
           {                   a:                 },  {                    a:     B                     }
               [                              ]          [                        |                ]
@@ -208,9 +208,9 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
 
 
 
-      
+
       _________________________________
-      
+
                                                                                                   B
       [                                                                                           |        ]
           {                   a:                 },  {                    a:                      v   }
@@ -221,7 +221,7 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
 
 
 
- 
+
 
       ________________________________________________________________________________________________________
 
@@ -236,7 +236,7 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
 
 
 
-      ______________________________________________________________________________________________________        
+      ______________________________________________________________________________________________________
 
 
       [                                                            B                                       ]
@@ -258,7 +258,7 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
                       {}          {}                             1, {}            {}     {}             
 
 
-  
+
 
       _________________________________
 
@@ -271,8 +271,8 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
 
 
 
-      
-      
+
+
       _______________________________________________________________________________________________________
 
       [                                                                                                    ]
@@ -295,7 +295,7 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
                       {}          {}                             1, {}            {}     {}             
 
 
-     
+
 
       _________________________________
                                                                                                       B
@@ -303,7 +303,7 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
             {                   a:                 },   {                     a:                      v   }
                   [                              ]          [                                         ]
                       {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }             
-                        [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                        [   ]       [   ]                           [     ]         [   ]  [   ]               
                           {}          {}                             1, {}            {}     {}             
 
 
@@ -315,7 +315,7 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
             {                   a:                 },   {                     a:                          }
                   [                              ]          [                                         ]
                       {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }             
-                        [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                        [   ]       [   ]                           [     ]         [   ]  [   ]                
                           {}          {}                             1, {}            {}     {}             
 
 
@@ -327,8 +327,8 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
       [                                                                                                       ]
             {                   a:                 },   {                     a:                          }
                   [                              ]          [                                         ]
-                      {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }             
-                        [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                      {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }            
+                        [   ]       [   ]                           [     ]         [   ]  [   ]               
                           {}          {}                             1, {}            {}     {}             
 
 
@@ -343,7 +343,7 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
             {                   a:                 },   {                     a:                          }
                   [                              ]          [                                         ]
                       {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }             
-                        [   ]       [   ]                           [     ]         [   ]  [   ]                  
+                        [   ]       [   ]                           [     ]         [   ]  [   ]                
                           {}          {}                             1, {}            {}     {}             
 
 
