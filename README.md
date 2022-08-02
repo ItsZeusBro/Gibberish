@@ -7,10 +7,6 @@ In Javascript schema we have two ascii charachters that represent our ability to
 
 For example, say n=3 (meaning, we are not allowed to use the same charachter more than 3 times in a row), how long of a string can you make without creating a pattern starting from the left most charachter?
 
-Here is a non-exhaustive attempt:
-
-[{{{[{{[{[[{{{[{{[[{{{[{{[{{[[{{{, etc
-
 We can generalize the generation of the string but this might not embrace the whole set of possibilities. The goal is to find recurrent patterns in generating non recurrent strings:
 
 1. Everything starts with {(n), [(n), {(n-n+1), or [(n-n+1)
@@ -24,18 +20,22 @@ We can generalize the generation of the string but this might not embrace the wh
       (index 0 is arbitrarily chosen, the rest are not)
 
       [  [    
-      (the greedy algorithm looks at the longest substring before position at index 1 [reverse order], it finds the longest substring that does not violate n which equals 2)
+      (the greedy algorithm looks at the longest substring before position at index 1 [reverse order], 
+      it finds the longest substring that does not violate n which equals 2)
 
       [  [  {   
-      (the greedy algorithm does not find a substring it can use without violating n, so it grabs the opposite token than the previous)
+      (the greedy algorithm does not find a substring it can use without violating n, so it grabs 
+      the opposite token than the previous)
 
 
          v  v   
       [  [  {  [  {  
-      (the greedy token finds a substring of length 2 that does not violate the limit of n and does not display recursive behavior from the root)
+      (the greedy token finds a substring of length 2 that does not violate the limit of n and does 
+      not display recursive behavior from the root)
 
 
-The only problem with this algorithm is that it is optimally inneficient. Its not an equation, but it is a standard which is why we use it.
+     The only problem with this algorithm is that it is inneficient. Its not an equation, but 
+     it is a standard which is why we use it.
 
 
 ## Schema Pattern Algorithm
