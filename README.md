@@ -11,7 +11,9 @@ Here is a non-exhaustive attempt:
 
 [{{{[{{[{[[{{{[{{[[{{{[{{[{{[[{{{, etc
 
-I think that works, but not sure... The point is that there comes a point where we run out of room so long as n remains non-infinite.
+I think that works, but not sure... The point is that (i postulate that) there comes a point where we run out of room so long as n remains non-infinite. This might not be true, but if it wasn't statistics would still be on our side.
+
+
 
 ## Schema Pattern Algorithm
 
