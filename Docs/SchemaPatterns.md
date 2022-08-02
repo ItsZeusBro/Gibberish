@@ -20,7 +20,6 @@
 2. Every schema step has i number of primitive recursive levels, so a lookahead function is needed in recursive validation algorithm to verify what is ahead of it. So at every recursive step we can use another recursive lookahead function on n number of levels that validates and comes right back for processing.
 
 ## Pattern Schema Validation Algorithm is built on the Base Recursive Algorithm Queue
-#### We call this next tune: Itercursion
       
       We'll start with this Base Queue that was built using GobblyGook recursion (there are all kinds of recursion but this is ours)
       
@@ -88,32 +87,4 @@
 
 
 
-       what we want
-       
-        ___________________________________________________________ 
-       | [ { a: [ { a: [ 1, {} ] }, { a: [ {} ], b: [ {} ] } ] } ] |
-        ___________________________________________________________ 
-                                  |
-        __________________________v________________________________ 
-       |   { a: [ { a: [ 1, {} ] }, { a: [ {} ], b: [ {} ] } ] }   |
-        ___________________________________________________________ 
-                                  |
-        __________________________v________________________________                   _________________________        _______
-       |      [ { a: [ 1, {} ] }, { a: [ {} ], b: [ {} ] } ]       |---------------> |{ a: [ {} ], b: [ {} ] } |----> |[ { } ]|
-        ___________________________________________________________                   _________________________        _______
-                                  |                                                               |                       |
-        __________________________v________________________________                  _____________v____________        ___v___           
-       |                   { a: [ 1, {} ] }                        |                |          [ { } ]         |      |  { }  |
-        ___________________________________________________________                  __________________________        _______
-                                  |                                                               |
-        __________________________v________________________________     ________     _____________v____________           
-       |                     [ 1,  {} ]                            |--->| { }  |    |            { }           |                 
-        ___________________________________________________________     ________     __________________________
-                                  |
-        __________________________v________________________________             
-       |                         1                                 |              
-        ___________________________________________________________            
-
-      
-      Once this linked tree is constructed, while traversing grab the reference before steping down, once we step down, point it to null, continue validating. This must be done recursively, when pruning the tree to end up with the higher order reference.
       
