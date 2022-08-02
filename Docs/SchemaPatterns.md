@@ -4,6 +4,7 @@
 1. what is a good description of any given schema?
 2. based on that description is it well formed and consistent?
 3. based on its consistency, what is the best way to use it?
+4. How do we test a good description? My opinion is that the way we generate tests is the way the schema is described.
 
 We are still answering these questions, GO AWAY!
 
