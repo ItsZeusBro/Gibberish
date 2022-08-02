@@ -37,6 +37,7 @@ We can generalize the generation of the string but this might not embrace the wh
      The only problem with this algorithm is that it is inneficient. Its not an equation, but 
      it is a standard which is why we use it.
 
+The point here is that if you find that the base cases are limited in number for any given n, then you can invalidate bad schema when you find such a base case.
 
 ## Schema Pattern Algorithm
 
