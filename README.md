@@ -13,7 +13,7 @@ Here is a non-exhaustive attempt:
 
 I think that works, but not sure... The point is that (i postulate that) there comes a point where we run out of room so long as n remains non-infinite. This might not be true, but if it wasn't statistics would still be on our side.
 
-
+What can we do with this game? We might find some generalizable principles that help us validate schema in interesting ways if we automate it.
 
 ## Schema Pattern Algorithm
 
