@@ -20,7 +20,8 @@ We are still answering these questions, GO AWAY!
 3. When we are not key agnostic, we wish to find the minimum number of levels for any recursive case
 4. When we are key agnostic, we wish to find the maximum number of levels for any recursive case (this guarantees recursion is valid at the least)
 
-## General Base Algorithm (this is not particularly useful without answering the questions above, but it is sufficiently general to build upon)
+## General Base Algorithm 
+(this is not particularly useful without answering the questions above, but it is sufficiently general to build upon)
       
       
         gobbledy(gook){
