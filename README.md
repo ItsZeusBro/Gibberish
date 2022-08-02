@@ -23,7 +23,6 @@ We are still answering these questions, GO AWAY!
 ## General Base Algorithm 
 (this is not particularly useful without answering the questions above, but it is sufficiently general to build upon)
       
-      
         gobbledy(gook){
           if(gook){
               if(Array.isArray(gook)){
