@@ -22,12 +22,15 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
 
 ### Postulation
 1. There is some theoretical limit on the number of permutations that are possible in the set \[ '[', '{' \] that are possible before recurrence in a key agnostic setting. If we are not key agnostic, then this postulation does not matter
+2. We need a recursive path validation step before we return the all of the recursive schema steps for a given path
 
 ### Axioms
 1. '[' and '{' are the recognized set of generalizable recursive containers that can have any arbitrary number of keys or elements (at any level) without us needing to treat the algorithm below with any less generality than is stated.
 2. For every recursive pattern there is an objective min and max number of levels to a recursive case that is agnostic to key names
 3. When we are not key agnostic, we wish to find the minimum number of levels for any recursive case
 4. When we are key agnostic, we wish to find the maximum number of levels for any recursive case (this guarantees recursion is valid at the least)
+5. We treat each recursive path seperately from the top level, because some schema can be recursively used in multiple ways so long as they have different roots
+
 
 ## General Base Algorithm 
 (this is not particularly useful without answering the questions above, but it is sufficiently general to build upon)
