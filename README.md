@@ -31,6 +31,8 @@ We can generalize the generation of the string but this might not embrace the wh
       [  [  {  [  { (the greedy token finds a substring of length 2 that does not violate the limit of n and does not display recursive behavior from the root)
 
 
+The only problem with this algorithm is that it is optimally inneficient. Its not an equation, but it is a standard which is why we use it.
+
 
 ## Schema Pattern Algorithm
 
