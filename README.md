@@ -12,12 +12,9 @@ Here is a non-exhaustive attempt:
 [{{{[{{[{[[{{{[{{[[{{{[{{[{{[[{{{, etc
 
 We can generalize the generation of the string but this might not embrace the whole set of possibilities. The goal is to find recurrent patterns in generating non recurrent strings:
+
 1. Everything starts with {(n), [(n), {(n-n+1), or [(n-n+1)
-- So call these two primitive starting points A and B {(n)[(n){(n-1) and [(n){(n)[(n-1) because:
-      - {(n)[(n){(n-1)[(n){(n)[(n-1] (thats AB) which can basically alternate but not over and over again without creating recursion
-3. Each is followed by the other token respectively in the same way for example, {(n)[(n)
-4. After the first two tokens (that are multiplied) the third follows the same principle but cannot be recursive, for example: {(n)[(n){(n-1)
-5. If it starts in reverse order {(n-n+1) its vastly different and its equation changes {(n-n+1)[(n-n+1){(n-n+2)[(n-n+2)
+2. If the set of non recuring schema strings is not infinite, we can use a greedy algorithm to have a standard way of speaking about the set iteratively and generationally. The greedy algorithm uses the a substitution approach in a predefined way to reuse patterns (used by the string already) that do not violate the non-recurrence principle.
 
 
 
