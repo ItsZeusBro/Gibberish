@@ -21,10 +21,8 @@
 
 ## Pattern Schema Validation Algorithm is built on the Base Recursive Algorithm Queue
       
-      We'll start with this Base Queue that was built using GobblyGook recursion (there are all kinds of recursion but this is ours)
       
         gobbledy(gook){
-          this.rawQ.push(gook)
           if(gook){
               //what is the condition to push to the queue? this.queue.push(gook)
               if(Array.isArray(gook)){
