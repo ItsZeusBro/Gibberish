@@ -13,9 +13,11 @@ Here is a non-exhaustive attempt:
 
 We can generalize the generation of the string but this might not embrace the whole set of possibilities (im not sure about it):
 1. Everything starts with {(n), [(n), {(n-n+1), or [(n-n+1)
-2. Each is followed by the other token respectively in the same way for example, {(n)[(n)
-3. After the first two tokens (that are multiplied) the third follows the same principle but cannot be recursive, for example: {(n)[(n){(n-1)
-4. If it starts in reverse order {(n-n+1) its vastly different and its equation changes {(n-n+1)[(n-n+1){(n-n+2)[(n-n+2)
+- So call these two primitive starting points A and B {(n)[(n){(n-1) and [(n){(n)[(n-1) because:
+      - {(n)[(n){(n-1)[(n){(n)[(n-1] (thats AB) which can basically alternate but not over and over again without creating recursion
+3. Each is followed by the other token respectively in the same way for example, {(n)[(n)
+4. After the first two tokens (that are multiplied) the third follows the same principle but cannot be recursive, for example: {(n)[(n){(n-1)
+5. If it starts in reverse order {(n-n+1) its vastly different and its equation changes {(n-n+1)[(n-n+1){(n-n+2)[(n-n+2)
 
 
 
