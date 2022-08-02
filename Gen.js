@@ -54,13 +54,13 @@ class GuardGen{
         return schema
     }
 
+    //we are trying to create a mathematical game to give us information about schema
+    //the game is to produce a non recursive schema that is as deep as it can go
+    //This will help us test our key agnostic schema validator
     _gen(h, w, guardFuncStr){
         var block=this.rg.randSelection([[], {}])
         if(h==0){
-
-            return this.baseCase()
-
-
+            return this.brassTacks()
         }else{
             if(Array.isArray(block)){
                 //if we have a default/function context we simply build and return it
@@ -75,7 +75,8 @@ class GuardGen{
         return block;
     }
 
-    baseCase(){
+
+    brassTacks(){
         var sel = this.rg.randSelection(['randStr', 'randInt', 'randIntArr', 'randStrArr'])
 
         if(sel=='randStr'){
