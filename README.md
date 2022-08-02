@@ -11,7 +11,7 @@ Here is a non-exhaustive attempt:
 
 [{{{[{{[{[[{{{[{{[[{{{[{{[{{[[{{{, etc
 
-We can generalize the generation of the string but this might not embrace the whole set of possibilities (im not sure about it):
+We can generalize the generation of the string but this might not embrace the whole set of possibilities. The goal is to find recurrent patterns in generating non recurrent strings:
 1. Everything starts with {(n), [(n), {(n-n+1), or [(n-n+1)
 - So call these two primitive starting points A and B {(n)[(n){(n-1) and [(n){(n)[(n-1) because:
       - {(n)[(n){(n-1)[(n){(n)[(n-1] (thats AB) which can basically alternate but not over and over again without creating recursion
