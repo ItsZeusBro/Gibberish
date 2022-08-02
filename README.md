@@ -7,8 +7,10 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
 #### What about schema?
 1. what is a good description of any given schema?
 - That depends on whether we are key pattern agnostic
-      - If we are agnostic, we are searching for a pattern on the permutation of the set ('[', '{')
-      - If we are not key agnostic, we are searching first for key patterns, then checking to see if they follow a recurring pattern on the set ('[', '{') from top to bottom, where the base case is everything following the termination of the pattern
+
+- If we are agnostic, we are searching for a pattern on the permutation of the set ['[', '{']
+      
+- If we are not key agnostic, we are searching first for key patterns, then checking to see if they follow a recurring pattern on the set ('[', '{') from top to bottom, where the base case is everything following the termination of the pattern
 
 2. based on that description is it well formed and consistent?
 3. based on its consistency, what is the best way to use it?
