@@ -49,6 +49,9 @@ class GuardGen{
         //for as many n's as practical
         this.case1='{'
         this.case2='['
+        this.notRecrsv=''
+        //greedy algorithm should be deterministic and fill this for every n for both [ and {
+        this.stringsForN={} //{'n':{'[':'', '{':''}}
     }
     
 
@@ -59,7 +62,7 @@ class GuardGen{
     } 
     isRecursive(string, n){
         //this checks for recurring patterns from the nth position in the string
-        //because some schema has metadata and payload
+        
     }
 
 
