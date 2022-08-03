@@ -14,7 +14,7 @@ Furthermore, if you know that a general algorithm treats specific subsets of sch
 4. Base case analysis
 5. Recursive analysis and optimization
 6. Binary research (because there are only two operators in this schema)
-7. Anomolous Computing
+7. Computing Anomolously
 
 
 ## Schema Pattern Algorithm
