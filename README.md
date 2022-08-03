@@ -34,7 +34,7 @@ We can generalize the generation of the string but this might not embrace the wh
       not display recursive behavior from the root)
 
 
-If Schema is recursive, a general recursive algorithm could just walk it, and you could call it "valid recursion". But that is not the point, finding n number of general recursive steps that display a specific pattern is the point here. How do we identify all of those patterns and select one of those that is better than the others? That is the objective. The game is just here to highlight what is considered "not on of those patterns", and i think it can be used to get us closer to what matters. 
+If Schema is recursive, a general recursive algorithm could just walk it, and you could call it "valid recursion". But that is not the point, finding n number of general recursive steps that display a specific multi-level recursive pattern is the point here. This is called a schema pattern. It represents the intention of recursive schema. How do we identify all of those patterns and select one of those that is better than the others? That is the objective. The game is just here to highlight what is considered "not on of those patterns", and i think it can be used to get us closer to what matters. 
 
 
 ## Schema Pattern Algorithm
