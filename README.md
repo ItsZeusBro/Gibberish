@@ -429,9 +429,9 @@ all of the sudden i can use the rest of the substring! But is this generalizable
       There are two twist bits that exist at the begining and end of an append string. The begining is to avoid n collision. The end is to avoid recursivity
       
       [                       //we start with [ or { it doesn't matter
-      [ {                     
-      [{ [[
-      [{[[ [{[{
+      [ {                     //In this case we cannot append the substring because it would violate recursion, but in this case the two twist bits collide and when that happens we only twist once.
+      [{ [[                   //in this case we perform a twist on the end of the append string to avoid recursivity, but there is no n collision at the begining, so we leave it
+      [{[[ [{[{               //etc...
       [{[[[{[{ [{[[[{[[
 
 
