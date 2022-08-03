@@ -397,3 +397,14 @@ We can generalize the generation of the string but this might not embrace the wh
 
 
 
+What can we do with a base string set?
+
+Say you have the following example:
+[  [  {  [  {
+
+This is not a recursive string, but if i removed the first element at position 0, it would make it a recursive string.
+Howver what would happen if I flipped the value at the new first position from:
+[  {  [  {
+to:
+{ { [ {
+all of the sudden i can use the rest of the substring! But is this generalizable? I'm not sure yet, i want to run some tests.
