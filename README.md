@@ -2,42 +2,11 @@
 
 Gobbledy gook is the subset of schema that is sufficiently generalizable to the extent that we can apply the same methods to it and always be doing something orderly, predictable, and useful with Gobbledy Gook utilities.
 
-## To understand Schema in a more general way I devised this game called Brass Tacks:
-In Javascript schema we have two ascii charachters that represent our ability to recurse. '[' and '{'. The game we are trying to play is to create as long of a non-recursive string of these two charachters where you are not allowed to use the same charachter in a row n number of times.
-
-For example, say n=3 (meaning, we are not allowed to use the same charachter more than 3 times in a row), how long of a string can you make without creating a recursive pattern starting from the left most charachter?
-
-We can generalize the generation of the string but this might not embrace the whole set of possibilities. The goal is to find recurrent patterns in generating non recurrent strings:
-
-1. Everything starts with {(n), [(n), {(n-n+1), or [(n-n+1)
-2. If the set of non recuring schema strings is not infinite, we can use a greedy algorithm to have a standard way of speaking about the set iteratively and generationally. The greedy algorithm uses the a substitution approach in a predefined way to reuse patterns (used by the string already) that do not violate the non-recurrence principle.
-
-
-### Greedy Brass Tacks Algorithm (where we are always trying to find a bigger base case)
-     In this game n=2 (meaning we cannot have more than two successive tokens)
-
-      [     
-      (index 0 is arbitrarily chosen, the rest are not)
-
-      [  [    
-      (the greedy algorithm looks at the longest substring before position at index 1 [reverse order], 
-      it finds the longest substring that does not violate n which equals 2)
-
-      [  [  {   
-      (the greedy algorithm does not find a substring it can use without violating n, so it grabs 
-      the opposite token than the previous)
-
-
-         v  v   
-      [  [  {  [  {  
-      (the greedy token finds a substring of length 2 that does not violate the limit of n and does 
-      not display recursive behavior from the root)
-
-
 If Schema is recursive, a general recursive algorithm could just walk it, and you could call it "valid recursion". But that is not the point, finding n number of general recursive steps that display a specific multi-level recursive pattern is the point here. This is called a schema pattern. It represents the intention of recursive schema in what is otherwise treated with a general algorithm as primitive recursion. 
 How do we identify all of those schema patterns and select the best amongst the set? That is the objective. The game is just here to highlight what is considered "not on of those patterns", and i think it can be used to get us closer to what matters. 
 
 Furthermore, if you know that a general algorithm treats specific subsets of schemas as "well formed" and can handle them in a predictable way everytime, and can do powerful things with them, then you can focus on tooling that can be reused everywhere in different contexts. If that subset is sufficiently large, then virtually anything can be done with this library on well formed schema (overtime). That is the intention.
+
 
 ## Schema Pattern Algorithm
 
@@ -390,4 +359,39 @@ Furthermore, if you know that a general algorithm treats specific subsets of sch
 
 
       etc....
+
+
+
+## To understand Schema in a more general way I devised this game called Brass Tacks:
+In Javascript schema we have two ascii charachters that represent our ability to recurse. '[' and '{'. The game we are trying to play is to create as long of a non-recursive string of these two charachters where you are not allowed to use the same charachter in a row n number of times.
+
+For example, say n=3 (meaning, we are not allowed to use the same charachter more than 3 times in a row), how long of a string can you make without creating a recursive pattern starting from the left most charachter?
+
+We can generalize the generation of the string but this might not embrace the whole set of possibilities. The goal is to find recurrent patterns in generating non recurrent strings:
+
+1. Everything starts with {(n), [(n), {(n-n+1), or [(n-n+1)
+2. If the set of non recuring schema strings is not infinite, we can use a greedy algorithm to have a standard way of speaking about the set iteratively and generationally. The greedy algorithm uses the a substitution approach in a predefined way to reuse patterns (used by the string already) that do not violate the non-recurrence principle.
+
+
+### Greedy Brass Tacks Algorithm (where we are always trying to find a bigger base case)
+     In this game n=2 (meaning we cannot have more than two successive tokens)
+
+      [     
+      (index 0 is arbitrarily chosen, the rest are not)
+
+      [  [    
+      (the greedy algorithm looks at the longest substring before position at index 1 [reverse order], 
+      it finds the longest substring that does not violate n which equals 2)
+
+      [  [  {   
+      (the greedy algorithm does not find a substring it can use without violating n, so it grabs 
+      the opposite token than the previous)
+
+
+         v  v   
+      [  [  {  [  {  
+      (the greedy token finds a substring of length 2 that does not violate the limit of n and does 
+      not display recursive behavior from the root)
+
+
 
