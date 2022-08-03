@@ -66,7 +66,15 @@ class GuardGen{
     // xxxxx{[{{[[{
     // xxxxxx{{{[[{
     // xxxxxxx[[[{[
-    // xxxxxxxx{[{[
+    // xxxxxxxx{[{[     //we see recursion here meaning reducing the string from the begining 
+                        //and fliping the begining of the string does not work to produce base cases every time
+
+    //The inverse would work
+    //[[[{{{[[[{{[
+    //{{{[[[{{{[[{
+
+    //what we want is the complete mathematical set of non-recurring string generators for all n
+    
 
     
     brassTacks(n){
