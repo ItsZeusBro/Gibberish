@@ -149,7 +149,7 @@ Furthermore, if you know that a general algorithm treats specific subsets of sch
       _______________________________
 
 
-      [                                                                                   B                 ]
+      [                                                                                  B                  ]
           {                   a:                 },  {                    a:             |             }
               [                              ]          [                                v         ]
                   {   a:  },  {   b:  }                       {    a:   },    {   a:,    b:   }             
