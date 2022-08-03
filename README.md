@@ -34,10 +34,8 @@ We can generalize the generation of the string but this might not embrace the wh
       not display recursive behavior from the root)
 
 
-     The only problem with this algorithm is that it is inneficient. Its not an equation, but 
-     it is a standard which is why we use it.
+If Schema is recursive, a general recursive algorithm could just walk it, and you could call it "valid recursion". But that is not the point, finding n number of general recursive steps that display a specific pattern is the point here. How do we identify all of those patterns and select one of those that is better than the others? That is the objective. The game is just here to highlight what is considered "not on of those patterns", and i think it can be used to get us closer to what matters. 
 
-The point here is that if you find that the base cases are limited in number for any given n, then you can invalidate bad schema when you find such a base case. We assume it is a smaller set than what is otherwise validly recursive schema.
 
 ## Schema Pattern Algorithm
 
