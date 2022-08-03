@@ -44,8 +44,25 @@ class GuardGen{
         this.w=w
         this.rg=new RandGen()
         this.g = this.gen(h, w)
+
+        //we want to make sure we find strings that don't start the same way with these two base cases
+        //for as many n's as practical
+        this.case1='{'
+        this.case2='['
     }
     
+
+
+    brassTacks(n){
+        //n is how many of the same token we can have in a row
+        //isRecursive checks to see if the string recurrs.
+    } 
+    isRecursive(string, n){
+        //this checks for recurring patterns from the nth position in the string
+        //because some schema has metadata and payload
+    }
+
+
     gen(h, w){
         var schema=[]
         for(var i = 0; i<w; i++){
@@ -54,13 +71,11 @@ class GuardGen{
         return schema
     }
 
-    //we are trying to create a mathematical game to give us information about schema
-    //the game is to produce a non recursive schema that is as deep as it can go
-    //This will help us test our key agnostic schema validator
+
     _gen(h, w, guardFuncStr){
         var block=this.rg.randSelection([[], {}])
         if(h==0){
-            return this.brassTacks()
+            return this.baseCase()
         }else{
             if(Array.isArray(block)){
                 //if we have a default/function context we simply build and return it
@@ -76,7 +91,7 @@ class GuardGen{
     }
 
 
-    brassTacks(){
+    baseCase(){
         var sel = this.rg.randSelection(['randStr', 'randInt', 'randIntArr', 'randStrArr'])
 
         if(sel=='randStr'){
