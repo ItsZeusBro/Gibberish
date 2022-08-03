@@ -7,6 +7,13 @@ How do we identify all of those schema patterns and select the best amongst the 
 
 Furthermore, if you know that a general algorithm treats specific subsets of schemas as "well formed" and can handle them in a predictable way everytime, and can do powerful things with them, then you can focus on tooling that can be reused everywhere in different contexts. If that subset is sufficiently large, then virtually anything can be done with this library on well formed schema (overtime). That is the intention.
 
+## Potential use cases
+1. Fixing invalid schema
+2. Validating schema
+3. Invalidating schema
+4. Base case analysis
+5. Recursive analysis and optimization
+
 
 ## Schema Pattern Algorithm
 
