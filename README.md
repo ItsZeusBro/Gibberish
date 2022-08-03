@@ -5,7 +5,7 @@ Gobbledy gook is the subset of schema that is sufficiently generalizable to the 
 ## To understand Schema in a more general way I devised this game called Brass Tacks:
 In Javascript schema we have two ascii charachters that represent our ability to recurse. '[' and '{'. The game we are trying to play is to create as long of a non-recursive string of these two charachters where you are not allowed to use the same charachter in a row n number of times.
 
-For example, say n=3 (meaning, we are not allowed to use the same charachter more than 3 times in a row), how long of a string can you make without creating a pattern starting from the left most charachter?
+For example, say n=3 (meaning, we are not allowed to use the same charachter more than 3 times in a row), how long of a string can you make without creating a recursive pattern starting from the left most charachter?
 
 We can generalize the generation of the string but this might not embrace the whole set of possibilities. The goal is to find recurrent patterns in generating non recurrent strings:
 
