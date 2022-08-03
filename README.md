@@ -417,3 +417,17 @@ Howver what would happen if I flipped the value at the new first position from:
 to:
 { { [ {
 all of the sudden i can use the rest of the substring! But is this generalizable? I'm not sure yet, i want to run some tests.
+
+
+
+# Hypothesis: 
+## Maximally greedy base string construction
+Example:
+[
+[ {
+[{ [[
+[{[[ [{[{
+[{[[[{[{ [{[[[{[[
+
+Properties:
+
