@@ -420,7 +420,9 @@ all of the sudden i can use the rest of the substring! But is this generalizable
 
 
 
-# Hypothesis: 
+# Hypotheses: 
+The objective is to create a recursively non recursive pattern.
+
 ## Maximally greedy base string construction
       Example:
       The heuristic (hypothesis) is that we try to maximally copy the substring before the position and append it to the next position
@@ -443,4 +445,3 @@ all of the sudden i can use the rest of the substring! But is this generalizable
       [{[[[{[{[{[[[{[[ [[{[[[{[{[{[[[{[
       etc...
       
-The objective is to create a recursively non recursive pattern.
