@@ -37,6 +37,7 @@ We can generalize the generation of the string but this might not embrace the wh
 If Schema is recursive, a general recursive algorithm could just walk it, and you could call it "valid recursion". But that is not the point, finding n number of general recursive steps that display a specific multi-level recursive pattern is the point here. This is called a schema pattern. It represents the intention of recursive schema in what is otherwise treated with a general algorithm as primitive recursion. 
 How do we identify all of those schema patterns and select the best amongst the set? That is the objective. The game is just here to highlight what is considered "not on of those patterns", and i think it can be used to get us closer to what matters. 
 
+Furthermore, if you know that a general algorithm treats specific subsets of schemas as "well formed" and can handle them in a predictable way everytime, and can do powerful things with them, then you can focus on tooling that can be reused everywhere in different contexts. If that subset is sufficiently large, then virtually anything can be done with this library on well formed schema (overtime). That is the intention.
 
 ## Schema Pattern Algorithm
 
