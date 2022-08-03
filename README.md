@@ -423,9 +423,13 @@ all of the sudden i can use the rest of the substring! But is this generalizable
 # Hypothesis: 
 ## Maximally greedy base string construction
       Example:
+      The heuristic (hypothesis) is that we try to maximally copy the substring before the position and append it to the next position
+      however, there are problems with this mere approach that can be mitigated
       
-      [
-      [ {
+      There are two twist bits that exist at the begining and end of an append string. The begining is to avoid n collision. The end is to avoid recursivity
+      
+      [                       //we start with [ or { it doesn't matter
+      [ {                     
       [{ [[
       [{[[ [{[{
       [{[[[{[{ [{[[[{[[
@@ -433,6 +437,4 @@ all of the sudden i can use the rest of the substring! But is this generalizable
 
       Properties:
 
-      There are two twist bits that exist at the begining and end of an append string. 
-      The begining is to avoid n collision
-      The end is to avoid recursivity
+      
