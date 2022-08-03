@@ -53,12 +53,26 @@ class GuardGen{
         //greedy algorithm should be deterministic and fill this for every n for both [ and {
         this.stringsForN={} //{'n':{'[':'', '{':''}}
     }
+    //n=3
+    //just try to take the previous 1 if it doesnt work flip it
+    // [[[{{{[[[{{[
+    //   ^
+
+    //invalid hypothesis
+    // x{[{{{[[[{{[
+    // xx{{{[[[{{{[
+    // xxx[{[[[{{{[
+    // xxxx[[[{{{[{
+    // xxxxx{[{{[[{
+    // xxxxxx{{{[[{
+    // xxxxxxx[[[{[
+    // xxxxxxxx{[{[
+
     
-
-
     brassTacks(n){
         //n is how many of the same token we can have in a row
         //isRecursive checks to see if the string recurrs.
+
     } 
     isRecursive(string, n){
         //this checks for recurring patterns from the nth position in the string
