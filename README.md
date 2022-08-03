@@ -433,3 +433,6 @@ all of the sudden i can use the rest of the substring! But is this generalizable
 
       Properties:
 
+      There are two twist bits that exist at the begining and end of an append string. 
+      The begining is to avoid n collision
+      The end is to avoid recursivity
