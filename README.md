@@ -378,7 +378,7 @@ In Javascript schema we have two ascii charachters that represent our ability to
 
 For example, say n=3 (meaning, we are not allowed to use the same charachter more than 3 times in a row), how long of a string can you make without creating a recursive pattern starting from the left most charachter?
 
-The first thing we realize is that its very hard to come up with an algorithm that is completely anomolous without any patterns from left to right. It's like trying to find some generalization to generate prime numbers.
+The first thing we realize is that its very hard to come up with an algorithm that is completely anomolous without any recurrence from left to right. It's like trying to find some generalization to generate prime numbers.
 
 Some of the constraints for a base string are as follows:
 1. Because its easy to create a base string that is naive (e.g {[[[[[[[[[[[) we need to limit repeating charachters to n
