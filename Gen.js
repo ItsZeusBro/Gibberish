@@ -38,52 +38,34 @@ class RandGen{
     }
 }
 
-class GuardGen{
-    constructor(h, w){
-        this.h=h
-        this.w=w
+class Gen{
+    constructor(){
+
         this.rg=new RandGen()
-        this.g = this.gen(h, w)
+        //this.g = this.gen(h, w)
 
-        //we want to make sure we find strings that don't start the same way with these two base cases
-        //for as many n's as practical
-        this.case1='{'
-        this.case2='['
-        this.notRecrsv=''
-        //greedy algorithm should be deterministic and fill this for every n for both [ and {
-        this.stringsForN={} //{'n':{'[':'', '{':''}}
     }
-    //n=3
-    //just try to take the previous 1 if it doesnt work flip it
-    // [[[{{{[[[{{[
-    //   ^
 
-    //invalid hypothesis
-    // x{[{{{[[[{{[
-    // xx{{{[[[{{{[
-    // xxx[{[[[{{{[
-    // xxxx[[[{{{[{
-    // xxxxx{[{{[[{
-    // xxxxxx{{{[[{
-    // xxxxxxx[[[{[
-    // xxxxxxxx{[{[     //we see recursion here meaning reducing the string from the begining 
-                        //and fliping the begining of the string does not work to produce base cases every time
-
-    //The inverse would work
-    //[[[{{{[[[{{[
-    //{{{[[[{{{[[{
 
     //what we want is the complete mathematical set of non-recurring string generators for all n
-    
+
 
     
-    brassTacks(n){
-        //n is how many of the same token we can have in a row
-        //isRecursive checks to see if the string recurrs.
-
+    brassTacks(n, algorithm){
+        return algorithm(n)
     } 
-    isRecursive(string, n){
-        //this checks for recurring patterns from the nth position in the string
+
+    isRecursive(string){
+        //takes the first position and checks against the second
+        //takes the first two and checks against the next two
+        //takes the first three and checks against the next three, etc...
+        for(var i = 0; i<Math.ceil(string.length/2); i++){
+            //console.log(string.slice(0, i+1), string.slice(i+1, (i+1)*2))
+            if(string.slice(0, i+1)===string.slice(i+1, (i+1)*2)){
+                return true
+            }
+        }
+        return false
         
     }
 
@@ -137,9 +119,15 @@ class GuardGen{
     }
 }
 
-var gen = new GuardGen(5, 5)
-gen.log(gen.g)
+var gen = new Gen()
+//gen.log(gen.gen(5, 5))
 
 
-var gg = new Gobbledy(gen.g)
+// var gg = new Gobbledy(gen.g)
 
+console.log(gen.isRecursive('[{{{[{[{['))
+// console.log('true', gen.isRecursive('[{[{[{'))
+// console.log('true', gen.isRecursive('[[{[[{[[{'))
+
+// console.log('false',gen.isRecursive('[{'))
+// console.log('false',gen.isRecursive('{[{[[[{['))
