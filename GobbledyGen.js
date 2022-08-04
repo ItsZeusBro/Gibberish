@@ -47,6 +47,9 @@ class BrassTacks{
         this.dStrings=[]
         this.BStrings('1', n)
         this.BTT(this.tree)
+        this.dStrings = this.dStrings.sort(function(a, b) {
+            return a - b;
+        })
     }
     BTT(tree){
         for(var i = 0; i<this.bStrings.length; i++){
@@ -128,6 +131,19 @@ class BrassTacks{
             console.log(util.inspect(obj, false, null, true))
         }
     }
+    primPattAbstract(array){
+        var abs=[]
+        array = array.sort(function(a, b) {
+            return a - b;
+        })
+        // console.log(array)
+        var j=0;
+        for(var i = 1; i<array.length-1; i++){
+            abs.push(array[i]-array[j])
+            j++
+        }
+        return abs
+    }
 }
 
 
@@ -182,6 +198,7 @@ class GobbledyGen{
     }
 }
 
-var bt = new BrassTacks(7, 2)
-bt.log(bt.tree)
-console.log(bt.dStrings)
+var bt = new BrassTacks(10, Infinity)
+//bt.log(bt.tree)
+bt.log(bt.dStrings)
+console.log(bt.primPattAbstract(bt.dStrings))
