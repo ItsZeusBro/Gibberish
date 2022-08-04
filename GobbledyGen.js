@@ -44,10 +44,11 @@ class BrassTacks{
         this.tree={}
         this.limit=limit
         this.bStrings=[]
-        this.brassTackStrings('1', n)
-        //this.brassTacksTree(this.tree)
+        this.dStrings=[]
+        this.BStrings('1', n)
+        this.BTT(this.tree)
     }
-    brassTacksTree(tree){
+    BTT(tree){
         for(var i = 0; i<this.bStrings.length; i++){
             var tr=tree
             var string = this.bStrings[i]
@@ -61,22 +62,25 @@ class BrassTacks{
         }
     }
 
-    brassTackStrings(bString, n){
+
+    BStrings(bString, n){
         if(n==0){
             return
         }else{
-            if(this.isBrassTacks(bString.slice()+'0')){
+            if(this.isBT(bString.slice()+'0')){
                 this.bStrings.push(bString.slice()+'0')
-                this.brassTackStrings(bString.slice()+'0',  n-1)
+                this.dStrings.push(parseInt(bString.slice()+'0', 2))
+                this.BStrings(bString.slice()+'0',  n-1)
             }
-            if(this.isBrassTacks(bString.slice()+'1')){
+            if(this.isBT(bString.slice()+'1')){
                 this.bStrings.push(bString.slice()+'1')
-                this.brassTackStrings(bString.slice()+'1',  n-1)
+                this.dStrings.push(parseInt(bString.slice()+'1', 2))
+                this.BStrings(bString.slice()+'1',  n-1)
             }
         }
     }
 
-    isBrassTacks(bString){
+    isBT(bString){
         if(!this.isRecursive(bString)){
             if(!this.overLimit(bString)){
                 return true
@@ -179,5 +183,5 @@ class GobbledyGen{
 }
 
 var bt = new BrassTacks(7, 2)
-//bt.log(bt.tree)
-console.log(bt.bStrings)
+bt.log(bt.tree)
+console.log(bt.dStrings)
