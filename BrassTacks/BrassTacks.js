@@ -1,10 +1,10 @@
-class BrassTacks{
-    constructor(n, limit){
+export class BrassTacks{
+    constructor(levels, limit){
         this.tree={}
         this.limit=limit
         this.bStrings=[]
         this.dStrings=[]
-        this.BStrings('1', n)
+        this.BStrings('1', levels)
         this.BTT(this.tree)
         this.dStrings = this.dStrings.sort(function(a, b) {
             return a - b;
@@ -24,19 +24,19 @@ class BrassTacks{
         }
     }
 
-    BStrings(bString, n){
-        if(n==0){
+    BStrings(bString, levels){
+        if(levels==0){
             return
         }else{
             if(this.isBT(bString.slice()+'0')){
                 this.bStrings.push(bString.slice()+'0')
                 this.dStrings.push(parseInt(bString.slice()+'0', 2))
-                this.BStrings(bString.slice()+'0',  n-1)
+                this.BStrings(bString.slice()+'0',  levels-1)
             }
             if(this.isBT(bString.slice()+'1')){
                 this.bStrings.push(bString.slice()+'1')
                 this.dStrings.push(parseInt(bString.slice()+'1', 2))
-                this.BStrings(bString.slice()+'1',  n-1)
+                this.BStrings(bString.slice()+'1',  levels-1)
             }
         }
     }
