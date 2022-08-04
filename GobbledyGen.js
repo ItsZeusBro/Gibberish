@@ -41,44 +41,31 @@ class RandGen{
 
 class BrassTacks{
     constructor(n, limit){
-        this.bTTree={'{':{}}
         this.limit=limit
-        this.brassTacksTree('{', this.bTTree, n)
+        this.bStrings=[]
+        this.brassTacksTree('1', n)
     }
 
-    brassTacksTree(bString, bTNode, n){
+    brassTacksTree(bString, n){
         if(n==0){
             return
         }else{
-            if(bTNode['[']){
-                if(this.isValid(bString.slice()+'{')){
-                    bTNode['[']['{']={}
-                    this.brassTacksTree(bString.slice()+'{', bTNode['['], n-1)
-                }
-                if(this.isValid(bString.slice()+'[')){
-                    bTNode['[']['[']={}
-                    this.brassTacksTree(bString.slice()+'[', bTNode['['], n-1)
-                }
+            if(this.isBrassTacks(bString.slice()+'0')){
+                // bTNode['[']['{']={}
+                this.bStrings.push(bString.slice()+'0')
+                this.brassTacksTree(bString.slice()+'0',  n-1)
             }
-
-            if(bTNode['{']){
-                if(this.isValid(bString.slice()+'{')){
-                    bTNode['{']['{']={}
-                    this.brassTacksTree(bString.slice()+'{', bTNode['{'], n-1)
-                }
-                if(this.isValid(bString.slice()+'[')){
-                    bTNode['{']['[']={}
-                    this.brassTacksTree(bString.slice()+'[', bTNode['{'], n-1)
-                }
+            if(this.isBrassTacks(bString.slice()+'1')){
+                // bTNode['[']['[']={}
+                this.bStrings.push(bString.slice()+'1')
+                this.brassTacksTree(bString.slice()+'1',  n-1)
             }
         }
     }
 
-    isValid(bString){
+    isBrassTacks(bString){
         if(!this.isRecursive(bString)){
             if(!this.overLimit(bString)){
-                console.log(bString)
-
                 return true
             }else{
                 return false
@@ -87,6 +74,7 @@ class BrassTacks{
             return false
         }
     }
+
     overLimit(bString){
         //look in reverse order until char changes and keep overLimit counter
         var char=bString[bString.length-1]
@@ -105,14 +93,12 @@ class BrassTacks{
             return false
         }
     }
-    //!this.isRecursive(bString.slice()+'{')
 
     isRecursive(string){
         //takes the first position and checks against the second
         //takes the first two and checks against the next two
         //takes the first three and checks against the next three, etc...
         for(var i = 0; i<Math.ceil(string.length/2); i++){
-            //console.log(string.slice(0, i+1), string.slice(i+1, (i+1)*2))
             if(string.slice(0, i+1)===string.slice(i+1, (i+1)*2)){
                 return true
             }
@@ -127,7 +113,8 @@ class BrassTacks{
     }
 }
 
-class Gen{
+
+class GobbledyGen{
     constructor(){
         this.rg=new RandGen()
     }
@@ -139,7 +126,6 @@ class Gen{
         }
         return schema
     }
-
 
     _gen(h, w, guardFuncStr){
         var block=this.rg.randSelection([[], {}])
@@ -158,7 +144,6 @@ class Gen{
         //trailing construction case
         return block;
     }
-
 
     baseCase(){
         var sel = this.rg.randSelection(['randStr', 'randInt', 'randIntArr', 'randStrArr'])
@@ -180,7 +165,8 @@ class Gen{
     }
 }
 
-var bt = new BrassTacks(6, 3)
-bt.log(bt.bTTree)
+var bt = new BrassTacks(10, 3)
+//bt.log(bt.bTTree)
+console.log(bt.bStrings)
 assert.equal(true, bt.overLimit('[[[['))
 assert.equal(true, bt.isRecursive('{[[{[[['))
