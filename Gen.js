@@ -4,6 +4,7 @@
 //4. base cases can be any char in a set, or null values, or undefined, or whatever doesnt
 // have a key if its a object, or whatever doesnt have elements if its an array
 import * as util from "node:util"
+import * as assert from "node:assert"
 import { Gobbledy } from "./GobbledyGook.js";
 class RandGen{
     randStr(){return this.genStr(this.randRange(0, 3))}
@@ -39,8 +40,9 @@ class RandGen{
 }
 
 class BrassTacks{
-    constructor(n){
+    constructor(n, limit){
         this.bTTree={'{':{}}
+        this.limit=limit
         this.brassTacksTree('{', this.bTTree, n)
     }
 
@@ -50,30 +52,59 @@ class BrassTacks{
             return
         }else{
             if(bTNode['[']){
-                if(!this.isRecursive(bString.slice()+'{')){
+                if(this.isValid(bString.slice()+'{')){
                     bTNode['[']['{']={}
                     this.brassTacksTree(bString.slice()+'{', bTNode['['], n-1)
-
                 }
-                if(!this.isRecursive(bString.slice()+'[')){
+                if(this.isValid(bString.slice()+'[')){
                     bTNode['[']['[']={}
                     this.brassTacksTree(bString.slice()+'[', bTNode['['], n-1)
                 }
             }
             if(bTNode['{']){
-                if(!this.isRecursive(bString.slice()+'{')){
+                if(this.isValid(bString.slice()+'{')){
                     bTNode['{']['{']={}
                     this.brassTacksTree(bString.slice()+'{', bTNode['{'], n-1)
                 }
-                if(!this.isRecursive(bString.slice()+'[')){
+                if(this.isValid(bString.slice()+'[')){
                     bTNode['{']['[']={}
                     this.brassTacksTree(bString.slice()+'[', bTNode['{'], n-1)
                 }
             }
-            
         }
     } 
 
+    isValid(bString){
+        if(!this.isRecursive(bString)){
+            if(!this.overLimit(bString)){
+                //console.log(bString)
+                return true
+            }else{
+                return false
+            }
+        }else{
+            return false
+        }
+    }
+    overLimit(bString){
+        //look in reverse order until char changes and keep overLimit counter
+        var char=bString[bString.length-1]
+        var c=0;
+        for(var i = bString.length-1; i>=0; i--){
+            if(char!=bString[i]){
+                break
+            }
+            if(char==bString[i]){
+                c++;
+            }
+        }
+        if(c>this.limit){
+            return true
+        }else{
+            return false
+        }
+    }
+    //!this.isRecursive(bString.slice()+'{')
 
     isRecursive(string){
         //takes the first position and checks against the second
@@ -164,8 +195,11 @@ class Gen{
     }
 }
 
-var bt = new BrassTacks(10)
-bt.log(bt.bTTree)
+var bt = new BrassTacks(7, 3)
+//bt.log(bt.bTTree)
+assert.equal(true, bt.overLimit('[[[['))
+assert.equal(true, bt.isRecursive('{[[{[[['))
+
 //var gen = new Gen()
 //gen.log(gen.gen(5, 5))
 
