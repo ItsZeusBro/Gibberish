@@ -49,27 +49,6 @@ Furthermore, if you know that a general algorithm treats specific subsets of sch
 5. We treat each recursive path seperately from the top level, because some schema can be recursively used in multiple ways so long as they have different roots
 
 
-## General Base Algorithm 
-(this is not particularly useful without answering the questions above, but it is sufficiently general to build upon)
-      
-        gobbledy(gook){
-          if(gook){
-              if(Array.isArray(gook)){
-                  for(var i = 0; i<gook.length; i++){
-                      this.gobbledy(gook[i])
-                  }
-              }else if(typeof gook === 'object'){
-                  var keys = Object.keys(gook)
-                  if(keys.length){
-                    for(var i = 0; i<keys.length; i++){
-                        this.gobbledy(gook[keys[i]])
-                    }
-                  }
-              }
-          }
-          return
-      }
-      
 
 
 ## To understand Schema in a more general way I devised this game called Brass Tacks:
