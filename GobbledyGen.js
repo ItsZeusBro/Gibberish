@@ -45,7 +45,7 @@ class BrassTacks{
         this.limit=limit
         this.bStrings=[]
         this.brassTackStrings('1', n)
-        this.brassTacksTree(this.tree)
+        //this.brassTacksTree(this.tree)
     }
     brassTacksTree(tree){
         for(var i = 0; i<this.bStrings.length; i++){
@@ -62,7 +62,6 @@ class BrassTacks{
     }
 
     brassTackStrings(bString, n){
-        var addon;
         if(n==0){
             return
         }else{
@@ -179,7 +178,6 @@ class GobbledyGen{
     }
 }
 
-var bt = new BrassTacks(10, 3)
-bt.log(bt.tree)
-//console.log(bt.bStrings)
-console.log(bt.isBrassTacks('100'))
+var bt = new BrassTacks(7, 2)
+//bt.log(bt.tree)
+console.log(bt.bStrings)
