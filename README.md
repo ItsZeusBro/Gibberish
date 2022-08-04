@@ -378,70 +378,16 @@ In Javascript schema we have two ascii charachters that represent our ability to
 
 For example, say n=3 (meaning, we are not allowed to use the same charachter more than 3 times in a row), how long of a string can you make without creating a recursive pattern starting from the left most charachter?
 
-We can generalize the generation of the string but this might not embrace the whole set of possibilities. The goal is to find recurrent patterns in generating non recurrent strings:
+The first thing we realize is that its very hard to come up with an algorithm that is completely anomolous without any recurrence from left to right. It's like trying to find some generalization to generate prime numbers.
 
-1. Everything starts with {(n), [(n), {(n-n+1), or [(n-n+1)
-2. If the set of non recuring schema strings is not infinite, we can use a greedy algorithm to have a standard way of speaking about the set iteratively and generationally. The greedy algorithm uses the a substitution approach in a predefined way to reuse patterns (used by the string already) that do not violate the non-recurrence principle.
-
-
-### Greedy Brass Tacks Algorithm (where we are always trying to find a bigger base case)
-     In this game n=2 (meaning we cannot have more than two successive tokens)
-
-      [     
-      (index 0 is arbitrarily chosen, the rest are not)
-
-      [  [    
-      (the greedy algorithm looks at the longest substring before position at index 1 [reverse order], 
-      it finds the longest substring that does not violate n which equals 2)
-
-      [  [  {   
-      (the greedy algorithm does not find a substring it can use without violating n, so it grabs 
-      the opposite token than the previous)
+Some of the constraints for a base string are as follows:
+1. Because its easy to create a base string that is naive (e.g {[[[[[[[[[[[) we need to limit repeating charachters to n
+2. Every recurrence is only valid if it starts with the left most bit and recurs at least once. The reason for this is that the rest of the string is just a base case. We want the whole string to be a base case.
 
 
-         v  v   
-      [  [  {  [  {  
-      (the greedy token finds a substring of length 2 that does not violate the limit of n and does 
-      not display recursive behavior from the root)
+            For example:
 
-
-
-What can we do with a base string set?
-
-Say you have the following example:
-[  [  {  [  {
-
-This is not a recursive string, but if i removed the first element at position 0, it would make it a recursive string.
-Howver what would happen if I flipped the value at the new first position from:
-[  {  [  {
-to:
-{ { [ {
-all of the sudden i can use the rest of the substring! But is this generalizable? I'm not sure yet, i want to run some tests.
-
-
-
-# Hypotheses: 
-The objective is to create a recursively non recursive pattern.
-
-## Maximally greedy base string construction
-      Example:
-      The heuristic (hypothesis) is that we try to maximally copy the substring before the position and append it to the next position
-      however, there are problems with this mere approach that can be mitigated
-      
-      There are two twist bits that exist at the begining and end of an append string. The begining is to avoid n collision. The end is to avoid recursivity
-      
-      [                       //we start with [ or { it doesn't matter
-      [ {                     //In this case we cannot append the substring because it would violate recursion, but in this case the two twist bits collide and when that happens we only twist once.
-      [{ [[                   //in this case we perform a twist on the end of the append string to avoid recursivity, but there is no n collision at the begining, so we leave it
-      [{[[ [{[{               //etc...
-      [{[[[{[{ [{[[[{[[
-
-
-
-## Symetrical string construction
-      Take the symetrical reflection of the previous string, and twist the last bit
-      [{[[[{[{ 
-      [{[[[{[{ [{[[[{[[
-      [{[[[{[{[{[[[{[[ [[{[[[{[{[{[[[{[
-      etc...
-      
+            [     //if i start with this
+            [[    //I cannot do this, because there is recursion from left to right
+            [{    //so i must take this to be the second step
+            [{[ or [{{    //from this point on I have two options suggesting we can create a base string tree
