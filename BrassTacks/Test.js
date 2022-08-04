@@ -1,4 +1,4 @@
-import { BrassTacks } from "./BrassTacks"
+import { BrassTacks } from "./BrassTacks.js"
 import * as assert from "node:assert"
 class Test{
     constructor(){
@@ -30,7 +30,6 @@ class Test{
         assert.equal(bt.isOverLimit('00'), false)
         assert.equal(bt.isOverLimit('10'), false)
         assert.equal(bt.isOverLimit('01'), false)
-
     }
 
     isRecursive(){
