@@ -446,8 +446,8 @@ The objective is to create a recursively non recursive pattern.
       [{{[{[[{ {[[{[{{[
       
 
-## Recursion Negation
-      This is where we take a non-recursive string, double it, and twist the first bit (most significant bit)
+## Double then Negatate base string construction
+      This is where we take a non-recursive string, double it (or multiply by some factor), and twist the first bit (most significant bit)
 
       [
       [[-> {[
