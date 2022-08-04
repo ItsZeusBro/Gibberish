@@ -1,3 +1,26 @@
+    
+## General Base Algorithm 
+(this is not particularly useful without answering the questions above, but it is sufficiently general to build upon)
+      
+        gobbledy(gook){
+          if(gook){
+              if(Array.isArray(gook)){
+                  for(var i = 0; i<gook.length; i++){
+                      this.gobbledy(gook[i])
+                  }
+              }else if(typeof gook === 'object'){
+                  var keys = Object.keys(gook)
+                  if(keys.length){
+                    for(var i = 0; i<keys.length; i++){
+                        this.gobbledy(gook[keys[i]])
+                    }
+                  }
+              }
+          }
+          return
+      }
+      
+    
     ## Recursive Walk     
 
       
