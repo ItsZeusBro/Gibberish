@@ -47,7 +47,6 @@ class BrassTacks{
     }
 
     brassTacksTree(bString, bTNode, n){
-        //n is the depth to the tree
         if(n==0){
             return
         }else{
@@ -61,6 +60,7 @@ class BrassTacks{
                     this.brassTacksTree(bString.slice()+'[', bTNode['['], n-1)
                 }
             }
+
             if(bTNode['{']){
                 if(this.isValid(bString.slice()+'{')){
                     bTNode['{']['{']={}
@@ -72,12 +72,13 @@ class BrassTacks{
                 }
             }
         }
-    } 
+    }
 
     isValid(bString){
         if(!this.isRecursive(bString)){
             if(!this.overLimit(bString)){
-                //console.log(bString)
+                console.log(bString)
+
                 return true
             }else{
                 return false
@@ -128,23 +129,8 @@ class BrassTacks{
 
 class Gen{
     constructor(){
-
         this.rg=new RandGen()
-        //this.g = this.gen(h, w)
-
     }
-
-
-    //what we want is the complete mathematical set of non-recurring string generators for all n
-
-
-    
-
-
-
-
-    
-
 
     gen(h, w){
         var schema=[]
@@ -176,7 +162,6 @@ class Gen{
 
     baseCase(){
         var sel = this.rg.randSelection(['randStr', 'randInt', 'randIntArr', 'randStrArr'])
-
         if(sel=='randStr'){
             return this.rg.randStr()
         }else if(sel=='randInt'){
@@ -195,19 +180,7 @@ class Gen{
     }
 }
 
-var bt = new BrassTacks(7, 3)
-//bt.log(bt.bTTree)
+var bt = new BrassTacks(6, 3)
+bt.log(bt.bTTree)
 assert.equal(true, bt.overLimit('[[[['))
 assert.equal(true, bt.isRecursive('{[[{[[['))
-
-//var gen = new Gen()
-//gen.log(gen.gen(5, 5))
-
-
-// var gg = new Gobbledy(gen.g)
-
-// console.log('true', gen.isRecursive('[{[{[{'))
-// console.log('true', gen.isRecursive('[[{[[{[[{'))
-
-// console.log('false',gen.isRecursive('[{'))
-// console.log('false',gen.isRecursive('{[{[[[{['))
