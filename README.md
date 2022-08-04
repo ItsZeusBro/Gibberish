@@ -438,10 +438,11 @@ The objective is to create a recursively non recursive pattern.
 
 
 
-## Symetrical string construction
-      Take the symetrical reflection of the previous string, and twist the last bit
-      [{[[[{[{ 
-      [{[[[{[{ [{[[[{[[
-      [{[[[{[{[{[[[{[[ [[{[[[{[{[{[[[{[
-      etc...
+## Opposite base string construction
+      [
+      [ {
+      [{ {[
+      [{{[ {[[{
+      [{{[{[[{ {[[{[{{[
       
+
