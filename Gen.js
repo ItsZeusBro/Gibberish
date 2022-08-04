@@ -38,6 +38,63 @@ class RandGen{
     }
 }
 
+class BrassTacks{
+    constructor(n){
+        this.bTTree={'{':{}}
+        this.brassTacksTree('{', this.bTTree, n)
+    }
+
+    brassTacksTree(bString, bTNode, n){
+        //n is the depth to the tree
+        if(n==0){
+            return
+        }else{
+            if(bTNode['[']){
+                if(!this.isRecursive(bString.slice()+'{')){
+                    bTNode['[']['{']={}
+                    this.brassTacksTree(bString.slice()+'{', bTNode['['], n-1)
+
+                }
+                if(!this.isRecursive(bString.slice()+'[')){
+                    bTNode['[']['[']={}
+                    this.brassTacksTree(bString.slice()+'[', bTNode['['], n-1)
+                }
+            }
+            if(bTNode['{']){
+                if(!this.isRecursive(bString.slice()+'{')){
+                    bTNode['{']['{']={}
+                    this.brassTacksTree(bString.slice()+'{', bTNode['{'], n-1)
+                }
+                if(!this.isRecursive(bString.slice()+'[')){
+                    bTNode['{']['[']={}
+                    this.brassTacksTree(bString.slice()+'[', bTNode['{'], n-1)
+                }
+            }
+            
+        }
+    } 
+
+
+    isRecursive(string){
+        //takes the first position and checks against the second
+        //takes the first two and checks against the next two
+        //takes the first three and checks against the next three, etc...
+        for(var i = 0; i<Math.ceil(string.length/2); i++){
+            //console.log(string.slice(0, i+1), string.slice(i+1, (i+1)*2))
+            if(string.slice(0, i+1)===string.slice(i+1, (i+1)*2)){
+                return true
+            }
+        }
+        return false
+    }
+
+    log(obj){
+        if(obj){
+            console.log(util.inspect(obj, false, null, true))
+        }
+    }
+}
+
 class Gen{
     constructor(){
 
@@ -51,23 +108,11 @@ class Gen{
 
 
     
-    brassTacks(n, algorithm){
-        return algorithm(n)
-    } 
 
-    isRecursive(string){
-        //takes the first position and checks against the second
-        //takes the first two and checks against the next two
-        //takes the first three and checks against the next three, etc...
-        for(var i = 0; i<Math.ceil(string.length/2); i++){
-            //console.log(string.slice(0, i+1), string.slice(i+1, (i+1)*2))
-            if(string.slice(0, i+1)===string.slice(i+1, (i+1)*2)){
-                return true
-            }
-        }
-        return false
-        
-    }
+
+
+
+    
 
 
     gen(h, w){
@@ -119,13 +164,14 @@ class Gen{
     }
 }
 
-var gen = new Gen()
+var bt = new BrassTacks(10)
+bt.log(bt.bTTree)
+//var gen = new Gen()
 //gen.log(gen.gen(5, 5))
 
 
 // var gg = new Gobbledy(gen.g)
 
-console.log(gen.isRecursive('[{{{[{[{['))
 // console.log('true', gen.isRecursive('[{[{[{'))
 // console.log('true', gen.isRecursive('[[{[[{[[{'))
 
