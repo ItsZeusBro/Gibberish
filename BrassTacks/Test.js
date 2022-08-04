@@ -30,6 +30,31 @@ class Test{
         assert.equal(bt.isOverLimit('00'), false)
         assert.equal(bt.isOverLimit('10'), false)
         assert.equal(bt.isOverLimit('01'), false)
+        limit=5
+        var bt = new BrassTacks(levels, limit)
+        assert.equal(bt.isOverLimit('000000'), true)
+        assert.equal(bt.isOverLimit('111111'), true)
+        assert.equal(bt.isOverLimit('1'), false)
+        assert.equal(bt.isOverLimit('11'), false)
+        assert.equal(bt.isOverLimit('111'), false)
+        assert.equal(bt.isOverLimit('1111'), false)
+        assert.equal(bt.isOverLimit('11111'), false)
+        assert.equal(bt.isOverLimit('0'), false)
+        assert.equal(bt.isOverLimit('00'), false)
+        assert.equal(bt.isOverLimit('000'), false)
+        assert.equal(bt.isOverLimit('0000'), false)
+        assert.equal(bt.isOverLimit('00000'), false)
+        assert.equal(bt.isOverLimit('0'), false)
+        assert.equal(bt.isOverLimit('01'), false)
+        assert.equal(bt.isOverLimit('010'), false)
+        assert.equal(bt.isOverLimit('0101'), false)
+        assert.equal(bt.isOverLimit('01010'), false)
+        assert.equal(bt.isOverLimit('1'), false)
+        assert.equal(bt.isOverLimit('10'), false)
+        assert.equal(bt.isOverLimit('101'), false)
+        assert.equal(bt.isOverLimit('1010'), false)
+        assert.equal(bt.isOverLimit('10101'), false)
+
     }
 
     isRecursive(){
