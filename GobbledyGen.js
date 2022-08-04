@@ -41,24 +41,38 @@ class RandGen{
 
 class BrassTacks{
     constructor(n, limit){
+        this.tree={}
         this.limit=limit
         this.bStrings=[]
-        this.brassTacksTree('1', n)
+        this.brassTackStrings('1', n)
+        this.brassTacksTree(this.tree)
+    }
+    brassTacksTree(tree){
+        for(var i = 0; i<this.bStrings.length; i++){
+            var tr=tree
+            var string = this.bStrings[i]
+            for(var j=0; j<string.length; j++){
+                var char = string[j]
+                if(!tr[char]){
+                    tr[char]={}
+                }
+                    tr=tr[char]
+            }
+        }
     }
 
-    brassTacksTree(bString, n){
+    brassTackStrings(bString, n){
+        var addon;
         if(n==0){
             return
         }else{
             if(this.isBrassTacks(bString.slice()+'0')){
-                // bTNode['[']['{']={}
                 this.bStrings.push(bString.slice()+'0')
-                this.brassTacksTree(bString.slice()+'0',  n-1)
+                this.brassTackStrings(bString.slice()+'0',  n-1)
             }
             if(this.isBrassTacks(bString.slice()+'1')){
-                // bTNode['[']['[']={}
                 this.bStrings.push(bString.slice()+'1')
-                this.brassTacksTree(bString.slice()+'1',  n-1)
+                this.brassTackStrings(bString.slice()+'1',  n-1)
             }
         }
     }
@@ -166,7 +180,6 @@ class GobbledyGen{
 }
 
 var bt = new BrassTacks(10, 3)
-//bt.log(bt.bTTree)
-console.log(bt.bStrings)
-assert.equal(true, bt.overLimit('[[[['))
-assert.equal(true, bt.isRecursive('{[[{[[['))
+bt.log(bt.tree)
+//console.log(bt.bStrings)
+console.log(bt.isBrassTacks('100'))
