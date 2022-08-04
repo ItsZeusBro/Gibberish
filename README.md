@@ -385,3 +385,9 @@ Some of the constraints for a base string are as follows:
 2. Every recurrence is only valid if it starts with the left most bit and recurs at least once. The reason for this is that the rest of the string is just a base case. We want the whole string to be a base case.
 
 
+For example:
+
+[     //if i start with this
+[[    //I cannot do this, because there is recursion from left to right
+[{    //so i must take this to be the second step
+[{[ or [{{    //from this point on I have two options suggesting we can create a base string tree
