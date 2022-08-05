@@ -43,4 +43,5 @@ The idea here is to do general things with schema, like:
 6. base case recursion
 7. schema interpolation
 8. arbitrary base caseing for potentially infinitely or excessively deep recursable schema
+9. schema abstraction
 etc.
