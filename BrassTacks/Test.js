@@ -13,9 +13,7 @@ class Test{
         this.BTT()
     }
 
-    isBT(){
 
-    }
     BTT(){
 
     }
@@ -64,6 +62,20 @@ class Test{
             for(var _0s=1; _0s<100; _0s++){
                 for(var _r=2; _r<100; _r++){
                     assert.equal(true, bt.isRecursive(("1".repeat(_1s)+"0".repeat(_1s)).repeat(_r)))
+                }
+            }
+        }
+    }
+
+    isBT(){
+        var bt = new BrassTacks(5, 10)
+
+        var recursiveStrings=[]
+        for(var _1s=1; _1s<10; _1s++){
+            for(var _0s=1; _0s<10; _0s++){
+                for(var _r=2; _r<10; _r++){
+                    console.log("1".repeat(_1s)+"0".repeat(_0s)+"1".repeat(_1s))
+                    assert.equal(true, bt.isBT("1".repeat(_1s)+"0".repeat(_0s)+"1".repeat(_1s)))
                 }
             }
         }

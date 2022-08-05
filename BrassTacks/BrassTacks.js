@@ -73,12 +73,25 @@ export class BrassTacks{
     }
 
     isRecursive(string){
-        //takes the first position and checks against the second
-        //takes the first two and checks against the next two
-        //takes the first three and checks against the next three, etc...
-        for(var i = 0; i<Math.ceil(string.length/2); i++){
-            if(string.slice(0, i+1)===string.slice(i+1, (i+1)*2)){
-                return true
+        var subStr1=""
+        var subStr2=""
+        for(var i = 0; i<string.length; i++){
+            //we want the first token which is defined as when the first char
+            //no longer equals the iterative char, and terminate when the iterative 
+            //char again equals the first char
+            subStr1+=string[i]
+            if(subStr1[i]==subStr1[i-1]){
+                for(var j=i+1; j<string.length; j++){
+                    subStr1+=string[j]
+                    if(subStr1[j]!=subStr1[j-1]){
+                        for(var l=j+1; l<string.length; l++){
+                            subStr2+=string[l]
+                            if(subStr1==subStr2){
+                                return true
+                            }
+                        }
+                    }
+                }
             }
         }
         return false
@@ -102,3 +115,7 @@ export class BrassTacks{
         return abs
     }
 }
+
+
+var bt = new BrassTacks(5, 10)
+console.log(bt.isRecursive('110110110'))
