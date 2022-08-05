@@ -30,3 +30,4 @@ A good example of Soft Base Strings are simply strings that never recurse from t
 
 
 ## Why do Base Strings relate to Schema?
+Schema uses a binary set for recursive operations '[' and '{', so it is related to Soft Binary Base Strings
