@@ -41,7 +41,7 @@ The idea here is to do general things with schema, like:
 4. schema interpretation (finding the most rational way to recurse with unknown schema)
 5. schema statistics
 6. base case recursion
-7. schema interpolation
+7. schema interpolation (fixing broken schema with dummy schema steps you can skip over)
 8. arbitrary base caseing for potentially infinitely or excessively deep recursable schema
 9. schema abstraction
 etc.
