@@ -16,7 +16,7 @@ A good example of Hard Base Strings are pallindromes on alphabets. With the adde
 The pallindrome base string set is when you find all the unique ordinal sets of the alphabet and construct the base pallindrome on the alphabet.
 
 For example:
-abcdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedcba
-bacdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedcab
-bcadefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedacb
+- abcdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedcba
+- bacdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedcab
+- bcadefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedacb
 ...
