@@ -34,4 +34,11 @@ A good example of Soft Base Strings are simply strings that never recurse from t
 ## Why do Base Strings relate to Schema?
 Schema uses a binary set for recursive operations '[' and '{', so it is related to Soft Binary Base Strings
 
-
+The idea here is to do general things with schema, like:
+1. schema validation (whether or not anything general can be done with it)
+2. schema recursion (which is different than primitive recursion)
+3. schema iteration (grabbing the next schema step over and over again)
+4. schema interpretation (finding the most rational way to recurse with unknown schema)
+5. schema statistics
+6. base case recursion
+etc.
