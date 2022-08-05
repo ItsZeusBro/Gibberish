@@ -1,14 +1,14 @@
 export class BrassTacks{
     constructor(levels, limit){
-        // this.tree={}
-        // this.limit=limit
-        // this.bStrings=[]
-        // this.dStrings=[]
-        // this.BStrings('1', levels)
-        // this.BTT(this.tree)
-        // this.dStrings = this.dStrings.sort(function(a, b) {
-        //     return a - b;
-        // })
+        this.tree={}
+        this.limit=limit
+        this.bStrings=[]
+        this.dStrings=[]
+        this.BStrings('1', levels)
+        this.BTT(this.tree)
+        this.dStrings = this.dStrings.sort(function(a, b) {
+            return a - b;
+        })
     }
     BTT(tree){
         for(var i = 0; i<this.bStrings.length; i++){
@@ -94,7 +94,6 @@ export class BrassTacks{
                         for(var k=j+1; k<string.length; k++){
                             subStr2+=string[k]
                             if(subStr1===subStr2){
-
                                 return true
                             }
                         }
@@ -128,4 +127,4 @@ export class BrassTacks{
 
 
 var bt = new BrassTacks(5, 10)
-console.log(bt.isRecursive('1000010000'))
+console.log(bt.isRecursive('1101'))

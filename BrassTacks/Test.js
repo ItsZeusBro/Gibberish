@@ -68,14 +68,14 @@ class Test{
     }
 
     isBT(){
-        var bt = new BrassTacks(5, 10)
+        var bt = new BrassTacks(5, 100)
 
         var recursiveStrings=[]
-        for(var _1s=1; _1s<10; _1s++){
-            for(var _0s=1; _0s<10; _0s++){
-                for(var _r=2; _r<10; _r++){
-                    console.log("1".repeat(_1s)+"0".repeat(_0s)+"1".repeat(_1s))
-                    assert.equal(true, bt.isBT("1".repeat(_1s)+"0".repeat(_0s)+"1".repeat(_1s)))
+        for(var _1s=1; _1s<100; _1s++){
+            for(var _0s=1; _0s<100; _0s++){
+                for(var _r=2; _r<100; _r++){
+                    console.log("1"+"0".repeat(_0s)+"1".repeat(_1s))
+                    assert.equal(true, bt.isBT("1"+"0".repeat(_0s)+"1".repeat(_1s)))
                 }
             }
         }
