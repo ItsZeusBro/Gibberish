@@ -44,7 +44,7 @@ Furthermore, if you know that a general algorithm treats specific subsets of sch
 2. We need a recursive path validation step before we return the all of the recursive schema steps for a given path
 
 ### Axioms
-1. '[' and '{' are the recognized set of generalizable recursive containers that can have any arbitrary number of keys or elements (at any level) without us needing to treat the algorithm below with any less generality than is stated.
+1. '[' and '{' are the recognized set of generalizable recursive devices that can have any arbitrary number of keys or elements (at any level) without us needing to treat the algorithm below with any less generality than is stated.
 2. For every recursive pattern there is an objective min and max number of levels to a recursive case that is agnostic to key names
 3. When we are not key agnostic, we wish to find the minimum number of levels for any recursive case
 4. When we are key agnostic, we wish to find the maximum number of levels for any recursive case (this guarantees recursion is valid at the least)
