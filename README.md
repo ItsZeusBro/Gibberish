@@ -11,5 +11,4 @@ So what i've come up with so far is the distinction between hard and soft base s
 1. Hard base strings require that we never display a pattern in a string from one end to the next
 2. Soft base strings require that we never display a recursive pattern from the left most charachter of the string.
 
-
-For now we are only dealing with binary base strings, because schema recursion falls into the set of math dealing with binary base strings
+A good example of Hard Base Strings are pallindromes on alphabets. With the added caveat that the last letter in the alphabet is used once and all others are used twice.
