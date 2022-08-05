@@ -27,7 +27,11 @@ For example:
 A good example of Soft Base Strings are simply strings that never recurse from the left most charachter. Lets use a binary base string as an example.
 - 01001000100001000001
 
-
+#### Why do Base Strings Matter at all?
+- For one it would be interesting to find the pattern that explains all non-patterned behavior in a string or anything else.
+- Thats about as powerful of a statement as we ever may conjure up in our imagination. But on a side note, we could use properties of Base Strings for other things in case we never achieved such an understanding. Relationships on a subset of base strings could end up proving useful.
 
 ## Why do Base Strings relate to Schema?
 Schema uses a binary set for recursive operations '[' and '{', so it is related to Soft Binary Base Strings
+
+
