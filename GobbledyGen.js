@@ -92,8 +92,3 @@ class GobbledyGen{
     }
 }
 
-var bt = new BrassTacks(10, Infinity)
-//bt.log(bt.tree)
-bt.log(bt.dStrings)
-assert.equal(bt.dStrings.length-1, bt.primPattAbstract(bt.dStrings).length)
-console.log(bt.primPattAbstract(bt.dStrings))
