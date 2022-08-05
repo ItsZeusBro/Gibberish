@@ -3,10 +3,9 @@ import * as assert from "node:assert"
 class Test{
     constructor(){
         this.tests()
-
     }
-    tests(){
 
+    tests(){
         this.isOverLimit()
         this.isRecursive()
         this.primPattAbstract()
@@ -20,6 +19,7 @@ class Test{
     BTT(){
 
     }
+
     isOverLimit(){
         var levels=5;
         var limit=2;
@@ -54,14 +54,24 @@ class Test{
         assert.equal(bt.isOverLimit('101'), false)
         assert.equal(bt.isOverLimit('1010'), false)
         assert.equal(bt.isOverLimit('10101'), false)
-
     }
 
     isRecursive(){
+        var bt = new BrassTacks(0, 0)
 
+        var recursiveStrings=[]
+        for(var _1s=1; _1s<10; _1s++){
+            for(var _0s=1; _0s<10; _0s++){
+                for(var _r=2; _r<10; _r++){
+                    assert.equal(true, bt.isRecursive(("1".repeat(_1s)+"0".repeat(_1s)).repeat(_r)))
+                }
+            }
+        }
     }
 
     primPattAbstract(){
 
     }
 }
+
+new Test()
