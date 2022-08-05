@@ -2,6 +2,7 @@
 
 Gobbledy gook is the subset of schema that is sufficiently generalizable to the extent that we can apply the same methods to it and always be doing something orderly, predictable, and useful with Gobbledy Gook utilities.
 
+## Base Strings
 But first, lets talk about something I call "Base Strings"
 
 Base Strings is possibly a new subject of mathematics, in which we speak of non-recurrent strings as a first class object. Its like trying to find the pattern of patterns by generating things that have no pattern.
