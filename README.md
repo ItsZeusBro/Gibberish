@@ -29,7 +29,9 @@ Furthermore, if you know that a general algorithm treats specific subsets of sch
             - Once we have a pattern, what do we do with it as an intermediate step? 
 
 2. based on that description is it well formed and consistent?
-      - what we mean by well formed is that recursion from the top level is of a single type. What we mean by consistent is that recursion has a very consistent recursion to base case level ratio across multiple paths from the root of sufficient depth.
+      - well formed means it is recursive from the top down to some base case
+      - consistent means that it utilizes the same recursive device until a base case
+      - If its not consistent, it means we have a combination of recursive devices and that may require a different analysis
 3. If it is well formed and consistent, what is the best way to use it?
       - If it is not consistent but is well formed what is the best way to use it?
       - If it is not well formed but is consistent, what is the best way to use it?
