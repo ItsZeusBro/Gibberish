@@ -24,6 +24,18 @@ export class BrassTacks{
         }
     }
 
+    BStringWalk(bString){
+        var node = this.tree
+        for(var i = 0; i<bString.length; i++){
+            if(node[bString[i]]){
+                node=node[bString[i]]
+            }else{
+                return false
+            }
+        }
+        return true
+    }
+
     BStrings(bString, levels){
         if(levels==0){
             return
@@ -126,5 +138,6 @@ export class BrassTacks{
 }
 
 
-var bt = new BrassTacks(5, 10)
-console.log(bt.isRecursive('1101'))
+// var bt = new BrassTacks(5, 10)
+// console.log(bt.bStrings[10])
+// console.log(bt.BStringWalk(bt.bStrings[10]))
