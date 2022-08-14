@@ -1,4 +1,5 @@
 import * as util from "node:util"
+import {Test} from "test/Test.js"
 
 export class Schema{
 	paths(schema, pk, path=[], _paths=[]){
