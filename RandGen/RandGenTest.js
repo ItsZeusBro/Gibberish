@@ -15,7 +15,7 @@ class RandGenTest{
 		assert.equal(str.length<=n, true)
 
 		var strArr = new RandGen().randStr(n, true)
-		console.log("randStr", strArr)
+		console.log("randStr array", strArr)
 		assert.equal(Array.isArray(strArr), true)
 		for(var i=0; i<strArr.length; i++){
 			assert.equal(typeof strArr[i] === 'string', true)
@@ -30,7 +30,7 @@ class RandGenTest{
 		assert.equal(int<=n, true)
 
 		var intArr = new RandGen().randInt(n, true)
-		console.log("randInt", intArr)
+		console.log("randInt array", intArr)
 		assert.equal(Array.isArray(intArr), true)
 		for(var i=0; i<intArr.length; i++){
 			assert.equal(typeof intArr[i] === 'number', true)
@@ -43,6 +43,14 @@ class RandGenTest{
 		console.log("randArr", arr)
 		assert.equal(Array.isArray(arr), true)
 		assert.equal(arr.length<=n, true)
+
+		var arrOfArr = new RandGen().randArr(n, true)
+		console.log("randArr array", arrOfArr)
+		assert.equal(Array.isArray(arrOfArr), true)
+		for(var i=0; i<arrOfArr.length; i++){
+			assert.equal(Array.isArray(arrOfArr[i]), true)
+			assert.equal(arrOfArr.length<=n, true)
+		}
 	}
 
 	randObj(n){
@@ -50,6 +58,14 @@ class RandGenTest{
 		console.log('randObj', obj)
 		assert.equal(typeof obj === 'object', true)
 		this._randObj(n, obj)
+
+		var objArr = new RandGen().randObj(n, true)
+		console.log("randObj array", objArr)
+		assert.equal(Array.isArray(objArr), true)
+		for(var i=0; i<objArr.length; i++){
+			assert.equal(typeof objArr[i] === 'object', true)
+			this._randObj(n, objArr[i])
+		}
 		
 	}
 	_randObj(n, obj){

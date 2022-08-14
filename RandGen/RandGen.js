@@ -8,7 +8,7 @@ export class RandGen{
 			return this.genStr(this.randRange(0, n));
 		}
 	}
-	
+
     randInt(n, array=false){
 		if(array){
 			var arr=[]; 
@@ -19,20 +19,50 @@ export class RandGen{
 		}
 	}
 
-    randArr(n, array=false){var arr=[]; for(var i=0;i<n;i++){arr.push(this.rand(n))}; return arr}
+    randArr(n, array=false){
+		if(array){
+			var arrOfArr=[]
+			for(var i = 0; i<n; i++){
+				var arr = []
+				for(var j=0;j<n;j++){
+					arr.push(this.rand(n))
+				}; 
+				arrOfArr.push(arr)
+			}
+			return arrOfArr
+		}else{
+			var arr=[]; 
+			for(var i=0;i<n;i++){
+				arr.push(this.rand(n))
+			}; 
+			return arr;
+		}
+		
+	}
     rand(n){return eval(this.sample(['this.randStr', 'this.randInt', 'this.randObj'])+'(n, this.randMod10())')}
     // randEnc(n){return "utf8"}
     // randEncArr(n){return ['utf8']}
-    randObj(n){
+    randObj(n, array=false){
 		//O(nlognlogn) growth complexity
-		var obj={}
-		if(n){
+		if(array){
+			var objArr=[]
 			for(var i=0; i<n; i++){
-				obj[this.randStr(20)]=this.randObj(n-1)
+				objArr.push(this._randObj(n))
 			}
+			return objArr
+		}else{
+			return this._randObj(n)
 		}
-		return obj
 	};
+	_randObj(n){
+		var obj={}
+			if(n){
+				for(var i=0; i<n; i++){
+					obj[this.randStr(20)]=this._randObj(n-1)
+				}
+			}
+			return obj
+	}
 
     randSelection(bag){
         return bag[Math.floor(Math.random() * bag.length)];
