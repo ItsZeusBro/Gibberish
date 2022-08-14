@@ -76,16 +76,6 @@ class RandGenTest{
 			this._randObj(n-1, obj[key])
 		}
 	}
-
-	rand(){
-
-	}
-
-	
-	randSelection(){
-
-	}
-
 }
 
 
