@@ -16,16 +16,3 @@ class GibberGen{
 
 console.log(new Test().randInt(5))
 
-
-[
-	{
-		'recursiveKey':[
-
-		]
-	},
-	{
-		'recursiveKey':[
-
-		]
-	}
-]
