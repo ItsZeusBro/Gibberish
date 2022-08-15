@@ -2,8 +2,8 @@ import * as util from "node:util"
 import {Test} from "test/Test.js"
 
 export class Gibberish{
-	paths(schema, pk, path=[], _paths=[]){
 
+	paths(schema, pk, path=[], _paths=[]){
 		if(Array.isArray(schema)){
 			for(var i=0; i<schema.length; i++){
 				var val=schema[i];
@@ -42,7 +42,6 @@ export class Gibberish{
 		}
 		return _paths
 	}
-
 	
 	log(obj){
         if(obj){
@@ -51,191 +50,6 @@ export class Gibberish{
     }
 }
 
-const SCHEMA=[
-	{
-		'isEncArr': [
-			{
-				'isEnc': [
-					{
-						'isArr': [
-							{ 
-								'~DEFAULT~': 'utf8', 
-								'isEnc': 'wackyFunction1' 
-							}
-						]
-					}
-				]
-			},
-			{
-				'isStrArr': [
-					{
-						'~DEFAULT~': [ 'utf8' ],
-						'isEncArr': [
-							{
-								'~DEFAULT~': 'Wm',
-								'isStr': 'wackyFunction2'
-							},
-							{
-								'~DEFAULT~': [ { '6K': { 'hDz': undefined } }, undefined ],
-								'isObjArr': 'wackyFunction3'
-							}
-						]
-					},
-					{
-						'isStrArr': [
-							{
-								'~DEFAULT~': [
-									{ 'hLM': undefined },
-									{ 'HMi': { 'FpT': undefined } },
-									undefined
-								],
-								'isObjArr': 'wackyFunction4'
-							},
-							{
-								'~DEFAULT~': [ 'utf8' ],
-								'isEncArr': 'wackyFunction5'
-							}
-						]
-					}
-				]
-			},
-			{
-				'~DEFAULT~': { 'G': { S5: { 'i': undefined } } },
-				'isObj': [
-					{
-						'isEnc': [ { 'isArr': 'wackyFunction6' } ]
-					}
-				]
-			}
-		]
-	},
-	{
-		'isStr': [
-			{
-				'~DEFAULT~': [],
-				'isIntArr': [
-					{
-						'isArr': [
-							{
-								'~DEFAULT~': [ 0, 2, 3 ],
-								'isIntArr': 'wackyFunction7'
-							}
-						]
-					}
-				]
-			}
-		]
-	},
-	{
-		'~DEFAULT~': [],
-		'isArr': [
-			{
-				'~DEFAULT~': [
-					{ 'c': undefined },
-					{ 'iDI': { 'o': { 'y': undefined } } }
-				],
-				'isObjArr': [
-					{
-						'~DEFAULT~': [ 2 ],
-						'isIntArr': [
-							{
-							'isStrArr': 'wackyFunction8'
-							},
-							{
-							'~DEFAULT~': { 'p0': undefined },
-							'isObj': 'wackyFunction9'
-							}
-						]
-					},
-					{
-						'isIntArr': [ 
-							{ '~DEFAULT~': 2, 'isInt': 'wackyFunction10' } 
-						]
-					}
-				]
-			},
-			{
-				'isStr': [
-					{
-						'~DEFAULT~': '',
-						'isStr': [
-							{
-								'~DEFAULT~': [ 'Uvo', 'evH' ],
-								'isStrArr': 'wackyFunction11'
-							}
-						]
-					}
-				]
-			}
-		]
-	},
-  1
-]
-
-var SCHEMA2={
-	'one':[
-			1, 
-			2, 
-			3, 
-			{
-				'oneNHalf':'sdlfkjdsflkj'
-			},
-			[
-				'dlfkjsdf',
-				2,
-				3, 
-				4, 
-				5
-			],
-			{
-				'~DEFAULT~':{}
-			},
-			{
-				'payload':{}
-			}
-	],
-
-	'two':{
-		'three':[
-			{
-				'four':[
-					[
-						{
-							'five':{
-								'six':"ldkjfsdfolkj",
-								'seven':123123412,
-								'eight':{
-									'nine':"osidjfodsifj"
-								}
-							}
-						}
-					],
-					[
-						[
-							1, 2, 3, 4, 5
-						],
-						[
-							1, 2, 3, 4, 5
-						]
-					],
-					[
-						'lskdfjsdifk',
-						{
-							'ten':'ksldjfsdlfkj'
-						},
-						{
-							'eleven':'lsdkfjdslkfjdsg'
-						}
-					]
-				]
-			}
-		],
-
-		'~DEFAULT~':{},
-		'payload':{}
-		
-	}
-}
   
 var gibberish = new Gibberish()
 gibberish.log(gibberish.paths(SCHEMA, ['~DEFAULT~', 'payload']))

@@ -3,19 +3,29 @@ import * as assert from "node:assert"
 import {Test} from "test/Test.js"
 
 class GibberGen{
-	constructor(invalid=false, max_depth=10, max_width=10, dist=0.5, pk=['payload']){
-		//dist is the array to object distribution
-		this.invalid=invalid;
-		this.max_depth=max_depth;
-		this.max_width=max_width;
-		this.dist=dist;
-		this.pk=pk;
-		this.gg=this.gibberGen(max_depth, max_width);
+	strata(){
+		//can start with an array or an object (because its recursive)
+		//this can be used for matricies if there are no payload keys
 	}
 
-	gibberGen(max_depth, max_width){
-
+	nested(){
+		//nested objects (we did this in Test library)
 	}
+
 }
 
 console.log(new Test().randInt(5))
+
+
+[
+	{
+		'recursiveKey':[
+
+		]
+	},
+	{
+		'recursiveKey':[
+
+		]
+	}
+]
