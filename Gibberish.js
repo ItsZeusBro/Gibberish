@@ -1,7 +1,7 @@
 import * as util from "node:util"
 import {Test} from "test/Test.js"
 
-export class Schema{
+export class Gibberish{
 	paths(schema, pk, path=[], _paths=[]){
 
 		if(Array.isArray(schema)){
@@ -237,5 +237,5 @@ var SCHEMA2={
 	}
 }
   
-var schema = new Schema()
-schema.log(schema.paths(SCHEMA, ['~DEFAULT~', 'payload']))
+var gibberish = new Gibberish()
+gibberish.log(gibberish.paths(SCHEMA, ['~DEFAULT~', 'payload']))
