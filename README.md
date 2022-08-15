@@ -2,10 +2,9 @@
 
 Gibberish is the subset of schema that is sufficiently generalizable to the extent that we can apply the same methods to it and always be doing something orderly, predictable, and useful with Gibberish utilities.
 
-Gibberish is based around a "path" abstraction, in which there is payload on the way to a recursive base case that is collected as a part of the steps in a path
+Gibberish is based around a "path" and "strata" abstractions associated with a subset of schema that is general enough to almost do anything whatsoever with theoretically slightly more computational cost in terms of complexity. 
 
 This is the path algorithm used by Gibberish library:
-
 
       paths(schema, pk, path=[], _paths=[]){
 
