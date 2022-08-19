@@ -4,6 +4,7 @@
 
 Strata is defined as a recursive structure where each layer is an object of Arrays or an Array of Objects, where the base case is an Array without an object or an object without an Array.
 
+Strata type is evaluated at each layer, but is still recursive as strata or is a base case.  
 
 3 Classes of Strata:
 1. Structured Strata (where a payload key or keys are defined for objects in strata that are excluded from the accounting principles of the recursive structure OR where where payload is defined as part of the array portion of strata, where payload in the Array is considered to be anything other than an object strata layer)
