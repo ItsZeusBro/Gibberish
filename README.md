@@ -6,14 +6,16 @@ Strata is defined as a recursive structure where each layer is an object of Arra
 
 Strata type is evaluated at each layer, but is still recursive as strata or is a base case.  
 
-General Strata Types:
-1. Pure Strata 
-- is defined as not including any undefined payload
-2. Impure Strata 
-- is defined as strata that can include undefined payload alongside defined payload
+General Strata Layer Types:
+1. Pure Strata Layer 
+- is defined as not including any undefined payload in a strata layer
+2. Impure Strata Layer
+- is defined as strata that can include undefined payload alongside defined payload in a strata layer
 
-3 Classes of Strata:
-1. Structured Strata 
-- where there is some regular payload structure based on a predefined set of payload keys or patterns throughout the entire strata strcuture
-2. Unstructured Strata 
-- where there is no regularity to the payload structure but payload structure is still present
+Strata Recursive Structure Types
+1. Pure Strata (where all non recursive strata is predefined in a set of payload keys or patterns)
+- Regular Pure Strata (where the Pure Strata is regular throughout)
+- Irregular Pure Strata (where the Pure Strata is not regular throughout; payload can be represented differently at different layers)
+3. Impure Strata (where some non recursive strata is not predefined in a set of payload keys or patterns)
+- Regular Impure Strata 
+- Irregular Impure Strata
