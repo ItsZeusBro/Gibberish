@@ -17,5 +17,5 @@ Strata Recursive Structure Types
 - Regular Pure Strata (where the Pure Strata is regular throughout)
 - Irregular Pure Strata (where the Pure Strata is not regular throughout; payload can be represented differently at different layers)
 3. Impure Strata (where some non recursive strata is not predefined in a set of payload keys or patterns)
-- Regular Impure Strata 
-- Irregular Impure Strata
+- Regular Impure Strata (where the impure strata has the same impurity throughout the entire strata)
+- Irregular Impure Strata (where the impure strata varries throught the entire strata)
