@@ -1,7 +1,7 @@
 import * as util from "node:util"
 import {Test} from "test/Test.js"
 
-export class Gibberish{
+export class Strata{
 
 	paths(schema, pk, path=[], _paths=[]){
 		if(Array.isArray(schema)){
@@ -51,5 +51,5 @@ export class Gibberish{
 }
 
   
-var gibberish = new Gibberish()
-gibberish.log(gibberish.paths(SCHEMA, ['~DEFAULT~', 'payload']))
+var strata = new Strata()
+strata.log(strata.paths(SCHEMA, ['~DEFAULT~', 'payload']))
