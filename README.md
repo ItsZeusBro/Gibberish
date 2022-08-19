@@ -1,5 +1,7 @@
 # Strata
 
+<img src='https://github.com/ItsZeusBro/Strata/blob/f969b7a2fa72b77677c2938214cd6d70c34879cd/strata.jpeg'/>
+
 Strata is defined as a recursive structure where each layer is an object of Arrays or an Array of Objects, where the base case is an Array without an object or an object without an Array.
 
 
