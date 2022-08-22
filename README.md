@@ -2,15 +2,16 @@
 
 <img src='https://github.com/ItsZeusBro/Strata/blob/f969b7a2fa72b77677c2938214cd6d70c34879cd/strata.jpeg'/>
 
-Strata is defined as a recursive structure where each layer is an object of Arrays or an Array of Objects, where the base case is an Array without an object or an object without an Array.
+Stratum is an array with an object or an object with an array (with or without other data types which are called 'payload').
 
-Strata type is evaluated at each layer, but is still recursive as strata or is a base case.  
+Strata is defined as recursive stratums that collectively create a structure of depth greater than or equal to 1. In otherwords, stratum is not strata and strata is not stratum, but both are needed by the other.
 
 Stratum Types (singular layer of otherwise recurrable strata):
 1. Pure Stratum 
 - is defined as a strata layer not including any undefined payload in a strata layer
 2. Impure Stratum (or just Stratum)
-- is defined as a strata layer that can include undefined payload alongside predefined payload in a strata layer or without predefined payload present
+- is defined as a stratum layer that can include any type of payload whatsoever, so long as it is recursive (includes the next layer of possible stratum)
+
 
 Strata Types (reccurring stratum)
 1. Pure Strata (where all non recursive strata is predefined in a set of payload keys or patterns)
