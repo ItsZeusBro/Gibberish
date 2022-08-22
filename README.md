@@ -9,7 +9,7 @@ Strata type is evaluated at each layer, but is still recursive as strata or is a
 Stratum Types (singular layer of otherwise recurrable strata):
 1. Pure Stratum 
 - is defined as a strata layer not including any undefined payload in a strata layer
-2. Impure Stratum
+2. Impure Stratum (or just Stratum)
 - is defined as a strata layer that can include undefined payload alongside predefined payload in a strata layer or without predefined payload present
 
 Strata Types (reccurring stratum)
